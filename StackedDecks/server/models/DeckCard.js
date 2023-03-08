@@ -12,4 +12,16 @@ export const DeckCardSchema = new Schema({
 { timestamps: true, toJSON: { virtuals: true } }
 )
 
-DeckCardSchema.virtual
+DeckCardSchema.virtual('deck',{
+  localField: 'deckId',
+  foreignField: '_id',
+  ref: 'Deck',
+  justOne: true
+}),
+
+DeckCardSchema.virtual('card',{
+  localField: 'cardId',
+  foreignField: '_id',
+  ref: 'Card',
+  justOne: true
+})
