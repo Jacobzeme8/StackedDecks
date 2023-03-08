@@ -9,7 +9,27 @@ export class DecksController extends BaseController {
             .get('', this.getAllDecks)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createDeck)
+            .delete('/deckId', this.deleteDeck)
 
+    }
+    async deleteDeck(req, res, next) {
+        try {
+            const deckId = req.params.deckId
+            const requestorId = req.UserInfo.id
+            const deck = await decksService.deleteDeck(deckId, requestorId)
+            return res.send(deck)
+        } catch (error) {
+            next(error)
+        }
+    }
+    async getDeckById(req, res, next) {
+        try {
+            const deckId = req.params.deckId
+            const deck = await decksService.getDeckById(deckId)
+            return res.send(deck)
+        } catch (error) {
+            next(error)
+        }
     }
     async getAllDecks(req, res, next) {
         try {
