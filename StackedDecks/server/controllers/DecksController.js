@@ -7,9 +7,10 @@ export class DecksController extends BaseController {
         super('api/decks')
         this.router
             .get('', this.getAllDecks)
+            .get('/:deckId', this.getDeckById)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createDeck)
-            .delete('/deckId', this.deleteDeck)
+            .delete('/:deckId', this.deleteDeck)
 
     }
     async deleteDeck(req, res, next) {
