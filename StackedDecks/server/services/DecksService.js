@@ -4,8 +4,10 @@ class DecksService {
     async deleteDeck(deckId, requestorId) {
         const deck = await this.getDeckById(deckId)
         if (deck.creatorId.toString() != requestorId) {
-            throw new Forbidden('Stop it! You cannot delete others')
+            throw new Forbidden('Stop it! You cannot delete this!')
         }
+        await deck.remove()
+        return deck
     }
     async getDeckById(deckId) {
         const deck = await dbContext.Decks.findById(deckId)
@@ -13,7 +15,9 @@ class DecksService {
 
         if (!deck) {
             throw new BadRequest('Invalid ID')
+
         }
+
         return deck
     }
     async getAllDecks() {
