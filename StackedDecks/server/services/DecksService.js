@@ -15,9 +15,7 @@ class DecksService {
 
         if (!deck) {
             throw new BadRequest('Invalid ID')
-
         }
-
         return deck
     }
     async getAllDecks() {
