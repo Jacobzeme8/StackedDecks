@@ -8,6 +8,15 @@ export class CardsController extends BaseController {
     super('api/cards')
     this.router
     .post('', this.createCard)
+    .get('', this.getAllCards)
+  }
+  async getAllCards(req, res, next) {
+    try {
+      const cards = await cardsService.getAllCards()
+      return res.send(cards)
+    } catch (error) {
+      next(error)
+    }
   }
   async createCard(req, res, next) {
     try {
