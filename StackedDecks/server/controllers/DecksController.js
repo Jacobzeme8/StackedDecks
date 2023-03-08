@@ -6,9 +6,18 @@ export class DecksController extends BaseController {
     constructor() {
         super('api/decks')
         this.router
+            .get('', this.getAllDecks)
             .use(Auth0Provider.getAuthorizedUserInfo)
             .post('', this.createDeck)
 
+    }
+    async getAllDecks(req, res, next) {
+        try {
+            const decks = await decksService.getAllDecks()
+            return res.send(decks)
+        } catch (error) {
+            next(error)
+        }
     }
     async createDeck(req, res, next) {
         try {
@@ -20,4 +29,5 @@ export class DecksController extends BaseController {
             next(error)
         }
     }
+
 }
