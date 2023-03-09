@@ -11,6 +11,11 @@ class DecksServices{
     logger.log(deck)
   }
 
+  async getAllDecks(){
+    const res = await api.get('api/decks')
+    logger.log(res.data)
+  }
+
 }
 
 export const decksServices = new DecksServices() 
