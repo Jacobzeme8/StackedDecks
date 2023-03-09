@@ -52,7 +52,14 @@ class AccountService {
     if (!account) {
       throw new BadRequest('Stop Hacking my Account!')
     }
+    account.name = accountData.name || account.name
+    account.picture = accountData.picture || account.picture
+    account.coverImg = accountData.coverImg || account.coverImg
+    account.bio = accountData.bio || account.bio
+    account.level = accountData.level || account.level
+
     await account.save()
+
     return account
   }
   /**
