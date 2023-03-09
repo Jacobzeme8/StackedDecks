@@ -11,6 +11,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { deckCardsService } from "../services/DeckCardsService"
 import { useRoute } from "vue-router";
+import { onMounted } from "vue";
 
 export default {
   setup() {
@@ -26,6 +27,10 @@ export default {
         Pop.error(error)
       }
     }
+
+    onMounted(() =>
+      getDeckCardsForDeck()
+    )
 
     return {}
   }
