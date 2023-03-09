@@ -25,7 +25,8 @@
                 <ul class="dropdown-menu dropdown-menu-dark">
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.arms" name="muscleGroup" class="form-check-input" type="checkbox"
+                                value="arms" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 arms
                             </label>
@@ -33,7 +34,8 @@
                     </li>
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.legs" name="muscleGroup" class="form-check-input" type="checkbox"
+                                value="legs" id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 legs
                             </label>
@@ -41,7 +43,8 @@
                     </li>
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.back" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 back
                             </label>
@@ -49,7 +52,8 @@
                     </li>
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.chest" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 chest
                             </label>
@@ -57,7 +61,8 @@
                     </li>
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.cardio" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 cardio
                             </label>
@@ -65,7 +70,8 @@
                     </li>
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.core" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 core
                             </label>
@@ -73,7 +79,8 @@
                     </li>
                     <li>
                         <div class="form-check ms-1">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <input v-model="editable.shoulders" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
                             <label class="form-check-label" for="flexCheckDefault">
                                 shoulders
                             </label>
@@ -84,7 +91,7 @@
         </div>
         <div class="modal-footer">
             <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create Album</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Create Deck</button>
         </div>
     </form>
 </template>
@@ -92,13 +99,26 @@
 
 <script>
 import { ref } from 'vue';
+import { logger } from "../utils/Logger";
 export default {
     setup() {
         const editable = ref({
-            type: 'arms'
+            muscleGroup: []
         })
         return {
             editable,
+            createDeck() {
+                let value = editable.value
+                if (value.arms) { editable.value.muscleGroup.push('arms') }
+                if (value.legs) { editable.value.muscleGroup.push('legs') }
+                if (value.back) { editable.value.muscleGroup.push('back') }
+                if (value.chest) { editable.value.muscleGroup.push('chest') }
+                if (value.cardio) { editable.value.muscleGroup.push('cardio') }
+                if (value.core) { editable.value.muscleGroup.push('core') }
+                if (value.shoulders) { editable.value.muscleGroup.push('shoulders') }
+                const formData = editable.value
+
+            }
         }
     }
 }
