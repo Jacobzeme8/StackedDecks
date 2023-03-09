@@ -119,6 +119,9 @@ export default {
                 if (value.shoulders) { editable.value.exerciseType.push('shoulders') }
                 const formData = editable.value
                 await decksServices.createDeck(formData)
+                editable.value = {
+                    exerciseType: []
+                }
             }
         }
     }
