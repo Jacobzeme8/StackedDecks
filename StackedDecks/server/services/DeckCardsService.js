@@ -2,6 +2,10 @@ import { dbContext } from "../db/DbContext"
 import { BadRequest, UnAuthorized } from "../utils/Errors"
 
 class DeckCardsService{
+  async getDeckCardsByDeck(deckId) {
+      const deckCards = await dbContext.DeckCards.find({deckId}).populate('deck card')
+      return deckCards
+  }
   async deleteDeckCard(deckCardId, accountId) {
     const deckCard = await dbContext.DeckCards.findById(deckCardId)
     if(!deckCard){throw new BadRequest}
