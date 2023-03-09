@@ -8,6 +8,8 @@ export const AppState = reactive({
   /** @type {import('./models/Card.js').Card[]} */
   cards: [],
   /** @type {import('./models/Deck').Deck[]} */
-  decks: []
+  decks: [],
+/** @type {import('./models/DeckCard').DeckCard[]} */
+  deckCards: []
 
 })
