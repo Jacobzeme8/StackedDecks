@@ -2,6 +2,17 @@ import { dbContext } from "../db/DbContext"
 import { BadRequest, UnAuthorized } from "../utils/Errors"
 
 class DeckCardsService{
+  async editDeckCard(id, deckCardData, creatorId) {
+    const deckCard = await dbContext.DeckCards.findById(id)
+    if(!deckCard){throw new BadRequest('No deck card with that ID!')}
+    if(deckCard.creatorId != creatorId){throw new UnAuthorized('Not your DeckCard to Edit!')}
+    deckCard.reps = deckCardData.reps
+    deckCard.sets= deckCardData.sets
+    deckCard.weight = deckCardData.weight
+    deckCard.time = deckCardData.time
+    await deckCard.save()
+    return deckCard
+  }
   async getDeckCardsByDeck(deckId) {
       const deckCards = await dbContext.DeckCards.find({deckId}).populate('deck card')
       return deckCards

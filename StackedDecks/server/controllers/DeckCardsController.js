@@ -10,7 +10,19 @@ export class DeckCardsController extends BaseController{
     this.router
     .use(Auth0Provider.getAuthorizedUserInfo)
     .post('', this.createDeckCard)
+    .put('/:deckCardId', this.editDeckCard)
     .delete('/:deckCardId', this.deleteDeckCard)
+  }
+  async editDeckCard(req, res, next) {
+    try {
+      const creatorId = req.userInfo.id
+      const deckCardData = req.body
+      const id = req.params.deckCardId
+      const deckCard = await deckCardsService.editDeckCard(id, deckCardData, creatorId )
+      return res.send(deckCard)
+    } catch (error) {
+      next(error)
+    }
   }
   async createDeckCard(req, res, send) {
     try {
