@@ -32,7 +32,7 @@
 
 
 <script>
-import { onMounted, computed, ref } from 'vue';
+import { onMounted, computed, ref, onUpdated } from 'vue';
 import { AppState } from '../AppState.js';
 import Card from '../components/Card.vue';
 import { cardsService } from '../services/CardsService.js';
@@ -56,6 +56,17 @@ export default {
       getAllCards()
     })
 
+    onUpdated(() => {
+      let kards = document.querySelectorAll('.kard');
+      [...kards].forEach((kard) => {
+        kard.addEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+      });
+    }
+    )
+
+
     return {
       cards: computed(() => {
         if (!filterType.value) {
@@ -74,4 +85,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.kard.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+</style>

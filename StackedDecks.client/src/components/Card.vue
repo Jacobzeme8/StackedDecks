@@ -34,12 +34,12 @@ export default {
   },
   setup() {
 
-    var kards = document.querySelectorAll('.kard');
-    [...kards].forEach((kard) => {
-      kard.addEventListener('click', function () {
-        kard.classList.toggle('is-flipped');
-      });
-    });
+    // var kards = document.querySelectorAll('.kard');
+    // [...kards].forEach((kard) => {
+    //   kard.addEventListener('click', function () {
+    //     kard.classList.toggle('is-flipped');
+    //   });
+    // });
 
 
 
@@ -48,9 +48,8 @@ export default {
     //   kard.classList.toggle('is-flipped');
     // }
     // })
+
     return {
-
-
     }
 
   }
