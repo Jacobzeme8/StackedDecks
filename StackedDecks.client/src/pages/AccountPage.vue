@@ -3,9 +3,6 @@
   <div class="contianer-fluid mt-3">
     <div class="row mt-3 me-2">
       <div class="col-md-12 d-flex justify-content-end mt-3 ms-2">
-        <button type="button" class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Edit Account
-        </button>
       </div>
     </div>
   </div>
@@ -23,13 +20,39 @@
       </div>
     </div>
   </div>
-  <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <img class="Cover-image img-fluid" :src="account.coverImg" alt="">
-    <p>{{ account.email }}</p>
-    <h1>{{ account.bio }}</h1>
-    <h2>{{ account.level }}</h2>
+  <div class="bg-coverImg">
+
+  </div>
+  <div class="account-data">
+    <div class="">
+      <div class="">
+        <div class="d-flex justify-content-center">
+          <div>
+            <img class="rounded-circle" width="300" height="300" :src="account.picture" alt="">
+          </div>
+          <div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="">
+      <div class="d-flex justify-content-center">
+        <div>
+          <h3 class="text-center"><b>{{ account.name }}</b></h3>
+        </div>
+
+      </div>
+    </div>
+    <div class="">
+      <h6 class="text-center">{{ account.bio }}</h6>
+    </div>
+    <div class="text-center edit-btn">
+      <button type="button" class="btn btn-outline justify-content-center on-hover" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" aria-label="Edit Account" title="Edit Account">
+        <span class="mdi mdi-pencil fs-1 text-light"></span>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -44,6 +67,7 @@ export default {
 
     return {
       account: computed(() => AppState.account),
+      coverImg: computed(() => `url("${AppState.account?.coverImg}")`)
 
     };
   },
@@ -52,8 +76,25 @@ export default {
 </script>
 
 <style scoped>
-.Cover-image {
+/* .Cover-image {
   height: auto;
   max-width: 100px;
+} */
+.bg-coverImg {
+  background-image: v-bind(coverImg);
+  background-size: cover;
+  background-position: center;
+  opacity: 80%;
+  height: 100vh;
+
+}
+
+.account-data {
+  transform: translateY(-120%);
+}
+
+.edit-btn {
+  transform: translateY(-200%);
+
 }
 </style>
