@@ -1,11 +1,20 @@
-<template></template>
+<template>
+  <div class="container-fluid">
+    <div class="row">
+      <div v-for="deck in decks" class="col-3">
+        <Deck :deck="deck" />
+      </div>
+    </div>
+  </div>
+</template>
 
 
 <script>
-import { onMounted } from "vue";
+import { onMounted, computed } from "vue";
 import { decksServices } from "../services/DecksService";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
+import { AppState } from "../AppState";
 
 export default {
   setup() {
@@ -23,7 +32,9 @@ export default {
       getAllDecks()
     )
 
-    return {}
+    return {
+      decks: computed(() => AppState.decks)
+    }
   }
 }
 </script>

@@ -3,6 +3,7 @@ export class Deck {
     this.id = data.id
     this.name = data.name
     this.creatorId = data.creatorId
+    this.creator = data.creator
     this.description = data.description
     this.coverImg = data.coverImg
     this.isPublic = data.isPublic || false
