@@ -15,6 +15,14 @@
             About
           </router-link>
         </li>
+        <li>
+          <button v-if="account.id" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#test-modal">
+            Create Deck
+          </button>
+          <Modal id="test-modal" modal-title="Create Deck">
+            <DeckForm />
+          </Modal>
+        </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
@@ -24,9 +32,15 @@
 
 <script>
 import Login from './Login.vue'
+import { onMounted, computed, ref } from 'vue';
+import { AppState } from '../AppState.js';
+
 export default {
   setup() {
-    return {}
+    return {
+      account: computed(() => AppState.account),
+
+    }
   },
   components: { Login }
 }
