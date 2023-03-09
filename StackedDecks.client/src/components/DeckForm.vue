@@ -100,24 +100,25 @@
 <script>
 import { ref } from 'vue';
 import { logger } from "../utils/Logger";
+import { decksServices } from "../services/DecksService"
 export default {
     setup() {
         const editable = ref({
-            muscleGroup: []
+            exerciseType: []
         })
         return {
             editable,
-            createDeck() {
+            async createDeck() {
                 let value = editable.value
-                if (value.arms) { editable.value.muscleGroup.push('arms') }
-                if (value.legs) { editable.value.muscleGroup.push('legs') }
-                if (value.back) { editable.value.muscleGroup.push('back') }
-                if (value.chest) { editable.value.muscleGroup.push('chest') }
-                if (value.cardio) { editable.value.muscleGroup.push('cardio') }
-                if (value.core) { editable.value.muscleGroup.push('core') }
-                if (value.shoulders) { editable.value.muscleGroup.push('shoulders') }
+                if (value.arms) { editable.value.exerciseType.push('arms') }
+                if (value.legs) { editable.value.exerciseType.push('legs') }
+                if (value.back) { editable.value.exerciseType.push('back') }
+                if (value.chest) { editable.value.exerciseType.push('chest') }
+                if (value.cardio) { editable.value.exerciseType.push('cardio') }
+                if (value.core) { editable.value.exerciseType.push('core') }
+                if (value.shoulders) { editable.value.exerciseType.push('shoulders') }
                 const formData = editable.value
-
+                await decksServices.createDeck(formData)
             }
         }
     }
