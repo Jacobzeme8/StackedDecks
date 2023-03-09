@@ -1,14 +1,7 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 class DecksService {
-    async deleteDeck(deckId, requestorId) {
-        const deck = await this.getDeckById(deckId)
-        if (deck.creatorId.toString() != requestorId) {
-            throw new Forbidden('Stop it! You cannot delete this!')
-        }
-        await deck.remove()
-        return deck
-    }
+
     async getDeckById(deckId) {
         const deck = await dbContext.Decks.findById(deckId)
             .populate('creator', 'name picture')
@@ -27,6 +20,15 @@ class DecksService {
     async createDeck(deckData) {
         const deck = await dbContext.Decks.create(deckData)
         await deck.populate('creator', 'name picture')
+        return deck
+    }
+
+    async deleteDeck(deckId, requestorId) {
+        const deck = await this.getDeckById(deckId)
+        if (deck.creatorId.toString() != requestorId) {
+            throw new Forbidden('Stop it! You cannot delete this!')
+        }
+        await deck.remove()
         return deck
     }
 

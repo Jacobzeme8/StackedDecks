@@ -16,7 +16,7 @@ export class DecksController extends BaseController {
     async deleteDeck(req, res, next) {
         try {
             const deckId = req.params.deckId
-            const requestorId = req.UserInfo.id
+            const requestorId = req.userInfo.id
             const deck = await decksService.deleteDeck(deckId, requestorId)
             return res.send(deck)
         } catch (error) {
