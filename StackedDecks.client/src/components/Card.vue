@@ -12,9 +12,12 @@
 
       <!-- NOTE Back of card -->
       <div class="kard_face kard-back">
-        <img class="img-fluid" :src="card.imgUrl" :alt="card.name">
+        <!-- <img class="img-fluid" :src="card.imgUrl" :alt="card.name"> -->
         <div class="Deck_Card_Info">
-          <p>{{ card.muscleGroup }}</p>
+          <h2 class="fw-bold">{{ card.name }}</h2>
+          <h4 class="fw-bold">{{ card.muscleGroup }}</h4>
+          <p class="fs-6">{{ card.instruction }}</p>
+          <p class="">{{ card.difficulty }}</p>
           <p>Back Side</p>
         </div>
       </div>
