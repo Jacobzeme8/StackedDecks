@@ -12,6 +12,7 @@ export class DecksController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .get('/:deckId/deckcards', this.getDeckCardsByDeck)
             .post('', this.createDeck)
+            .put('',)
             .delete('/:deckId', this.deleteDeck)
 
     }
