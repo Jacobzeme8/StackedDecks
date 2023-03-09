@@ -20,17 +20,16 @@
         <div class="modal-body">
           <EditAccountForm />
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
       </div>
     </div>
   </div>
   <div class="about text-center">
     <h1>Welcome {{ account.name }}</h1>
     <img class="rounded" :src="account.picture" alt="" />
+    <img class="Cover-image img-fluid" :src="account.coverImg" alt="">
     <p>{{ account.email }}</p>
+    <h1>{{ account.bio }}</h1>
+    <h2>{{ account.level }}</h2>
   </div>
 </template>
 
@@ -53,7 +52,8 @@ export default {
 </script>
 
 <style scoped>
-img {
+.Cover-image {
+  height: auto;
   max-width: 100px;
 }
 </style>

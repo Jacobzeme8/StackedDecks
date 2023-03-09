@@ -16,12 +16,9 @@
       <label for="coverImg" class="form-label">coverImg</label>
       <input required v-model="editable.coverImg" type="url" class="form-control" id="coverImg">
     </div>
-    <div class="form-check mb-3">
-      <input v-model="editable.graduated" :checked="editable.graduated" class="form-check-input" type="checkbox"
-        id="flexCheckDefault">
-      <label class="form-check-label" for="flexCheckDefault">
-        Graduated????
-      </label>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn btn-primary">Save changes</button>
     </div>
   </form>
 </template>
