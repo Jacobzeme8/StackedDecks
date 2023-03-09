@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row my-4">
       <div class="col-12 p-4 mb-3">
-        <h1 class="text-dark">Events</h1>
+        <h1 class="text-dark"></h1>
       </div>
       <div class="col-10 m-auto">
         <div class="bg-primary rounded p-3 d-flex justify-content-around">
@@ -20,7 +20,7 @@
     </div>
   </div>
   <!-- NOTE Cards -->
-  <h1>CARDS:</h1>
+  <h1>Workout Cards:</h1>
   <div class="container-fluid">
     <div class="row">
       <div v-for="c in cards" class="col-md-4">
@@ -32,7 +32,7 @@
 
 
 <script>
-import { onMounted, computed, ref, onUpdated } from 'vue';
+import { onMounted, computed, ref, onUpdated, watchEffect } from 'vue';
 import { AppState } from '../AppState.js';
 import Card from '../components/Card.vue';
 import { cardsService } from '../services/CardsService.js';
@@ -54,6 +54,18 @@ export default {
 
     onMounted(() => {
       getAllCards()
+    })
+
+    watchEffect(() => {
+      if (filterType.value) {
+        let kards = document.querySelectorAll('.kard');
+        [...kards].forEach((kard) => {
+          kard.addEventListener('click', function () {
+            kard.classList.toggle('is-flipped');
+          });
+        });
+      }
+
     })
 
     onUpdated(() => {
