@@ -9,8 +9,6 @@
       </div>
     </div>
   </div>
-
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -20,7 +18,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+          <EditAccountForm />
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -39,12 +37,18 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from '../AppState'
+import EditAccountForm from '../components/EditAccountForm.vue';
 export default {
   setup() {
+
+
+
     return {
-      account: computed(() => AppState.account)
-    }
-  }
+      account: computed(() => AppState.account),
+
+    };
+  },
+  components: { EditAccountForm }
 }
 </script>
 
