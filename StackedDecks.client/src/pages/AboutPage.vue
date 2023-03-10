@@ -6,8 +6,8 @@
       <div class="row d-flex justify-content-around">
         <div class="col-md-4">
           <div class="img-fluid">
-            <img class="photo"
-              src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTN8fHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+            <img
+              src="https://s3-alpha-sig.figma.com/img/9791/bff8/42acbb7b196f8fb9f3f5be885726565b?Expires=1679270400&Signature=RXR5rQD5MdmLhke4ysu59B9A4wGFJXR4rVQd5MzR0J118u5zu26OXF0L76V0n5UcpSS3X4vAIgxNH3V4I~ly8H~5zJOmx-UPriYRPbYW6K1MHSEZXO9aVlRfMqs8GQrmNbqExR3rs~8S4Wf~mtqOeqpK4k1jwfYtx9ZICOfWvVev3m3-gbvLbDgdYDf13J5ldZIiSEQdT4OyLXV7PvW5czgwjcHvbXI9QTXGpfoQQL2NhtBwzCrU5vrDyoA6G2-jbJmZo89eiMqA6IcpaAzshpIwcopuMGW8IDehtWdf2z7acUYCy7ZGcq6JPheYPZjn~5MqCBgRu682Jeh8iW1SUg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
               alt="Parker">
           </div>
           <div class="text-center">
