@@ -1,6 +1,23 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden, UnAuthorized } from "../utils/Errors.js"
 class DecksService {
+    async copydeck(deckId, accoundId) {
+        const deck = await dbContext.Decks.findById(deckId)
+        if(!deck){throw new BadRequest('deck doesnt exist!')}
+        if(deck.creatorId == accoundId){throw new BadRequest('cannot favorite your own deck!')}
+        let deckObject = {
+            name: deck.name,
+            description: deck.description,
+            coverImg: deck.coverImg,
+            exerciseType: deck.exerciseType,
+            isPublic: false,
+            creatorId: accoundId
+        }
+        const copiedDeck = await dbContext.Decks.create(deckObject)
+
+        await copiedDeck.populate('creator')
+        return copiedDeck
+    }
     async editDeck(id, deckData, creatorId) {
         const deck = await dbContext.Decks.findById(id)
         if (!deck) {
