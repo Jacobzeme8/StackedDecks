@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="bg-color">
     <Navbar />
   </header>
   <main class="bg-color">
@@ -37,8 +37,8 @@ footer {
 
 
 .bg-color {
-  background: rgb(81, 21, 56);
-  background: linear-gradient(180deg, #511538 0%, #d9dace 100%);
+  background: rgb(0, 51, 87);
+  background: linear-gradient(180deg, #003357 0%, #d9dace 100%);
 
 }
 </style>
