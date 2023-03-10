@@ -1,9 +1,9 @@
 <template>
   <!-- NOTE Filter catagory  -->
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <div class="row my-4">
       <div class="col-md-12 p-4 mb-3">
-        <h1 class="text-dark"></h1>
+        <h1 class="text-light"></h1>
       </div>
       <div class="col-md-10 m-auto">
         <div class="bg-primary rounded p-3 d-flex justify-content-around">
@@ -21,7 +21,7 @@
   </div>
 
   <!-- NOTE Cards -->
-  <h1>Workout Cards:</h1>
+  <h1 class="text-light">Workout Cards:</h1>
   <div class="container-fluid bg-pic">
     <div class="row">
 
@@ -137,12 +137,7 @@ export default {
 
 .bg-pic {
   background-image: url(https://s3-alpha-sig.figma.com/img/ce11/88bd/a66c08afe888331707245a0eb22ab9cd?Expires=1679270400&Signature=ZtvAIUwLhjtxH7BacWkfdFG06VbcfHxzGf36CVr~80QNLWkUiQisK~pb8IcOQxSH4WnYKutLzXJ8YTunuLiI-NacppsNmuH94K5SzdmPXCTVXAHIKrzczlaPEwo~f2BAqsA5JLmFD0chx-JAYVTjRq9ocGGxBw02cYjn0M~1yWgM1TkxBdLnoOsStSyUsiHhrM13k72TWxfLWf-VP0NjDSGI977qgkueUt-t4XLMx1UCDsmf7MnV1RNMkYOJzrKWM7Lu4B~SCEVtrweCZWmLW3diJz~aygpwGl-zq-M6FrckQDLCfRl5Ah-T-PZoJK5tBldI4Z2jg4Ddt8Tp~WOvJQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
-  background-size: auto;
-  background-position: center;
-  // opacity: 85%;
-}
+  background-attachment: fixed;
 
-.bg-color {
-  background-color: #501537;
 }
 </style>
