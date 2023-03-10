@@ -8,17 +8,17 @@
           <p class="text-capitalize"><b>{{ card.name }}</b></p>
           <p class="mb-0">CLICK IMAGE TO SEE DETAILS</p>
         </div>
-        <div class="d-flex justify-content-end">
-          <div class="input-group mb-3">
-            <button @click.stop="addCardToDeck(editable.value)" type="button"
-              class="btn btn-outline-secondary">Action</button>
-            <button @click.stop type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              <span class="visually-hidden">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-              <li class="p-2" v-for="deck in decks">{{ deck.name }}</li>
-            </ul>
+        <div>
+          <div>
+            <form @submit.prevent="addCardToDeck(editable.value, card.id)" class="d-flex">
+              <button @click.stop type="submit" class="btn btn-outline-secondary rounded-left d-flex flex-wrap m-auto">Add
+                To
+                Deck</button>
+              <select @click.stop v-model="editable.value" class="form-select rounded-right w-75 m-auto"
+                aria-label="Default select example">
+                <option v-for="deck in decks" :value="deck.id" selected>{{ deck.name }}</option>
+              </select>
+            </form>
           </div>
         </div>
       </div>
@@ -55,7 +55,9 @@
 import { ref } from "vue";
 import { Card } from '../models/Card.js';
 import { Deck } from "../models/Deck";
+import { deckCardsService } from "../services/DeckCardsService";
 import { logger } from "../utils/Logger";
+import Pop from "../utils/Pop";
 // import { DeckCard } from '../models/DeckCard.js';
 
 export default {
@@ -70,7 +72,14 @@ export default {
 
     return {
       editable,
-
+      async addCardToDeck(deckId, cardId) {
+        try {
+          await deckCardsService.addCardToDeck(deckId, cardId)
+        } catch (error) {
+          logger.error(error)
+          Pop.error(error)
+        }
+      }
 
 
     }
