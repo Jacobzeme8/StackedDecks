@@ -16,7 +16,7 @@
             <button class="btn btn-secondary me-2">About</button>
           </router-link>
         </li>
-        <li>
+        <li v-if="account.id">
           <router-link :to="{ name: 'Decks' }">
             <button class="btn btn-secondary me-2">Posted Decks</button>
           </router-link>
