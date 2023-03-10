@@ -11,8 +11,8 @@
               alt="Parker">
           </div>
           <div class="text-center">
-            <span><b class="letter text-danger">Parker Ward</b></span>
-            <p class="letter text-danger"><b> 6 Ft. & Stacked</b></p>
+            <span><b class="letter text-dark">Parker Ward</b></span>
+            <p class="letter text-dark"><b> 6 Ft. & Stacked</b></p>
           </div>
         </div>
         <div class="col-md-4">
@@ -22,8 +22,8 @@
               alt="T-Rex">
           </div>
           <div class="text-center">
-            <span><b class="letter text-danger">Thomas Fuhriman</b></span>
-            <p class="letter text-danger"><b>Wannabe Stacked
+            <span><b class="letter text-dark">Thomas Fuhriman</b></span>
+            <p class="letter text-dark"><b>Wannabe Stacked
                 Strong Man and amateur arm wrestler</b></p>
           </div>
         </div>
@@ -39,8 +39,8 @@
               alt="Linda Taing">
           </div>
           <div class="text-center">
-            <span><b class="letter text-danger">Linda Taing</b></span>
-            <p class="letter text-danger"><b>Cyclist that goes nowhere, but stacked!</b></p>
+            <span><b class="letter text-light">Linda Taing</b></span>
+            <p class="letter text-light"><b>Cyclist that goes nowhere, but stacked!</b></p>
           </div>
         </div>
         <div class="col-md-4">
@@ -50,8 +50,8 @@
               alt="JACOB MARTINEZ">
           </div>
           <div class="text-center">
-            <span><b class="letter text-danger ">Jacob Martinez</b></span>
-            <p class="letter text-danger"><b>5’11 and 3/4
+            <span><b class="letter text-light ">Jacob Martinez</b></span>
+            <p class="letter text-light"><b>5’11 and 3/4
                 in the morning, STACKED</b></p>
           </div>
         </div>
@@ -90,6 +90,6 @@ export default {
 
 .letter {
   font-family: 'M PLUS 1p', sans-serif;
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px rgb(242, 238, 238);
 }
 </style>
