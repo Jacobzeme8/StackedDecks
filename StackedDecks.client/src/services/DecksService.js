@@ -24,6 +24,12 @@ class DecksServices {
     AppState.decks = res.data.map(d => new Deck(d))
   }
 
+
+  async getMyDecks(){
+    const res = await api.get('account/decks')
+    logger.log(res.data)
+  }
+
 }
 
 export const decksServices = new DecksServices() 

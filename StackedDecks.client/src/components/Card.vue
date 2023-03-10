@@ -10,10 +10,9 @@
         </div>
         <div class="d-flex justify-content-end">
           <div class="input-group mb-3">
-            <button @click.stop="removeEventListener()" type="button" class="btn btn-outline-secondary">Action</button>
-            <button @click.stop="removeEventListener()" type="button"
-              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <button @click.stop="addCardToDeck()" type="button" class="btn btn-outline-secondary">Action</button>
+            <button @click.stop type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown" aria-expanded="false">
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
@@ -80,9 +79,12 @@ export default {
     // })
 
     return {
-      removeEventListener() {
-        logger.log("button")
+      async removeEventListener() {
+
       }
+
+
+
     }
 
   }

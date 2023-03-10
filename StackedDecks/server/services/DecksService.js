@@ -1,6 +1,11 @@
 import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden, UnAuthorized } from "../utils/Errors.js"
 class DecksService {
+    async getAccountDecks(accountId) {
+        const creatorId = accountId
+        const decks = await dbContext.Decks.find({creatorId})
+        return decks
+    }
     async copydeck(deckId, accoundId) {
         const deck = await dbContext.Decks.findById(deckId)
         if(!deck){throw new BadRequest('deck doesnt exist!')}
