@@ -74,8 +74,8 @@ a:hover {
 }
 
 .bg-color {
-  background: rgb(81, 21, 56);
-  background: linear-gradient(0deg, #511538 20%, #d9dace 100%);
+  background: rgb(0, 51, 87);
+  background: linear-gradient(0deg, #003357 0%, #d9dace 100%);
 
 }
 </style>
