@@ -85,6 +85,7 @@ export default {
 
     watchEffect(() => {
       if (AppState.account.id) {
+        getMyDecks()
         let kards = document.querySelectorAll('.kard');
         [...kards].forEach((kard) => {
           kard.classList.remove('is-flipped')
@@ -96,7 +97,7 @@ export default {
     })
 
 
-    onUpdated(() => {
+    onBeforeUpdate(() => {
 
       let kards = document.querySelectorAll('.kard');
       [...kards].forEach((kard) => {
