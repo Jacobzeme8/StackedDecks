@@ -21,7 +21,6 @@
     </div>
   </div>
   <div class="bg-coverImg">
-
   </div>
   <div class="account-data">
     <div class="">
@@ -53,6 +52,13 @@
         <span class="mdi mdi-pencil fs-1 text-light"></span>
       </button>
     </div>
+  </div>
+  <div>
+    <h1>MY DECKS:</h1>
+
+  </div>
+  <div>
+    <h1>BOOKMARKED DECKS:</h1>
   </div>
 </template>
 
