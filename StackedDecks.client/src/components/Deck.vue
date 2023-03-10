@@ -1,5 +1,10 @@
 <template>
   <div class="card p-3 my-4">
+    <div class="row justify-content-start">
+      <div>
+        <i class="mdi mdi-star fs-2 selectable"></i>
+      </div>
+    </div>
     <div class="d-flex justify-content-center">
       <p>{{ deck.name }}</p>
     </div>
