@@ -12,8 +12,20 @@ export class DecksController extends BaseController {
             .use(Auth0Provider.getAuthorizedUserInfo)
             .get('/:deckId/deckcards', this.getDeckCardsByDeck)
             .post('', this.createDeck)
-            .put('',)
+            .put('/:deckId', this.editDeck)
             .delete('/:deckId', this.deleteDeck)
+
+    }
+    async editDeck(req, res, next) {
+        try {
+            const creatorId = req.userInfo.id
+            const deckData = req.body
+            const id = req.params.deckId
+            const deck = await decksService.editDeck(id, deckData, creatorId)
+            return res.send(deck)
+        } catch (error) {
+            next(error)
+        }
 
     }
     async getDeckCardsByDeck(req, res, next) {

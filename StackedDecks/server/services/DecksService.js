@@ -1,6 +1,21 @@
 import { dbContext } from "../db/DbContext.js"
-import { BadRequest, Forbidden } from "../utils/Errors.js"
+import { BadRequest, Forbidden, UnAuthorized } from "../utils/Errors.js"
 class DecksService {
+    async editDeck(id, deckData, creatorId) {
+        const deck = await dbContext.Decks.findById(id)
+        if (!deck) {
+            throw new BadRequest('invalid deck ID.')
+        }
+        if (deck.creatorId != creatorId) {
+            throw new UnAuthorized('Not your Deck to edit!')
+        }
+        deck.name = deckData.name || deck.name
+        deck.description = deckData.description || deck.description
+        deck.coverImg = deckData.coverImg || deck.coverImg
+        deck.isPublic = deckData.isPublic || deck.isPublic
+        await deck.save()
+        return deck
+    }
 
     async getDeckById(deckId) {
         const deck = await dbContext.Decks.findById(deckId)
@@ -28,6 +43,7 @@ class DecksService {
         if (deck.creatorId.toString() != requestorId) {
             throw new Forbidden('Stop it! You cannot delete this!')
         }
+
         await deck.remove()
         return deck
     }
