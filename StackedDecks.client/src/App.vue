@@ -35,7 +35,10 @@ footer {
   height: 32px;
 }
 
+
 .bg-color {
-  background-color: #501537;
+  background: rgb(81, 21, 56);
+  background: linear-gradient(180deg, #511538 0%, #d9dace 100%);
+
 }
 </style>
