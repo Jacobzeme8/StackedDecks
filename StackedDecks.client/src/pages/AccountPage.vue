@@ -20,39 +20,37 @@
       </div>
     </div>
   </div>
-  <div class="bg-coverImg">
-  </div>
-  <div class="account-data">
-    <div class="">
-      <div class="">
-        <div class="d-flex justify-content-center">
+  <div class="container-fluid bg-coverImg">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="d-flex justify-content-center pt-5">
           <div>
             <img class="rounded-circle" width="300" height="300" :src="account.picture" alt="">
           </div>
           <div>
           </div>
         </div>
-
-      </div>
-    </div>
-    <div class="">
-      <div class="d-flex justify-content-center">
-        <div>
-          <h3 class="text-center"><b>{{ account.name }}</b></h3>
+        <div class="">
+          <div class="d-flex justify-content-center">
+            <div>
+              <h3 class="text-center"><b>{{ account.name }}</b></h3>
+            </div>
+          </div>
         </div>
-
+        <div class="">
+          <h6 class="text-center">{{ account.bio }}</h6>
+        </div>
+        <div class="text-center edit-btn">
+          <button type="button" class="btn btn-outline justify-content-center on-hover" data-bs-toggle="modal"
+            data-bs-target="#exampleModal" aria-label="Edit Account" title="Edit Account">
+            <span class="mdi mdi-pencil fs-1 text-light"></span>
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="">
-      <h6 class="text-center">{{ account.bio }}</h6>
-    </div>
-    <div class="text-center edit-btn">
-      <button type="button" class="btn btn-outline justify-content-center on-hover" data-bs-toggle="modal"
-        data-bs-target="#exampleModal" aria-label="Edit Account" title="Edit Account">
-        <span class="mdi mdi-pencil fs-1 text-light"></span>
-      </button>
     </div>
   </div>
+
+
   <div>
     <h1>MY DECKS:</h1>
 
@@ -90,8 +88,7 @@ export default {
   background-image: v-bind(coverImg);
   background-size: cover;
   background-position: center;
-  opacity: 80%;
-  height: 100vh;
+  height: 70vh;
 
 }
 
