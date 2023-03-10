@@ -10,13 +10,14 @@
         </div>
         <div class="d-flex justify-content-end">
           <div class="input-group mb-3">
-            <button @click.stop="addCardToDeck()" type="button" class="btn btn-outline-secondary">Action</button>
+            <button @click.stop="addCardToDeck(editable.value)" type="button"
+              class="btn btn-outline-secondary">Action</button>
             <button @click.stop type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
               data-bs-toggle="dropdown" aria-expanded="false">
               <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li class="p-2" v-for="deck in decks">{{ deck.name }}</li>
             </ul>
           </div>
         </div>
@@ -51,37 +52,24 @@
 
 
 <script>
+import { ref } from "vue";
 import { Card } from '../models/Card.js';
+import { Deck } from "../models/Deck";
 import { logger } from "../utils/Logger";
 // import { DeckCard } from '../models/DeckCard.js';
 
 export default {
   props: {
     card: { type: Object, required: true },
+    decks: { type: Array, required: true }
     // deckCard: { type: DeckCard, required: true }
 
   },
-  setup(props) {
-
-    // var kards = document.querySelectorAll('.kard');
-    // [...kards].forEach((kard) => {
-    //   kard.addEventListener('click', function () {
-    //     kard.classList.toggle('is-flipped');
-    //   });
-    // });
-
-
-
-    // let kard = document.querySelectorAll('.kard')
-    // [kard].forEach((kard) => {flipCard(){
-    //   kard.classList.toggle('is-flipped');
-    // }
-    // })
+  setup() {
+    const editable = ref({})
 
     return {
-      async removeEventListener() {
-
-      }
+      editable,
 
 
 

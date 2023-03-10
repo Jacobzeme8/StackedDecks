@@ -26,7 +26,7 @@
     <div class="row">
 
       <div v-for="c in cards" class="col-md-4">
-        <Card :card="c" />
+        <Card :decks="decks" :card="c" />
       </div>
 
     </div>
@@ -35,7 +35,7 @@
 
 
 <script>
-import { onMounted, computed, ref, onUpdated, watchEffect } from 'vue';
+import { onMounted, computed, ref, onUpdated, watchEffect, onBeforeUpdate } from 'vue';
 import { AppState } from '../AppState.js';
 import Card from '../components/Card.vue';
 import { cardsService } from '../services/CardsService.js';
@@ -85,7 +85,6 @@ export default {
 
     watchEffect(() => {
       if (AppState.account.id) {
-        getMyDecks()
         let kards = document.querySelectorAll('.kard');
         [...kards].forEach((kard) => {
           kard.classList.remove('is-flipped')
@@ -96,7 +95,9 @@ export default {
       }
     })
 
+
     onUpdated(() => {
+
       let kards = document.querySelectorAll('.kard');
       [...kards].forEach((kard) => {
         kard.addEventListener('click', function () {

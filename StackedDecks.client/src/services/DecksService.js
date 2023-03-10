@@ -27,7 +27,7 @@ class DecksServices {
 
   async getMyDecks(){
     const res = await api.get('account/decks')
-    logger.log(res.data)
+    AppState.decks = res.data.map( m => new Deck(m))
   }
 
 }
