@@ -22,28 +22,32 @@
   </div>
   <div class="container-fluid bg-coverImg">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-3"></div>
+      <div class="col-md-6">
         <div class="d-flex justify-content-center pt-5">
           <div>
             <img class="rounded-circle" width="300" height="300" :src="account.picture" alt="">
           </div>
-          <div>
-          </div>
         </div>
-        <div class="">
-          <div class="d-flex justify-content-center">
-            <div>
-              <h3 class="text-center"><b>{{ account.name }}</b></h3>
+        <div class="card frosted mt-3">
+          <div class="card-body">
+            <div class="">
+              <div class="d-flex justify-content-center">
+                <div>
+                  <h3 class="text-center"><b>{{ account.name }}</b></h3>
+                </div>
+              </div>
+            </div>
+            <div class="">
+              <h6 class="text-center">{{ account.bio }}</h6>
             </div>
           </div>
         </div>
-        <div class="">
-          <h6 class="text-center">{{ account.bio }}</h6>
-        </div>
+
         <div class="text-center edit-btn">
           <button type="button" class="btn btn-outline justify-content-center on-hover" data-bs-toggle="modal"
             data-bs-target="#exampleModal" aria-label="Edit Account" title="Edit Account">
-            <span class="mdi mdi-pencil fs-1 text-light"></span>
+            <i class="mdi mdi-pencil fs-1 text-light"></i>
           </button>
         </div>
       </div>
@@ -97,7 +101,20 @@ export default {
 }
 
 .edit-btn {
-  transform: translateY(-200%);
+  transform: translateY(-300%);
 
+}
+
+.frosted {
+  box-shadow: 0 0 5px 0;
+  background: inherit;
+  backdrop-filter: blur(80px);
+  /* margin: 100px; */
+}
+
+.frosted-x {
+  box-shadow: 0 0 5px 0;
+  background: inherit;
+  /* margin: 100px; */
 }
 </style>
