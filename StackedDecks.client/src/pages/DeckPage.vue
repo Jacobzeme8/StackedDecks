@@ -6,25 +6,31 @@
         <div class="col-md-8 p-2">
           <div class="card elevation-5 mx-auto frosted">
             <div class="card-body">
-              <h6 title="Stacked progress is the mastery of this deck." class="text-center">Stacked Progress</h6>
-              <div class="d-flex justify-content-center">
-                <div class="progress w-50 " role="progressbar" aria-label="Example 20px high" aria-valuenow="25"
-                  aria-valuemin="0" aria-valuemax="100" style="height: 20px">
-                  <div class="progress-bar" style="width: 25%"></div>
+              <div v-if="account.id == deck.creatorId">
+                <h6 title="Stacked progress is the mastery of this deck." class="text-center">Stacked
+                  Progress</h6>
+                <div class="d-flex justify-content-center">
+                  <div class="progress w-50 " role="progressbar" aria-label="Example 20px high" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100" style="height: 20px">
+                    <div class="progress-bar" style="width: 25%"></div>
+                  </div>
                 </div>
               </div>
               <div class="d-flex justify-content-center pt-2">
                 <h1 class="text-center">My {{ deck.name }} Deck </h1>
                 <img class="img-fluid ms-3 rounded-circle profile-img" :src="deck.creator.picture" alt="">
               </div>
-              <h6 class="text-center">Current Exercise Progress</h6>
+              <div v-if="account.id == deck.creatorId">
 
-              <div class="d-flex justify-content-center">
-                <div class="progress w-25 " role="progressbar" aria-label="Example 1px high" aria-valuenow="25"
-                  aria-valuemin="0" aria-valuemax="100" style="height: 1px">
-                  <div class="progress-bar" style="width: 25%"></div>
+                <h6 class="text-center">Current Exercise Progress</h6>
+                <div class="d-flex justify-content-center">
+                  <div class="progress w-25 " role="progressbar" aria-label="Example 1px high" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100" style="height: 1px">
+                    <div class="progress-bar" style="width: 25%"></div>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -101,6 +107,7 @@ export default {
 
     return {
       route,
+      account: computed(() => AppState.account),
       deck: computed(() => AppState.deck),
       deckCards: computed(() => AppState.deckCards),
       coverImg: computed(() => `url("${AppState.deck?.coverImg}")`)
