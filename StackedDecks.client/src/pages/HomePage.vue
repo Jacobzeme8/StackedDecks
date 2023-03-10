@@ -39,6 +39,8 @@ import { onMounted, computed, ref, onUpdated, watchEffect } from 'vue';
 import { AppState } from '../AppState.js';
 import Card from '../components/Card.vue';
 import { cardsService } from '../services/CardsService.js';
+import { decksServices } from "../services/DecksService";
+import { logger } from "../utils/Logger";
 import Pop from '../utils/Pop.js';
 
 
@@ -55,8 +57,18 @@ export default {
       }
     }
 
+    async function getMyDecks() {
+      try {
+        await decksServices.getMyDecks()
+      } catch (error) {
+        logger.error(error)
+        Pop.error(error)
+      }
+    }
+
     onMounted(() => {
       getAllCards()
+
     })
 
     watchEffect(() => {
@@ -73,6 +85,7 @@ export default {
 
     watchEffect(() => {
       if (AppState.account.id) {
+        getMyDecks()
         let kards = document.querySelectorAll('.kard');
         [...kards].forEach((kard) => {
           kard.classList.remove('is-flipped')
@@ -95,6 +108,7 @@ export default {
 
 
     return {
+      decks: computed(() => AppState.decks),
       cards: computed(() => {
         if (filterType.value == 'all') {
           return AppState.cards.slice(0, AppState.account.id ? undefined : 3)
