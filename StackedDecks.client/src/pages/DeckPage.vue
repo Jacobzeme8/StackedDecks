@@ -42,7 +42,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <Card :card="d.card" />
+            <Card :decks="decks" :card="d.card" />
           </div>
         </div>
       </div>
@@ -56,7 +56,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { deckCardsService } from "../services/DeckCardsService"
 import { useRoute } from "vue-router";
-import { watchEffect, computed, onUpdated } from "vue";
+import { watchEffect, computed, onUpdated, onMounted } from "vue";
 import { AppState } from "../AppState.js";
 import { decksServices } from "../services/DecksService.js";
 import Card from "../components/Card.vue";
@@ -65,6 +65,16 @@ export default {
 
   setup() {
     const route = useRoute();
+
+    async function getMyDecks() {
+      try {
+        await decksServices.getMyDecks()
+      } catch (error) {
+        logger.error(error)
+        Pop.error(error)
+      }
+    }
+
     async function getDeckCardsForDeck() {
       try {
         const deckId = route.params.deckId;
@@ -92,6 +102,10 @@ export default {
       }
     });
 
+    onMounted(() =>
+      getMyDecks()
+    )
+
 
 
 
@@ -110,7 +124,8 @@ export default {
       account: computed(() => AppState.account),
       deck: computed(() => AppState.deck),
       deckCards: computed(() => AppState.deckCards),
-      coverImg: computed(() => `url("${AppState.deck?.coverImg}")`)
+      coverImg: computed(() => `url("${AppState.deck?.coverImg}")`),
+      decks: computed(() => AppState.decks)
 
       // card: computed(() => AppState.deckCard.card)
 
