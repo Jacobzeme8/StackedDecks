@@ -14,7 +14,7 @@ import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { deckCardsService } from "../services/DeckCardsService"
 import { useRoute } from "vue-router";
-import { watchEffect, computed } from "vue";
+import { watchEffect, computed, onUpdated } from "vue";
 import { AppState } from "../AppState.js";
 import { decksServices } from "../services/DecksService.js";
 import Card from "../components/Card.vue";
@@ -49,6 +49,20 @@ export default {
         getDeckById();
       }
     });
+
+
+
+
+    onUpdated(() => {
+      let kards = document.querySelectorAll('.kard');
+      [...kards].forEach((kard) => {
+        kard.addEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+      });
+    }
+    )
+
     return {
       route,
       deck: computed(() => AppState.deck),
