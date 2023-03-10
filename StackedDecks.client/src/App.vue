@@ -5,7 +5,7 @@
   <main class="bg-color">
     <div class="container-fluid">
       <div class="row ">
-        <div class="col-2 d-flex flex-column">
+        <div class="col-2 d-flex flex-column" v-if="route.path != '/about'">
           <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark">All</button>
           <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark">Arms</button>
           <button @click="changeFilterType('back')" class="btn btn-outline-light text-dark">Back</button>
@@ -15,7 +15,7 @@
           <button @click="changeFilterType('legs')" class="btn btn-outline-light text-dark">Legs</button>
           <button @click="changeFilterType('shoulders')" class="btn btn-outline-light text-dark">Shoulders</button>
         </div>
-        <div class="col-10">
+        <div class="col-md-10 m-auto">
           <router-view />
         </div>
       </div>
@@ -25,12 +25,15 @@
 
 <script>
 import { computed } from 'vue'
+import { useRoute } from "vue-router"
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 
 export default {
   setup() {
+    const route = useRoute()
     return {
+      route,
       appState: computed(() => AppState)
     }
   },
