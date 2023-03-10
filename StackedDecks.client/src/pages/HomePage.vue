@@ -1,11 +1,11 @@
 <template>
   <!-- NOTE Filter catagory  -->
-  <div class="container">
+  <div class="container-fluid">
     <div class="row my-4">
-      <div class="col-12 p-4 mb-3">
+      <div class="col-md-12 p-4 mb-3">
         <h1 class="text-dark"></h1>
       </div>
-      <div class="col-10 m-auto">
+      <div class="col-md-10 m-auto">
         <div class="bg-primary rounded p-3 d-flex justify-content-around">
           <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark">All</button>
           <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark">Arms</button>
@@ -19,13 +19,16 @@
       </div>
     </div>
   </div>
+
   <!-- NOTE Cards -->
   <h1>Workout Cards:</h1>
-  <div class="container-fluid">
+  <div class="container-fluid bg-pic">
     <div class="row">
+
       <div v-for="c in cards" class="col-md-4">
         <Card :card="c" />
       </div>
+
     </div>
   </div>
 </template>
@@ -66,7 +69,18 @@ export default {
           });
         });
       }
+    })
 
+    watchEffect(() => {
+      if (AppState.account.id) {
+        let kards = document.querySelectorAll('.kard');
+        [...kards].forEach((kard) => {
+          kard.classList.remove('is-flipped')
+          kard.addEventListener('click', function () {
+            kard.classList.toggle('is-flipped');
+          });
+        });
+      }
     })
 
     onUpdated(() => {
@@ -83,15 +97,17 @@ export default {
     return {
       cards: computed(() => {
         if (filterType.value == 'all') {
-          return AppState.cards
+          return AppState.cards.slice(0, AppState.account.id ? undefined : 3)
         }
         else {
-          return AppState.cards.filter(c => c.muscleGroup == filterType.value)
+          return AppState.cards.filter(c => c.muscleGroup == filterType.value).slice(0, AppState.account.id ? undefined : 3)
         }
       }),
+
       changeFilterType(c) {
         filterType.value = c
-      }
+      },
+      account: computed(() => AppState.account)
     }
   },
   components: { Card }
@@ -101,5 +117,16 @@ export default {
 <style scoped lang="scss">
 .kard.is-flipped {
   transform: translateX(-100%) rotateY(-180deg);
+}
+
+.bg-pic {
+  background-image: url(https://s3-alpha-sig.figma.com/img/ce11/88bd/a66c08afe888331707245a0eb22ab9cd?Expires=1679270400&Signature=ZtvAIUwLhjtxH7BacWkfdFG06VbcfHxzGf36CVr~80QNLWkUiQisK~pb8IcOQxSH4WnYKutLzXJ8YTunuLiI-NacppsNmuH94K5SzdmPXCTVXAHIKrzczlaPEwo~f2BAqsA5JLmFD0chx-JAYVTjRq9ocGGxBw02cYjn0M~1yWgM1TkxBdLnoOsStSyUsiHhrM13k72TWxfLWf-VP0NjDSGI977qgkueUt-t4XLMx1UCDsmf7MnV1RNMkYOJzrKWM7Lu4B~SCEVtrweCZWmLW3diJz~aygpwGl-zq-M6FrckQDLCfRl5Ah-T-PZoJK5tBldI4Z2jg4Ddt8Tp~WOvJQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
+  background-size: auto;
+  background-position: center;
+  // opacity: 85%;
+}
+
+.bg-color {
+  background-color: #501537;
 }
 </style>
