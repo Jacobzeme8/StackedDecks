@@ -89,7 +89,7 @@ export default {
   cursor: pointer;
   transform-style: preserve-3d;
   transform-origin: center right;
-  transition: transform 1s;
+  transition: transform .75s;
 
 }
 
