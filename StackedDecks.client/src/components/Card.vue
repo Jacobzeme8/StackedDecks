@@ -75,6 +75,7 @@ export default {
       async addCardToDeck(deckId, cardId) {
         try {
           await deckCardsService.addCardToDeck(deckId, cardId)
+          Pop.success('Added Card!')
         } catch (error) {
           logger.error(error)
           Pop.error(error)
