@@ -1,17 +1,30 @@
 <template>
   <!-- NOTE Face of Card -->
-  <div class="Card  my-3">
+  <div class=" my-3">
     <div class="kard">
-      <div class="kard_face kard-front">
+      <div class="kard_face kard-front card">
         <img class="img-fluid" :src="card.imgUrl" :alt="card.name">
-        <div class="card-body text-center">
+        <div class="card-body pb-1 text-center">
           <p class="text-capitalize"><b>{{ card.name }}</b></p>
-          <p>CLICK IMAGE TO SEE DETAILS</p>
+          <p class="mb-0">CLICK IMAGE TO SEE DETAILS</p>
+        </div>
+        <div class="d-flex justify-content-end">
+          <div class="input-group mb-3">
+            <button @click.stop="removeEventListener()" type="button" class="btn btn-outline-secondary">Action</button>
+            <button @click.stop="removeEventListener()" type="button"
+              class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- NOTE Back of card -->
-      <div class="kard_face  scrollbox kard-back">
+      <div class="card kard_face  scrollbox kard-back p-2">
         <!-- <img class="img-fluid" :src="card.imgUrl" :alt="card.name"> -->
         <div class="Deck_Card_Info ">
           <h2 class="text-capitalize fw-bold">{{ card.name }}</h2>
@@ -40,6 +53,7 @@
 
 <script>
 import { Card } from '../models/Card.js';
+import { logger } from "../utils/Logger";
 // import { DeckCard } from '../models/DeckCard.js';
 
 export default {
@@ -66,7 +80,9 @@ export default {
     // })
 
     return {
-
+      removeEventListener() {
+        logger.log("button")
+      }
     }
 
   }
