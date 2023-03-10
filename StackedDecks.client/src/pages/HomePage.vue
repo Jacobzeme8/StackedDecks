@@ -7,7 +7,7 @@
       </div>
       <div class="col-10 m-auto">
         <div class="bg-primary rounded p-3 d-flex justify-content-around">
-          <button @click="changeFilterType('')" class="btn btn-outline-light text-dark">All</button>
+          <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark">All</button>
           <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark">Arms</button>
           <button @click="changeFilterType('back')" class="btn btn-outline-light text-dark">Back</button>
           <button @click="changeFilterType('cardio')" class="btn btn-outline-light text-dark">Cardio</button>
@@ -41,7 +41,7 @@ import Pop from '../utils/Pop.js';
 
 export default {
   setup() {
-    const filterType = ref('')
+    const filterType = ref('all')
 
 
     async function getAllCards() {
@@ -81,7 +81,7 @@ export default {
 
     return {
       cards: computed(() => {
-        if (!filterType.value) {
+        if (filterType.value == 'all') {
           return AppState.cards
         }
         else {
