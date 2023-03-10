@@ -39,8 +39,8 @@
               alt="Linda Taing">
           </div>
           <div class="text-center">
-            <span><b class="letter text-light">Linda Taing</b></span>
-            <p class="letter text-light"><b>Cyclist that goes nowhere, but stacked!</b></p>
+            <span><b class=" text-light">Linda Taing</b></span>
+            <p class=" text-light"><b>Cyclist that goes nowhere, but stacked!</b></p>
           </div>
         </div>
         <div class="col-md-4">
@@ -50,8 +50,8 @@
               alt="JACOB MARTINEZ">
           </div>
           <div class="text-center">
-            <span><b class="letter text-light ">Jacob Martinez</b></span>
-            <p class="letter text-light"><b>5’11 and 3/4
+            <span><b class=" text-light ">Jacob Martinez</b></span>
+            <p class=" text-light"><b>5’11 and 3/4
                 in the morning, STACKED</b></p>
           </div>
         </div>
