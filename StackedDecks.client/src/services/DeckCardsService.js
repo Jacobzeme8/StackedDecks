@@ -7,7 +7,7 @@ class DeckCardsService {
   async getDeckCardsForDeck(deckId) {
     const res = await api.get(`api/decks/${deckId}/deckCards`)
     logger.log(res.data)
-    AppState.deckCard = new DeckCard(res.data)
+    AppState.deckCards = res.data.map(d => new DeckCard(d))
   }
 }
 

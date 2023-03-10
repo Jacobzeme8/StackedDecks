@@ -3,9 +3,9 @@
   <div class="Card  my-3">
     <div class="kard">
       <div class="kard_face kard-front">
-        <img class="img-fluid" :src="card.imgUrl" :alt="card.name">
+        <img class="img-fluid" :src="card?.imgUrl" :alt="card?.name">
         <div class="card-body text-center">
-          <p class="text-capitalize"><b>{{ card.name }}</b></p>
+          <p class="text-capitalize"><b>{{ card?.name }}</b></p>
           <p>CLICK IMAGE TO SEE DETAILS</p>
         </div>
       </div>
@@ -14,22 +14,22 @@
       <div class="kard_face  scrollbox kard-back">
         <!-- <img class="img-fluid" :src="card.imgUrl" :alt="card.name"> -->
         <div class="Deck_Card_Info ">
-          <h2 class="text-capitalize fw-bold">{{ card.name }}</h2>
-          <div v-if="card.difficulty == 'beginner'" class="progress" role="progressbar" aria-label="Basic example"
+          <h2 class="text-capitalize fw-bold">{{ card?.name }}</h2>
+          <div v-if="card?.difficulty == 'beginner'" class="progress" role="progressbar" aria-label="Basic example"
             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar bg-success" style="width: 25%"></div>
           </div>
-          <div v-if="card.difficulty == 'intermediate'" class="progress" role="progressbar" aria-label="Basic example"
+          <div v-if="card?.difficulty == 'intermediate'" class="progress" role="progressbar" aria-label="Basic example"
             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar bg-warning" style="width: 50%"></div>
           </div>
-          <div v-if="card.difficulty == 'expert'" class="progress" role="progressbar" aria-label="Basic example"
+          <div v-if="card?.difficulty == 'expert'" class="progress" role="progressbar" aria-label="Basic example"
             aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar bg-danger" style="width: 100%"></div>
           </div>
-          <p class="text-capitalize"><b>Level:</b> {{ card.difficulty }}</p>
-          <h4 class="text-capitalize fw-bold">{{ card.muscleGroup }}</h4>
-          <p class="fs-6"><b>Instructions:</b> {{ card.instruction }}</p>
+          <p class="text-capitalize"><b>Level:</b> {{ card?.difficulty }}</p>
+          <h4 class="text-capitalize fw-bold">{{ card?.muscleGroup }}</h4>
+          <p class="fs-6"><b>Instructions:</b> {{ card?.instruction }}</p>
           <p class="text-center">{Back Side}</p>
         </div>
       </div>
@@ -44,7 +44,7 @@ import { Card } from '../models/Card.js';
 
 export default {
   props: {
-    card: { type: Card, required: true },
+    card: { type: Object, required: true },
     // deckCard: { type: DeckCard, required: true }
 
   },

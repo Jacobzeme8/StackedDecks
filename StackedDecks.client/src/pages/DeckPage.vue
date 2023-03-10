@@ -1,8 +1,9 @@
 <template>
   <div v-if="deck">
     <h1>{{ deck.name }}</h1>
-    <div v-for="d in deckCard">
-      <Card />
+
+    <div v-for="d in deckCards">
+      <Card :card="d.card" />
     </div>
   </div>
 </template>
@@ -16,9 +17,10 @@ import { useRoute } from "vue-router";
 import { watchEffect, computed } from "vue";
 import { AppState } from "../AppState.js";
 import { decksServices } from "../services/DecksService.js";
-import { Card } from "../models/Card.js";
+import Card from "../components/Card.vue";
 
 export default {
+
   setup() {
     const route = useRoute();
     async function getDeckCardsForDeck() {
@@ -50,7 +52,9 @@ export default {
     return {
       route,
       deck: computed(() => AppState.deck),
-      deckCard: computed(() => AppState.deckCard)
+      deckCards: computed(() => AppState.deckCards)
+      // card: computed(() => AppState.deckCard.card)
+
     };
   },
   components: { Card }
