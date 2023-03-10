@@ -2,12 +2,9 @@
   <header>
     <Navbar />
   </header>
-  <main>
+  <main class="bg-color">
     <router-view />
   </main>
-  <footer>
-
-  </footer>
 </template>
 
 <script>
@@ -36,5 +33,9 @@ footer {
   display: grid;
   place-content: center;
   height: 32px;
+}
+
+.bg-color {
+  background-color: #501537;
 }
 </style>
