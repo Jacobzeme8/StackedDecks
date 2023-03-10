@@ -3,21 +3,21 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <div class="d-flex flex-row">
+        <div class="">
           <div class="img-fluid">
             <img
               src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTN8fHdvcmtvdXR8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
               alt="Parker">
           </div>
           <div class="">
-            <span><b class="text-light">Parker Ward</b></span>
+            <span><b class="text-dark">Parker Ward</b></span>
             <p><b> 6 Ft. & Stacked</b></p>
           </div>
         </div>
         <div>
           <div class="img-fluid">
             <img
-              src="https://media.istockphoto.com/id/1398851527/photo/dinosaur-tyrannosaurus-rex-on-top-mountain.jpg?b=1&s=170667a&w=0&k=20&c=NjG2UO11NeURSXhTxsEtEEKij7cOROlhugo2ijL3QA4="
+              src="https://s3-alpha-sig.figma.com/img/ca32/e76f/a7d4396b4509a88d57a61fedfea6fb02?Expires=1679270400&Signature=LduP3mFlvgDR9qfA6iDXXtemmIqhSKr0b8Bug9-DhiKUkFgDd5nTnmhVGWogIGhZymli6R4Z06lnoMHo0dSQ3nPi~RvjmEuMbnQF1x5zDctvSMHTVtLvj~BZYfQ5~b3u0ssyQhNr074NF-8HpQLT2BsLY2DXRhiNiUSISk7sWgYsw3fp-OSmBvfGCUm6~EK0qikRmJ2R4jvXb50HqfoEAqnpVdRQIBY2XDeEid2NAXr~Gr4vE6CGNr4YxEE2m9jAEw86I8ejBfsUkGseiKN0Qz4-k-fb-pLUUFKhzf6e2FBu4QMhO2dTJ5d3X2bkOEIWlpRltngnQFOTYZGkzidEHw__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4"
               alt="T-Rex">
           </div>
           <div>
