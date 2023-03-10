@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div v-for="deck in decks" class="col-3">
+      <div v-for="deck in decks" class="col-md-3">
         <Deck :deck="deck" />
       </div>
     </div>
