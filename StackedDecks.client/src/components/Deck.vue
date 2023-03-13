@@ -1,9 +1,13 @@
 <template>
-  <div class="card p-3 my-4">
+  <div class="card p-3 my-4" v-if="route">
     <div class="d-flex flex-row justify-content-between">
       <!-- NOTE deck.id is not deckId as it is pulling by prop -->
       <div title="Bookmark this deck" @click="copyDeck(deck.id)">
         <i class="mdi mdi-star text-warning fs-2 selectable"></i>
+      </div>
+      <div title="Post this deck" v-if="account.id == deck.creatorId && route.path == '/account'"
+        @click="postDeck(deck.id)">
+        <i class="mdi mdi-postage-stamp fs-2 selectable text-secondary"></i>
       </div>
       <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
         <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
@@ -29,8 +33,9 @@ import { Deck } from "../models/Deck";
 import { logger } from "../utils/Logger";
 import { decksServices } from "../services/DecksService";
 import Pop from "../utils/Pop";
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { AppState } from "../AppState.js";
+import { useRoute } from "vue-router";
 
 export default {
 
@@ -42,8 +47,20 @@ export default {
   },
 
   setup() {
+    const route = useRoute()
+    onMounted(() => { logger.log(route) })
     return {
+      route,
       account: computed(() => AppState.account),
+
+      async postDeck(deckId) {
+        try {
+          await decksServices.postDeck(deckId)
+        } catch (error) {
+          logger.error(error)
+          Pop.error(error)
+        }
+      },
 
       async copyDeck(deckId) {
         try {

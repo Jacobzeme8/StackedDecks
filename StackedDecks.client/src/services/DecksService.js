@@ -44,6 +44,11 @@ class DecksServices {
     AppState.decks = res.data.map(m => new Deck(m))
   }
 
+  async postDeck(deckId){
+    const res = await api.put(`api/decks/${deckId}`, {isPublic: true})
+    logger.log(res.data)
+  }
+
 }
 
 export const decksServices = new DecksServices() 
