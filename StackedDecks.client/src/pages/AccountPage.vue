@@ -1,6 +1,6 @@
 <template>
   <!-- Button trigger modal -->
-  <div class="contianer-fluid mt-3">
+  <div class="container-fluid mt-3">
     <div class="row mt-3 me-2">
       <div class="col-md-12 d-flex justify-content-end mt-3 ms-2">
       </div>
