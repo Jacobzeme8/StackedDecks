@@ -1,6 +1,7 @@
 <template>
   <div class="card p-3 my-4">
     <div class="row justify-content-start">
+      <!-- NOTE deck.id is not deckId as it is pulling by prop -->
       <div @click="copyDeck(deck.id)">
         <i class="mdi mdi-star fs-2 selectable"></i>
       </div>
