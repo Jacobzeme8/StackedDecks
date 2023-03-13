@@ -83,11 +83,14 @@ export default {
       editable,
       async addCardToDeck(deckId, cardId) {
         try {
-          await deckCardsService.addCardToDeck(deckId, cardId)
-          Pop.success('Added Card!')
+          if (!deckId) { Pop.error('Please select a deck!') }
+          else {
+            await deckCardsService.addCardToDeck(deckId, cardId)
+            Pop.success('Added Card!')
+          }
         } catch (error) {
           logger.error(error)
-          Pop.error(error)
+
         }
       }
 
