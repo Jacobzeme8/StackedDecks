@@ -183,4 +183,44 @@ export default {
     border-right-color: transparent;
   }
 }
+
+// NOTE: Testing this cool text for the image.
+// .input-wrapper {
+//   display: block;
+//   font-family: monospace;
+//   font-size: 125%;
+//   width: 50%;
+
+//   >input,
+//   >.placeholder {
+//     display: block;
+//     appearance: none;
+//     width: 100%;
+//     height: 100%;
+//     background-color: transparent;
+//     border: none;
+//   }
+
+//   >.placeholder {
+//     pointer-events: none;
+//     @include typed("How many roads must a man walk down before you call him a man?",
+//       "How many seas must a white dove sail before she sleeps in the sand?",
+//       "The answer, my friend, is blowin' in the wind",
+//       1.5,
+//       (caret-width: 2px,
+//         caret-space: 2px));
+//   }
+
+//   >input {
+
+//     &:focus,
+//     &:active {
+//       +.placeholder {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+// <div class="input-wrapper"><input aria-label="Ask us anything"><span class="placeholder"></span></div>
 </style>
