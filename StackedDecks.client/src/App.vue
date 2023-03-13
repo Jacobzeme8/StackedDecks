@@ -5,7 +5,7 @@
   <main class="bg-color">
     <div class="container-fluid">
       <div class="row ">
-        <div class="col-md-2" v-if="route.path != '/about'">
+        <div class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
           <div class="d-flex flex-column sticky-top">
             <button @click="changeFilterType('all')"
               class="btn btn-outline-light text-light my-1 filter-buttons">All</button>
@@ -23,6 +23,11 @@
               class="btn btn-outline-light text-light my-1 filter-buttons">Legs</button>
             <button @click="changeFilterType('shoulders')"
               class="btn btn-outline-light text-light my-1 filter-buttons">Shoulders</button>
+          </div>
+          <div class="mb-2">
+            <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
+              <button class="btn btn-outline-light filter-buttons flex-fill">About</button>
+            </router-link>
           </div>
         </div>
         <div class="col-md-10 m-auto">

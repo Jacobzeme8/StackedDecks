@@ -12,9 +12,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
         <li>
-          <router-link :to="{ name: 'About' }">
-            <button class="btn btn-secondary me-2">About</button>
-          </router-link>
+
         </li>
         <li v-if="account.id">
           <router-link :to="{ name: 'Decks' }">
