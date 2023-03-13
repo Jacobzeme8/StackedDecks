@@ -14,8 +14,8 @@
               <button @click.stop type="submit" class="btn btn-outline-secondary rounded-left d-flex flex-wrap m-auto">Add
                 To
                 Deck</button>
-              <select @click.stop v-model="editable.value" class="form-select rounded-right w-75 m-auto"
-                aria-label="Default select example">
+              <select placeholder="select a deck" @click.stop v-model="editable.value"
+                class="form-select rounded-right w-75 m-auto" aria-label="Default select example">
                 <option v-for="deck in decks" :value="deck.id" selected>{{ deck.name }}</option>
               </select>
             </form>

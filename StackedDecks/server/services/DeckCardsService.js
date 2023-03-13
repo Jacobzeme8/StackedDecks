@@ -28,6 +28,8 @@ class DeckCardsService{
     return deletedDeckCard
   }
   async createDeckCard(deckCardData) {
+    const deckCardCheck = await dbContext.DeckCards.findOne({deckId: deckCardData.deckId, cardId: deckCardData.cardId})
+    if(deckCardCheck){throw new BadRequest("card already in this deck!")}
     const deckCard = await dbContext.DeckCards.create(deckCardData)
     await deckCard.populate('deck card')
     return deckCard

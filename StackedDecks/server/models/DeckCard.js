@@ -13,7 +13,6 @@ export const DeckCardSchema = new Schema({
 { timestamps: true, toJSON: { virtuals: true } },
 
 )
-DeckCardSchema.index({ deckId: 1, CardId: 1 }, { unique: true })
 
 DeckCardSchema.virtual('deck',{
   localField: 'deckId',
@@ -27,4 +26,5 @@ DeckCardSchema.virtual('card',{
   foreignField: '_id',
   ref: 'Card',
   justOne: true
-})
+}),
+DeckCardSchema.index({ deckId: 1, cardId: 1 }, { unique: true })
