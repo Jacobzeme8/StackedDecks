@@ -70,9 +70,9 @@ export default {
       let kards = document.querySelectorAll('.kard');
       [...kards].forEach((kard) => {
         kard.classList.remove('is-flipped')
-        // kard.removeEventListener('click', function () {
-        //   kard.classList.toggle('is-flipped');
-        // });
+        kard.removeEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
         kard.addEventListener('click', function () {
           kard.classList.toggle('is-flipped');
         });
@@ -99,10 +99,10 @@ export default {
     })
 
 
-    onBeforeUpdate(() => {
-      addFlipEffect()
-    }
-    )
+    // onBeforeUpdate(() => {
+    //   addFlipEffect()
+    // }
+    // )
 
     onUpdated(() => {
       addFlipEffect()
@@ -114,10 +114,12 @@ export default {
       cards: computed(() => {
 
         if (filterType.value == 'all') {
-          return AppState.cards
+          let filter = AppState.cards
+          return filter
         }
         else {
-          return AppState.cards.filter(c => c.muscleGroup == filterType.value)
+          let filter = AppState.cards.filter(c => c.muscleGroup == filterType.value)
+          return filter
         }
       }),
 
