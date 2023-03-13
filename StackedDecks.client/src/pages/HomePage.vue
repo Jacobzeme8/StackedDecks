@@ -1,25 +1,4 @@
 <template>
-  <!-- NOTE Filter catagory  -->
-  <div class="container-fluid ">
-    <div class="row my-4">
-      <div class="col-md-12 p-4 mb-3">
-        <h1 class="text-light"></h1>
-      </div>
-      <div class="col-md-10 m-auto">
-        <div class="bg-primary rounded p-3 d-flex justify-content-around">
-          <!-- <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark">All</button>
-          <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark">Arms</button>
-          <button @click="changeFilterType('back')" class="btn btn-outline-light text-dark">Back</button>
-          <button @click="changeFilterType('cardio')" class="btn btn-outline-light text-dark">Cardio</button>
-          <button @click="changeFilterType('chest')" class="btn btn-outline-light text-dark">Chest</button>
-          <button @click="changeFilterType('core')" class="btn btn-outline-light text-dark">Core</button>
-          <button @click="changeFilterType('legs')" class="btn btn-outline-light text-dark">Legs</button>
-          <button @click="changeFilterType('shoulders')" class="btn btn-outline-light text-dark">Shoulders</button> -->
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- NOTE Cards -->
   <h1 class="text-light">Workout Cards:</h1>
   <div class="container-fluid bg-pic">
