@@ -5,7 +5,7 @@
   <main class="bg-color">
     <div class="container-fluid">
       <div class="row ">
-        <div class="col-2" v-if="route.path != '/about'">
+        <div class="col-md-2" v-if="route.path != '/about'">
           <div class="d-flex flex-column sticky-top">
             <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark my-1">All</button>
             <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark my-1">Arms</button>
