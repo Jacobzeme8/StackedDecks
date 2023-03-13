@@ -9,18 +9,17 @@
       aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
-
-        </li>
         <li v-if="account.id">
           <router-link :to="{ name: 'Decks' }">
-            <button class="btn btn-secondary me-2">Posted Decks</button>
+            <button class="btn btn-outline-light me-2 filter-buttons">Posted Decks</button>
           </router-link>
         </li>
         <li>
-          <button v-if="account.id" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#test-modal">
+          <button v-if="account.id" class="btn btn-outline-light filter-buttons" data-bs-toggle="modal"
+            data-bs-target="#test-modal">
             Create Deck
           </button>
           <Modal id="test-modal" modal-title="Create Deck">
@@ -28,9 +27,10 @@
           </Modal>
         </li>
       </ul>
-      <!-- LOGIN COMPONENT HERE -->
-      <Login />
     </div>
+
+    <!-- LOGIN COMPONENT HERE -->
+    <Login />
   </nav>
 </template>
 
@@ -78,5 +78,15 @@ a:hover {
 
 .logo-font {
   font-family: 'Bebas Neue', cursive;
+}
+
+.filter-buttons {
+  background: rgba(160, 70, 123, 0.684);
+  background: linear-gradient(180deg, rgba(177, 78, 136, 0.682) 100%, #d9dace 0%);
+}
+
+.filter-buttons:hover {
+  opacity: .65;
+  text-transform: uppercase;
 }
 </style>
