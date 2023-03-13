@@ -10,7 +10,7 @@
         </div>
         <div>
           <div>
-            <form @submit.prevent="addCardToDeck(editable.value, card.id)" class="d-flex">
+            <form v-if="account.id" @submit.prevent="addCardToDeck(editable.value, card.id)" class="d-flex">
               <button @click.stop type="submit" class="btn btn-outline-secondary rounded-left d-flex flex-wrap m-auto">Add
                 To
                 Deck</button>
@@ -52,7 +52,8 @@
 
 
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { AppState } from "../AppState";
 import { Card } from '../models/Card.js';
 import { Deck } from "../models/Deck";
 import { deckCardsService } from "../services/DeckCardsService";
@@ -71,6 +72,7 @@ export default {
     const editable = ref({})
 
     return {
+      account: computed(() => AppState.account),
       editable,
       async addCardToDeck(deckId, cardId) {
         try {
