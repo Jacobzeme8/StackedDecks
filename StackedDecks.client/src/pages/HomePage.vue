@@ -1,7 +1,13 @@
 <template>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 bg-pic">
+
+      </div>
+    </div>
+  </div>
   <!-- NOTE Cards -->
-  <h1 class="text-light">Workout Cards:</h1>
-  <div class="container-fluid bg-pic">
+  <div class="container-fluid">
     <div class="row">
 
       <div v-for="c in cards" class="col-md-4">
@@ -109,6 +115,8 @@ export default {
 .bg-pic {
   background-image: url(https://s3-alpha-sig.figma.com/img/ce11/88bd/a66c08afe888331707245a0eb22ab9cd?Expires=1679270400&Signature=ZtvAIUwLhjtxH7BacWkfdFG06VbcfHxzGf36CVr~80QNLWkUiQisK~pb8IcOQxSH4WnYKutLzXJ8YTunuLiI-NacppsNmuH94K5SzdmPXCTVXAHIKrzczlaPEwo~f2BAqsA5JLmFD0chx-JAYVTjRq9ocGGxBw02cYjn0M~1yWgM1TkxBdLnoOsStSyUsiHhrM13k72TWxfLWf-VP0NjDSGI977qgkueUt-t4XLMx1UCDsmf7MnV1RNMkYOJzrKWM7Lu4B~SCEVtrweCZWmLW3diJz~aygpwGl-zq-M6FrckQDLCfRl5Ah-T-PZoJK5tBldI4Z2jg4Ddt8Tp~WOvJQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
   background-attachment: fixed;
+  background-position: bottom;
+  height: 35vh;
 
 }
 </style>
