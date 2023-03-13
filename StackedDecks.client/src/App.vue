@@ -125,10 +125,10 @@ footer {
 .filter-buttons {
   background: rgb(0, 51, 87);
   background: linear-gradient(180deg, #003357 100%, #d9dace 0%);
-
 }
 
 .filter-buttons:hover {
   opacity: .65;
+  text-transform: uppercase;
 }
 </style>
