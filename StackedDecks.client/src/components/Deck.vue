@@ -2,10 +2,10 @@
   <div class="card p-3 my-4">
     <div class="d-flex flex-row justify-content-between">
       <!-- NOTE deck.id is not deckId as it is pulling by prop -->
-      <div @click="copyDeck(deck.id)">
+      <div title="Bookmark this deck" @click="copyDeck(deck.id)">
         <i class="mdi mdi-star text-warning fs-2 selectable"></i>
       </div>
-      <div v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
+      <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
         <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
       </div>
     </div>
