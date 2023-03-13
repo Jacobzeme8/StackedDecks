@@ -2,7 +2,7 @@
   <div class="card p-3 my-4" v-if="route">
     <div class="d-flex flex-row justify-content-between">
       <!-- NOTE deck.id is not deckId as it is pulling by prop -->
-      <div title="Bookmark this deck" @click="copyDeck(deck.id)">
+      <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
         <i class="mdi mdi-star text-warning fs-2 selectable"></i>
       </div>
       <div title="Post this deck" v-if="account.id == deck.creatorId && route.path == '/account'"
