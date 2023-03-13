@@ -135,6 +135,8 @@ export default {
   overflow: auto;
 }
 
+.small {}
+
 .icon {
   border: solid 2em transparent;
   border-top-color: white;
