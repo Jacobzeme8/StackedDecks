@@ -1,7 +1,7 @@
 <template>
   <div class="card p-3 my-4">
     <div class="row justify-content-start">
-      <div>
+      <div @click="copyDeck(deck.id)">
         <i class="mdi mdi-star fs-2 selectable"></i>
       </div>
     </div>
@@ -21,6 +21,9 @@
 
 <script>
 import { Deck } from "../models/Deck";
+import { logger } from "../utils/Logger";
+import { decksServices } from "../services/DecksService";
+import Pop from "../utils/Pop";
 
 export default {
 
@@ -32,7 +35,17 @@ export default {
   },
 
   setup() {
-    return {}
+    return {
+
+      async copyDeck(deckId) {
+        try {
+          await decksServices.copyDeck(deckId)
+        } catch (error) {
+          logger.error(error)
+          Pop.error(error)
+        }
+      }
+    }
   }
 }
 </script>

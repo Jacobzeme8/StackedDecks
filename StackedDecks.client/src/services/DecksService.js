@@ -24,10 +24,15 @@ class DecksServices {
     AppState.decks = res.data.map(d => new Deck(d))
   }
 
+  async copyDeck(deckId) {
+    const res = await api.post('api/decks/' + deckId)
+    AppState.decks.push(new Deck(res.data))
+    return res.data
+  }
 
-  async getMyDecks(){
+  async getMyDecks() {
     const res = await api.get('account/decks')
-    AppState.decks = res.data.map( m => new Deck(m))
+    AppState.decks = res.data.map(m => new Deck(m))
   }
 
 }
