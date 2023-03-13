@@ -30,6 +30,8 @@ class DeckCardsService{
   async createDeckCard(deckCardData) {
     const deckCardCheck = await dbContext.DeckCards.findOne({deckId: deckCardData.deckId, cardId: deckCardData.cardId})
     if(deckCardCheck){throw new BadRequest("card already in this deck!")}
+    const deckCardLimitCheck = await dbContext.DeckCards.find({deckId: deckCardData.deckId})
+    if(deckCardLimitCheck.length >= 6){throw new BadRequest('Already at 6 card limit in this deck!')}
     const deckCard = await dbContext.DeckCards.create(deckCardData)
     await deckCard.populate('deck card')
     return deckCard
