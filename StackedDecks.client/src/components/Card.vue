@@ -2,20 +2,24 @@
   <!-- NOTE Face of Card -->
   <div class=" my-3">
     <div class="kard">
-      <div class="kard_face kard-front card">
-        <img class="img-fluid" :src="card.imgUrl" :alt="card.name">
-        <div class="card-body pb-1 text-center">
-          <p class="text-capitalize"><b>{{ card.name }}</b></p>
-          <p class="mb-0">CLICK IMAGE TO SEE DETAILS</p>
+      <div class="kard_face kard-front card bg-success">
+        <div class="card elevation-5">
+          <img class="img-fluid types" :src="card.imgUrl" :alt="card.name">
         </div>
-        <div>
+        <div class="pb-1 text-center ">
+          <div class="card-body elevation-3 rounded-bottom">
+            <p class="text-capitalize"><b>{{ card.name }}</b></p>
+            <p class="mb-0">CLICK IMAGE TO SEE DETAILS</p>
+          </div>
+        </div>
+        <div class="my-2">
           <div>
             <form v-if="account.id" @submit.prevent="addCardToDeck(editable.value, card.id)" class="d-flex">
-              <button @click.stop type="submit" class="btn btn-outline-secondary rounded-left d-flex flex-wrap m-auto">Add
-                To
-                Deck</button>
+              <button @click.stop type="submit" class="btn btn-outline-dark rounded-left d-flex flex-wrap m-auto">
+                Add To Deck
+              </button>
               <select placeholder="select a deck" @click.stop v-model="editable.value"
-                class="form-select rounded-right w-75 m-auto" aria-label="Default select example">
+                class="form-select rounded-right w-75 m-auto " aria-label="Default select example">
                 <option v-for="deck in decks" :value="deck.id" selected>{{ deck.name }}</option>
               </select>
             </form>
@@ -41,9 +45,12 @@
             <div class="progress-bar bg-danger" style="width: 100%"></div>
           </div>
           <p class="text-capitalize"><b>Level:</b> {{ card?.difficulty }}</p>
-          <h4 class="text-capitalize fw-bold">{{ card?.muscleGroup }}</h4>
-          <p class="fs-6"><b>Instructions:</b> {{ card?.instruction }}</p>
-          <p class="text-center">{Back Side}</p>
+
+          <div class="card-body elevation-3 p-2">
+            <h4 class="text-capitalize fw-bold">{{ card?.muscleGroup }}</h4>
+            <p class="fs-6"><b>Instructions:</b> {{ card?.instruction }}</p>
+            <p class="text-center">{Back Side}</p>
+          </div>
         </div>
       </div>
     </div>
