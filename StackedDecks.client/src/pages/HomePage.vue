@@ -66,57 +66,58 @@ export default {
       }
     }
 
-    onMounted(() => {
-      getAllCards()
-
-    })
-
-    watchEffect(() => {
-      if (filterType.value) {
-        let kards = document.querySelectorAll('.kard');
-        [...kards].forEach((kard) => {
-          kard.classList.remove('is-flipped')
-          kard.addEventListener('click', function () {
-            kard.classList.toggle('is-flipped');
-          });
-        });
-      }
-    })
-
-    watchEffect(() => {
-      if (AppState.account.id) {
-        getMyDecks()
-        let kards = document.querySelectorAll('.kard');
-        [...kards].forEach((kard) => {
-          kard.classList.remove('is-flipped')
-          kard.addEventListener('click', function () {
-            kard.classList.toggle('is-flipped');
-          });
-        });
-      }
-    })
-
-
-    onBeforeUpdate(() => {
-
+    function addFlipEffect() {
       let kards = document.querySelectorAll('.kard');
       [...kards].forEach((kard) => {
+        kard.classList.remove('is-flipped')
+        // kard.removeEventListener('click', function () {
+        //   kard.classList.toggle('is-flipped');
+        // });
         kard.addEventListener('click', function () {
           kard.classList.toggle('is-flipped');
         });
       });
     }
+
+    onMounted(() => {
+      getAllCards();
+      addFlipEffect()
+
+    })
+
+    watchEffect(() => {
+      if (filterType.value) {
+        addFlipEffect()
+      }
+    })
+
+    watchEffect(() => {
+      if (AppState.account.id) {
+        getMyDecks();
+        addFlipEffect()
+      }
+    })
+
+
+    onBeforeUpdate(() => {
+      addFlipEffect()
+    }
     )
+
+    onUpdated(() => {
+      addFlipEffect()
+    })
 
 
     return {
       decks: computed(() => AppState.decks),
       cards: computed(() => {
+
         if (filterType.value == 'all') {
-          return AppState.cards.slice(0, AppState.account.id ? undefined : 3)
+          return AppState.cards
         }
         else {
-          return AppState.cards.filter(c => c.muscleGroup == filterType.value).slice(0, AppState.account.id ? undefined : 3)
+          return AppState.cards.filter(c => c.muscleGroup == filterType.value)
         }
       }),
 
