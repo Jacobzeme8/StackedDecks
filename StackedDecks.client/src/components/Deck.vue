@@ -5,7 +5,7 @@
       <div @click="copyDeck(deck.id)">
         <i class="mdi mdi-star text-warning fs-2 selectable"></i>
       </div>
-      <div v-if="account.id == deck.creator.id" @click="deleteDeck(deck.id)">
+      <div v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
         <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
       </div>
     </div>
