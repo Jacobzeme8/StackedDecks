@@ -1,11 +1,15 @@
 <template>
   <div class="card p-3 my-4">
-    <div class="row justify-content-start">
+    <div class="d-flex flex-row justify-content-between">
       <!-- NOTE deck.id is not deckId as it is pulling by prop -->
       <div @click="copyDeck(deck.id)">
-        <i class="mdi mdi-star fs-2 selectable"></i>
+        <i class="mdi mdi-star text-warning fs-2 selectable"></i>
+      </div>
+      <div v-if="account.id == deck.creator.id" @click="deleteDeck(deck.id)">
+        <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
       </div>
     </div>
+
     <div class="d-flex justify-content-center">
       <p>{{ deck.name }}</p>
     </div>
@@ -25,6 +29,8 @@ import { Deck } from "../models/Deck";
 import { logger } from "../utils/Logger";
 import { decksServices } from "../services/DecksService";
 import Pop from "../utils/Pop";
+import { computed } from "vue";
+import { AppState } from "../AppState.js";
 
 export default {
 
@@ -37,10 +43,21 @@ export default {
 
   setup() {
     return {
+      account: computed(() => AppState.account),
 
       async copyDeck(deckId) {
         try {
           await decksServices.copyDeck(deckId)
+        } catch (error) {
+          logger.error(error)
+          Pop.error(error)
+        }
+      },
+      async deleteDeck(deckId) {
+        try {
+          if (await Pop.confirm('Are you sure you want to delete this deck?')) {
+            await decksServices.deleteDeck(deckId)
+          }
         } catch (error) {
           logger.error(error)
           Pop.error(error)
