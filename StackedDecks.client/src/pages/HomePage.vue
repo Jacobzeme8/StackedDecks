@@ -111,6 +111,7 @@ export default {
 
     return {
       decks: computed(() => AppState.decks),
+      // NOTE finish filter function without breaking the flip function
       cards: computed(() => {
 
         if (filterType.value == 'all') {
