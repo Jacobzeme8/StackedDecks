@@ -7,14 +7,22 @@
       <div class="row ">
         <div class="col-md-2" v-if="route.path != '/about'">
           <div class="d-flex flex-column sticky-top">
-            <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark my-1">All</button>
-            <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark my-1">Arms</button>
-            <button @click="changeFilterType('back')" class="btn btn-outline-light text-dark my-1">Back</button>
-            <button @click="changeFilterType('cardio')" class="btn btn-outline-light text-dark my-1">Cardio</button>
-            <button @click="changeFilterType('chest')" class="btn btn-outline-light text-dark my-1">Chest</button>
-            <button @click="changeFilterType('core')" class="btn btn-outline-light text-dark my-1">Core</button>
-            <button @click="changeFilterType('legs')" class="btn btn-outline-light text-dark my-1">Legs</button>
-            <button @click="changeFilterType('shoulders')" class="btn btn-outline-light text-dark my-1">Shoulders</button>
+            <button @click="changeFilterType('all')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">All</button>
+            <button @click="changeFilterType('arms')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Arms</button>
+            <button @click="changeFilterType('back')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Back</button>
+            <button @click="changeFilterType('cardio')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Cardio</button>
+            <button @click="changeFilterType('chest')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Chest</button>
+            <button @click="changeFilterType('core')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Core</button>
+            <button @click="changeFilterType('legs')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Legs</button>
+            <button @click="changeFilterType('shoulders')"
+              class="btn btn-outline-light text-light my-1 filter-buttons">Shoulders</button>
           </div>
         </div>
         <div class="col-md-10 m-auto">
@@ -112,6 +120,15 @@ footer {
 .bg-color {
   background: rgb(0, 51, 87);
   background: linear-gradient(180deg, #003357 0%, #d9dace 100%);
+}
 
+.filter-buttons {
+  background: rgb(0, 51, 87);
+  background: linear-gradient(180deg, #003357 100%, #d9dace 0%);
+
+}
+
+.filter-buttons:hover {
+  opacity: .65;
 }
 </style>
