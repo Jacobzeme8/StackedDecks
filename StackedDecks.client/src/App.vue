@@ -16,7 +16,7 @@
           <button @click="changeFilterType('shoulders')" class="btn btn-outline-light text-dark">Shoulders</button>
         </div>
         <div class="col-md-10 m-auto">
-          <router-view />
+          <router-view :cards="cards" />
         </div>
       </div>
     </div>
@@ -24,17 +24,50 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useRoute } from "vue-router"
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 
 export default {
   setup() {
+    function addFlipEffect() {
+      let kards = document.querySelectorAll('.kard');
+      [...kards].forEach((kard) => {
+        kard.classList.remove('is-flipped')
+        kard.removeEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+        kard.addEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+      });
+    }
+    const filterType = ref('all')
     const route = useRoute()
+    watchEffect(() => {
+      if (filterType.value) {
+        addFlipEffect()
+      }
+    })
     return {
       route,
-      appState: computed(() => AppState)
+      appState: computed(() => AppState),
+      changeFilterType(c) {
+        filterType.value = c
+      },
+      cards: computed(() => {
+
+        if (filterType.value == 'all') {
+          let filter = AppState.cards
+          return filter
+        }
+        else {
+          let filter = AppState.cards.filter(c => c.muscleGroup == filterType.value)
+          return filter
+        }
+      }),
+
     }
   },
   components: { Navbar }
