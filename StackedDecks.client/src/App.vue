@@ -75,7 +75,7 @@ export default {
           return AppState.decks
         }
         else {
-          let filter = AppState.decks.filter(d => d.exerciseType)
+          let filter = AppState.decks.filter(d => d.exerciseType.includes(filterType.value))
           return filter
         }
       })
