@@ -221,6 +221,4 @@ export default {
 //     }
 //   }
 // }
-
-// <div class="input-wrapper"><input aria-label="Ask us anything"><span class="placeholder"></span></div>
 </style>
