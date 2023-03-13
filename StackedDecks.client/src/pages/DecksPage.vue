@@ -17,6 +17,12 @@ import Pop from "../utils/Pop";
 import { AppState } from "../AppState";
 
 export default {
+  props: {
+    decks: {
+      type: Object,
+      required: true
+    }
+  },
   setup() {
 
     async function getAllDecks() {
@@ -33,7 +39,6 @@ export default {
     )
 
     return {
-      decks: computed(() => AppState.decks)
     }
   }
 }

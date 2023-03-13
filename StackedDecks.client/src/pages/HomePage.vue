@@ -29,11 +29,15 @@ export default {
     cards: {
       type: Object,
       required: true
+    },
+    decks: {
+      type: Object,
+      required: true
     }
   },
 
   setup() {
-    // const filterType = ref('all')
+
 
 
     async function getAllCards() {
@@ -82,10 +86,6 @@ export default {
     })
 
 
-    // onBeforeUpdate(() => {
-    //   addFlipEffect()
-    // }
-    // )
 
     onUpdated(() => {
       addFlipEffect()
@@ -93,23 +93,7 @@ export default {
 
 
     return {
-      decks: computed(() => AppState.decks),
-      // NOTE finish filter function without breaking the flip function
-      // cards: computed(() => {
-
-      //   if (filterType.value == 'all') {
-      //     let filter = AppState.cards
-      //     return filter
-      //   }
-      //   else {
-      //     let filter = AppState.cards.filter(c => c.muscleGroup == filterType.value)
-      //     return filter
-      //   }
-      // }),
-
-      // changeFilterType(c) {
-      //   filterType.value = c
-      // },
+      // decks: computed(() => AppState.decks),
       account: computed(() => AppState.account)
     }
   },

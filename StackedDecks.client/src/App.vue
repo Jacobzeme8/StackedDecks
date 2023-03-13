@@ -5,18 +5,20 @@
   <main class="bg-color">
     <div class="container-fluid">
       <div class="row ">
-        <div class="col-2 d-flex flex-column" v-if="route.path != '/about'">
-          <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark">All</button>
-          <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark">Arms</button>
-          <button @click="changeFilterType('back')" class="btn btn-outline-light text-dark">Back</button>
-          <button @click="changeFilterType('cardio')" class="btn btn-outline-light text-dark">Cardio</button>
-          <button @click="changeFilterType('chest')" class="btn btn-outline-light text-dark">Chest</button>
-          <button @click="changeFilterType('core')" class="btn btn-outline-light text-dark">Core</button>
-          <button @click="changeFilterType('legs')" class="btn btn-outline-light text-dark">Legs</button>
-          <button @click="changeFilterType('shoulders')" class="btn btn-outline-light text-dark">Shoulders</button>
+        <div class="col-2" v-if="route.path != '/about'">
+          <div class="d-flex flex-column sticky-top">
+            <button @click="changeFilterType('all')" class="btn btn-outline-light text-dark my-1">All</button>
+            <button @click="changeFilterType('arms')" class="btn btn-outline-light text-dark my-1">Arms</button>
+            <button @click="changeFilterType('back')" class="btn btn-outline-light text-dark my-1">Back</button>
+            <button @click="changeFilterType('cardio')" class="btn btn-outline-light text-dark my-1">Cardio</button>
+            <button @click="changeFilterType('chest')" class="btn btn-outline-light text-dark my-1">Chest</button>
+            <button @click="changeFilterType('core')" class="btn btn-outline-light text-dark my-1">Core</button>
+            <button @click="changeFilterType('legs')" class="btn btn-outline-light text-dark my-1">Legs</button>
+            <button @click="changeFilterType('shoulders')" class="btn btn-outline-light text-dark my-1">Shoulders</button>
+          </div>
         </div>
         <div class="col-md-10 m-auto">
-          <router-view :cards="cards" />
+          <router-view :decks="decks" :cards="cards" />
         </div>
       </div>
     </div>
@@ -28,6 +30,7 @@ import { computed, ref, watchEffect } from 'vue'
 import { useRoute } from "vue-router"
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
+import { logger } from "./utils/Logger"
 
 export default {
   setup() {
@@ -67,6 +70,15 @@ export default {
           return filter
         }
       }),
+      decks: computed(() => {
+        if (filterType.value == 'all') {
+          return AppState.decks
+        }
+        else {
+          let filter = AppState.decks.filter(d => d.exerciseType)
+          return filter
+        }
+      })
 
     }
   },
@@ -78,6 +90,11 @@ export default {
 
 :root {
   --main-height: calc(100vh - 32px - 64px);
+}
+
+.sticky-top {
+  position: sticky;
+  top: 1em;
 }
 
 
