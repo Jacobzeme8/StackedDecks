@@ -1,8 +1,8 @@
 <template>
   <!-- NOTE Face of Card -->
   <div class=" my-3">
-    <div class="kard">
-      <div class="kard_face kard-front card bg-success">
+    <div class="kard bg-secondary rounded">
+      <div class="kard_face kard-front card bg-card p-2 rounded">
         <div class="card elevation-5">
           <img class="img-fluid types" :src="card.imgUrl" :alt="card.name">
         </div>
@@ -28,7 +28,7 @@
       </div>
 
       <!-- NOTE Back of card -->
-      <div class="card kard_face  scrollbox kard-back p-2">
+      <div class="card kard_face  scrollbox kard-back">
         <!-- <img class="img-fluid" :src="card.imgUrl" :alt="card.name"> -->
         <div class="Deck_Card_Info ">
           <h2 class="text-capitalize fw-bold">{{ card?.name }}</h2>
@@ -104,6 +104,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.bg-card {
+  background-color: rgba(177, 78, 136, 0.682);
+}
+
 .kard_face {
   // position: absolute;
 
