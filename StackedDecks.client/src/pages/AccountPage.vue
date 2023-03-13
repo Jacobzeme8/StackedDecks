@@ -65,9 +65,6 @@
       </div>
     </div>
   </div>
-  <div>
-    <h1>BOOKMARKED DECKS:</h1>
-  </div>
 </template>
 
 <script>
