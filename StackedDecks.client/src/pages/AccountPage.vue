@@ -73,7 +73,15 @@ import { AppState } from '../AppState'
 import EditAccountForm from '../components/EditAccountForm.vue';
 import { decksServices } from '../services/DecksService.js';
 export default {
+  props: {
+    decks: {
+      type: Object,
+      required: true
+    }
+  },
   setup() {
+
+
     async function getMyDecks() {
       try {
         await decksServices.getMyDecks()
@@ -91,7 +99,6 @@ export default {
       account: computed(() => AppState.account),
       coverImg: computed(() => `url("${AppState.account?.coverImg}")`),
       deck: computed(() => AppState.deck),
-      decks: computed(() => AppState.decks)
     };
   },
   components: { EditAccountForm }
