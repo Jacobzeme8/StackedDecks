@@ -38,10 +38,10 @@
         </div>
       </div>
     </div>
-    <div v-for="d in deckCards">
-      <div class="container">
+    <div>
+      <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4">
+          <div v-for="d in deckCards" class="col-md-4">
             <Card :decks="decks" :card="d.card" />
           </div>
         </div>

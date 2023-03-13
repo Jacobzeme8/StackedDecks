@@ -57,7 +57,13 @@
 
   <div>
     <h1>MY DECKS:</h1>
-
+    <div class="container-fluid bg-pic">
+      <div class="row" v-if="decks">
+        <div v-for="deck in decks" class="col-md-3">
+          <Deck :deck="deck" />
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <h1>BOOKMARKED DECKS:</h1>
@@ -65,18 +71,30 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import EditAccountForm from '../components/EditAccountForm.vue';
+import { decksServices } from '../services/DecksService.js';
 export default {
   setup() {
+    async function getMyDecks() {
+      try {
+        await decksServices.getMyDecks()
+      } catch (error) {
+        logger.error(error)
+        Pop.error(error)
+      }
+    }
 
 
-
+    onMounted(() =>
+      getMyDecks()
+    )
     return {
       account: computed(() => AppState.account),
-      coverImg: computed(() => `url("${AppState.account?.coverImg}")`)
-
+      coverImg: computed(() => `url("${AppState.account?.coverImg}")`),
+      deck: computed(() => AppState.deck),
+      decks: computed(() => AppState.decks)
     };
   },
   components: { EditAccountForm }
