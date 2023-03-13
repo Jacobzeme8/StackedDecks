@@ -24,14 +24,14 @@ export class DeckCardsController extends BaseController{
       next(error)
     }
   }
-  async createDeckCard(req, res, send) {
+  async createDeckCard(req, res, next) {
     try {
       const deckCardData = req.body
       deckCardData.creatorId = req.userInfo.id
       const deckCard = await deckCardsService.createDeckCard(deckCardData)
       return res.send(deckCard)
     } catch (error) {
-      
+      next(error)
     }
   }
 
