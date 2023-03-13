@@ -10,7 +10,7 @@
   <div class="container-fluid">
     <div class="row">
 
-      <div v-for="c in cards" class="col-md-4">
+      <div v-for="c in cards" class="col-md-3">
         <Card :decks="decks" :card="c" />
       </div>
 
