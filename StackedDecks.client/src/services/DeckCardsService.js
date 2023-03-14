@@ -5,6 +5,12 @@ import Pop from "../utils/Pop.js"
 import { api } from "./AxiosService"
 
 class DeckCardsService {
+
+ async  getAccountDeckCards(){
+  const res = await api.get(`account/deckcards`)
+  AppState.accountDeckCards = res.data
+  logger.log(AppState.accountDeckCards)
+ }
   async getDeckCardsForDeck(deckId) {
     const res = await api.get(`api/decks/${deckId}/deckCards`)
     logger.log(res.data)

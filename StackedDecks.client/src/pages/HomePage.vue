@@ -31,6 +31,7 @@ import { onMounted, computed, ref, onUpdated, watchEffect, onBeforeUpdate } from
 import { AppState } from '../AppState.js';
 import Card from '../components/Card.vue';
 import { cardsService } from '../services/CardsService.js';
+import { deckCardsService } from "../services/DeckCardsService";
 import { decksServices } from "../services/DecksService";
 import { logger } from "../utils/Logger";
 import Pop from '../utils/Pop.js';
@@ -83,6 +84,15 @@ export default {
       });
     }
 
+    async function getAccountDeckCards() {
+      try {
+        await deckCardsService.getAccountDeckCards()
+      } catch (error) {
+        logger.log(error)
+        Pop.error(error)
+      }
+    }
+
     onMounted(() => {
       getAllCards();
       addFlipEffect()
@@ -94,7 +104,8 @@ export default {
     watchEffect(() => {
       if (AppState.account.id) {
         getMyDecks();
-        addFlipEffect()
+        addFlipEffect();
+        getAccountDeckCards();
       }
     })
 
