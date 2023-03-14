@@ -42,7 +42,8 @@
       <div class="container-fluid">
         <div class="row">
           <div v-for="d in deckCards" class="col-md-4">
-            <Card :decks="decks" :card="d.card" />
+            <Card :time="d.time" :sets="d.sets" :weight="d.weight" :reps="d.reps" :deckCard="d" :decks="decks"
+              :card="d.card" />
           </div>
         </div>
       </div>
