@@ -10,7 +10,7 @@
         <div class="pb-1 text-center ">
           <div class="card-body elevation-3 rounded-bottom">
             <p class="text-capitalize"><b>{{ card.name }}</b></p>
-            <p class="mb-0">CLICK IMAGE TO SEE DETAILS</p>
+            <p class="mb-0 on-hover">CLICK IMAGE TO SEE DETAILS</p>
           </div>
         </div>
         <div class="my-2">
