@@ -15,14 +15,14 @@
         </div>
         <div class="my-2">
           <div>
-            <form v-if="account.id && accountDeckCards" @submit.prevent="addCardToDeck(editable.value, card.id)"
-              class="d-flex">
+            <form v-if="account.id" @submit.prevent="addCardToDeck(editable.value, card.id)" class="d-flex">
               <button @click.stop type="submit" class="btn btn-outline-dark rounded-left d-flex flex-wrap m-auto">
                 Add To Deck
               </button>
               <select placeholder="select a deck" @click.stop v-model="editable.value"
                 class="form-select rounded-right w-75 m-auto " aria-label="Default select example">
-                <option v-for="deck in decks" :value="deck.id">{{ deck.name }}</option>
+                <option v-for="deck in decks" :value="deck.id" selected>{{
+                  deck.name }}</option>
               </select>
             </form>
           </div>
@@ -61,7 +61,7 @@
 
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, } from "vue";
 import { AppState } from "../AppState";
 import { Card } from '../models/Card.js';
 import { Deck } from "../models/Deck";
@@ -99,6 +99,8 @@ export default {
           Pop.error(error)
         }
       },
+
+
       checkDeckCardsInDecks(deck) {
         const deckCard = AppState.accountDeckCards.find(d => d.deckId == deck.id)
         if (!deckCard) { return false }
