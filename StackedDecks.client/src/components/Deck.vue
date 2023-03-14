@@ -1,5 +1,5 @@
 <template>
-  <div class="card p-3 my-4" v-if="route">
+  <div class=" bg-card card p-3 my-4" v-if="route">
     <div class="d-flex flex-row justify-content-between">
       <!-- NOTE deck.id is not deckId as it is pulling by prop -->
       <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
@@ -14,11 +14,11 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center">
-      <p>{{ deck.name }}</p>
+    <div class="d-flex text-light justify-content-center">
+      <p><b>{{ deck.name }}</b></p>
     </div>
     <router-link :to="{ name: 'Deck', params: { deckId: deck.id } }">
-      <img class="img-fluid cover-img mb-2" :title="`${deck.name} page`" :src="deck.coverImg" alt="">
+      <img class="img-fluid rounded cover-img mb-2" :title="`${deck.name} page`" :src="deck.coverImg" alt="">
     </router-link>
     <router-link :to="{ name: 'Profile', params: { creatorId: deck.creatorId } }">
       <div v-if="deck.creator" class="d-flex align-items-center justify-content-between">
@@ -98,5 +98,9 @@ export default {
   object-fit: cover;
   width: 100%;
   height: 30vh;
+}
+
+.bg-card {
+  background-color: #2e536dee;
 }
 </style>
