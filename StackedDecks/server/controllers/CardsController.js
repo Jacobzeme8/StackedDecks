@@ -1,3 +1,4 @@
+import { Auth0Provider } from "@bcwdev/auth0provider";
 import { cardsService } from "../services/CardsService";
 import BaseController from "../utils/BaseController";
 
@@ -32,10 +33,10 @@ export class CardsController extends BaseController {
 
   async editCard(req, res, next) {
     try {
-      const creatorId = req.userInfo.cardId
       const cardData = req.body
       const id = req.params.cardId
-      const card = await cardsService.editCard(id, cardData, creatorId)
+      const card = await cardsService.editCard(id, cardData)
+      return res.send(card)
     } catch (error) {
       next(error)
     }

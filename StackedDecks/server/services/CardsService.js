@@ -10,10 +10,9 @@ class CardsService {
     const card = await dbContext.Cards.create(cardData)
     return card
   }
-  async editCard(id, cardData, creatorId) {
+  async editCard(id, cardData) {
     const card = await dbContext.Cards.findById(id)
-    if (!card) { throw new BadRequest('invalid card ID') }
-    if (card.creatorId != creatorId) { throw new UnAuthorized('Not your card to Edit!') }
+    if (!card) { throw new BadRequest('Invalid card ID') }
     card.name = cardData.name || card.name
     card.muscleGroup = cardData.muscleGroup || card.muscleGroup
     card.instruction = cardData.instruction || card.instruction
