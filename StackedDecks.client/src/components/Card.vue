@@ -4,12 +4,13 @@
     <div class="kard bg-secondary rounded">
       <div class="kard_face kard-front card bg-card p-2 rounded">
         <div class="card elevation-5">
+          <i v-if="!card.imgUrl" class="mdi mdi-loading mdi-spin"></i>
           <img class="img-fluid types" :src="card.imgUrl" :alt="card.name">
         </div>
         <div class="pb-1 text-center ">
           <div class="card-body elevation-3 rounded-bottom">
             <p class="text-capitalize"><b>{{ card.name }}</b></p>
-            <p class="mb-0">CLICK IMAGE TO SEE DETAILS</p>
+            <p class="mb-0 on-hover">CLICK IMAGE TO SEE DETAILS</p>
           </div>
         </div>
         <div class="my-2">
