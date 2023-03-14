@@ -21,7 +21,7 @@
     <div class="row">
 
       <div v-for="c in cards" class="col-md-3">
-        <Card :decks="decks" :card="c" />
+        <Card :accountDeckCards="accountDeckCards" :decks="decks" :card="c" />
       </div>
 
     </div>
@@ -121,7 +121,8 @@ export default {
 
     return {
       // decks: computed(() => AppState.decks),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      accountDeckCards: computed(() => AppState.accountDeckCards)
     }
   },
   components: { Card }
