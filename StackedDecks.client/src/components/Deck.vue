@@ -21,7 +21,7 @@
       <img class="img-fluid rounded cover-img mb-2" :title="`${deck.name} page`" :src="deck.coverImg" alt="">
     </router-link>
     <router-link :to="{ name: 'Profile', params: { creatorId: deck.creatorId } }">
-      <div v-if="deck.creator" class="d-flex align-items-center justify-content-between">
+      <div v-if="deck.creator" class="d-flex text-light align-items-center justify-content-between">
         <b>{{ deck.creator.name }}</b>
         <img class="img-fluid rounded-circle profile-img" :src="deck.creator.picture" alt="">
       </div>
