@@ -1,6 +1,8 @@
 <template>
-    <h1 v-if="profile">{{ profile.name }}</h1>
-    <!-- <img :src="profile.picture" alt=""> -->
+    <div v-if="profile">
+        <h1>{{ profile.name }}</h1>
+        <img :src="profile.picture" alt="">
+    </div>
 </template>
 
 
