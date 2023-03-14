@@ -4,11 +4,13 @@ import BaseController from "../utils/BaseController";
 
 export class CardsController extends BaseController {
 
-  constructor(){
+  constructor() {
     super('api/cards')
     this.router
-    .post('', this.createCard)
-    .get('', this.getAllCards)
+      .post('', this.createCard)
+      .get('', this.getAllCards)
+      .put('/:cardId', this.editCard)
+
   }
   async getAllCards(req, res, next) {
     try {
@@ -23,6 +25,17 @@ export class CardsController extends BaseController {
       const cardData = req.body
       const card = await cardsService.createCard(cardData)
       return res.send(card)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async editCard(req, res, next) {
+    try {
+      const creatorId = req.userInfo.cardId
+      const cardData = req.body
+      const id = req.params.cardId
+      const card = await cardsService.editCard(id, cardData, creatorId)
     } catch (error) {
       next(error)
     }
