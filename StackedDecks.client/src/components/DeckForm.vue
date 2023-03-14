@@ -85,6 +85,27 @@
                                 shoulders
                             </label>
                         </div>
+                        <div class="form-check ms-1">
+                            <input v-model="editable.lowerBody" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                lower body
+                            </label>
+                        </div>
+                        <div class="form-check ms-1">
+                            <input v-model="editable.fullBody" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                full body
+                            </label>
+                        </div>
+                        <div class="form-check ms-1">
+                            <input v-model="editable.upperBody" class="form-check-input" type="checkbox" value=""
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                upper body
+                            </label>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -117,6 +138,9 @@ export default {
                 if (value.cardio) { editable.value.exerciseType.push('cardio') }
                 if (value.core) { editable.value.exerciseType.push('core') }
                 if (value.shoulders) { editable.value.exerciseType.push('shoulders') }
+                if (value.shoulders) { editable.value.exerciseType.push('lowerBody') }
+                if (value.shoulders) { editable.value.exerciseType.push('upperBody') }
+                if (value.shoulders) { editable.value.exerciseType.push('fullBody') }
                 const formData = editable.value
                 await decksServices.createDeck(formData)
                 editable.value = {

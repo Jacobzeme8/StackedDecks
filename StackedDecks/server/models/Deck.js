@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-const tag = { type: String, unique: true, enum: ['arms', 'back', 'cardio', 'chest', 'core', 'legs', 'shoulders', 'full body', 'lower body', 'upper body'] }
+const tag = { type: String, unique: true, enum: ['arms', 'back', 'cardio', 'chest', 'core', 'legs', 'shoulders', 'fullBody', 'lowerBody', 'upperBody'] }
 
 export const DeckSchema = new Schema({
     name: { type: String, maxLength: 20, required: true },
