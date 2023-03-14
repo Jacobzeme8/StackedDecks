@@ -9,7 +9,6 @@ export const CardSchema = new Schema({
   difficulty: { type: String, required: true, enum: ['beginner', 'intermediate', 'expert'] },
   imgUrl: { type: String, required: true, maxLength: 500 },
   equipment: { type: String, maxLength: 50 },
-  creatorId: { type: Schema.Types.ObjectId, required: true },
 },
   { timestamps: true, toJSON: { virtuals: true } }
 )
