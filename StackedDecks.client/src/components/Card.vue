@@ -19,9 +19,10 @@
               <button @click.stop type="submit" class="btn btn-outline-dark rounded-left d-flex flex-wrap m-auto">
                 Add To Deck
               </button>
-              <select placeholder="select a deck" @click.stop v-model="editable.value"
+              <select v-if="accountDeckCards" placeholder="select a deck" @click.stop v-model="editable.value"
                 class="form-select rounded-right w-75 m-auto " aria-label="Default select example">
-                <option v-for="deck in decks" :value="deck.id" selected>{{ deck.name }}</option>
+                <option :disabled="checkDeckCardsInDecks(deck)" v-for="deck in decks" :value="deck.id" selected>{{
+                  deck.name }}</option>
               </select>
             </form>
           </div>
@@ -72,16 +73,20 @@ import Pop from "../utils/Pop";
 export default {
   props: {
     card: { type: Object, required: true },
-    decks: { type: Array, required: true }
+    decks: { type: Array, required: true },
+    // accountDeckCards: { type: Array, required: true }
     // deckCard: { type: DeckCard, required: true }
 
   },
   setup() {
     const editable = ref({})
 
+
+
     return {
       account: computed(() => AppState.account),
       editable,
+      accountDeckCards: computed(() => AppState.accountDeckCards),
       async addCardToDeck(deckId, cardId) {
         try {
           if (!deckId) { Pop.error('Please select a deck!') }
@@ -93,6 +98,11 @@ export default {
           logger.error(error)
 
         }
+      },
+      checkDeckCardsInDecks(deck) {
+        const deckCard = AppState.accountDeckCards.find(d => d.deckId == deck.id)
+        if (!deckCard) { return true }
+        else { return false }
       }
 
 
