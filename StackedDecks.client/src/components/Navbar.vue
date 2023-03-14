@@ -37,15 +37,15 @@
         <router-link class=" d-flex align-items-center" :to="{ name: 'Home' }">
           <img class="sd" src="Logo.png" alt="">
           <div class="d-flex flex-column ">
-            <h1 class="logo-font text-light">Stacked Decks</h1>
+            <div class="logo-font size text-light">Stacked Decks</div>
           </div>
         </router-link>
         <div class="d-flex">
           <router-link :to="{ name: 'Decks' }" class="align-items-center d-flex">
-            <button class="btn btn-outline-light me-2 filter-buttons">Posted Decks</button>
+            <button class="btn btn-outline-light fs-5 me-3 filter-buttons">Posted Decks</button>
           </router-link>
           <div class="d-flex align-items-center">
-            <button v-if="account.id" class="btn btn-outline-light filter-buttons me-2" data-bs-toggle="modal"
+            <button v-if="account.id" class="btn fs-5   btn-outline-light filter-buttons me-3" data-bs-toggle="modal"
               data-bs-target="#test-modal">
               Create Deck
             </button>
@@ -82,6 +82,11 @@ export default {
 <style scoped>
 .sd {
   height: 7em;
+}
+
+.size {
+  font-size: 40pt;
+  text-shadow: 1px 1px 5px black;
 }
 
 a:hover {
