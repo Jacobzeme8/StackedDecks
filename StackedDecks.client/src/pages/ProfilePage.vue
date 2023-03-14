@@ -26,11 +26,12 @@
         </div>
     </div>
     <div>
-        <h1>THEIR DECKS:</h1>
-        <div class="container-fluid bg-pic">
-            <div class="row" v-if="userDecks">
-                <div v-for="deck in userDecks" class="col-md-3">
-                    <Deck :deck="deck" />
+        <div v-if="profile" class="fs-2">{{ profile.name }}'s DECKS:
+            <div class="container-fluid bg-pic">
+                <div class="row" v-if="userDecks">
+                    <div v-for="deck in userDecks" class="col-md-3">
+                        <Deck :deck="deck" />
+                    </div>
                 </div>
             </div>
         </div>

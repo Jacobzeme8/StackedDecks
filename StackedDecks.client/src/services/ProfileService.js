@@ -4,6 +4,7 @@ import { logger } from "../utils/Logger"
 
 class ProfileService {
     async getUserProfile(creatorId) {
+        AppState.profile = null
         const res = await api.get('api/profiles/' + creatorId)
         logger.log('getting this profile', res.data)
 
