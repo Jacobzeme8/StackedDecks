@@ -25,6 +25,7 @@
             </div>
         </div>
     </div>
+    {{ userDecks }}
 </template>
 
 
@@ -32,6 +33,7 @@
 import { computed, onMounted, onUnmounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { AppState } from '../AppState.js';
+import { decksServices } from '../services/DecksService.js';
 import { profileService } from '../services/ProfileService.js';
 import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop';
@@ -50,13 +52,28 @@ export default {
             }
         }
 
+        async function getUserDecks() {
+            try {
+
+                const creatorId = route.params.creatorId
+                await decksServices.getUserDecks(creatorId)
+            } catch (error) {
+                logger.error(error)
+                Pop.error(error.message)
+
+            }
+        }
+
+
         onMounted(() => {
             getUserProfile()
+            getUserDecks()
         })
         return {
             profile: computed(() => AppState.profile),
             account: computed(() => AppState.account),
             coverImg: computed(() => `url("${AppState.profile?.coverImg}")`),
+            userDecks: computed(() => AppState.userDecks),
 
         }
     }

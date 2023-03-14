@@ -17,6 +17,7 @@ export class DecksController extends BaseController {
             .post('/:deckId', this.copyDeck)
 
     }
+
     async copyDeck(req, res, next) {
         try {
             const deckId = req.params.deckId

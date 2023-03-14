@@ -45,8 +45,16 @@ class DecksServices {
     AppState.decks = res.data.map(m => new Deck(m))
   }
 
-  async postDeck(deckId){
-    const res = await api.put(`api/decks/${deckId}`, {isPublic: true})
+  async getUserDecks(creatorId) {
+
+    const res = await api.get(`api/profiles/${creatorId}/decks`)
+    logger.log('grabbing creatorId', res.data)
+    AppState.userDecks = res.data.map(m => new Deck(m))
+
+  }
+
+  async postDeck(deckId) {
+    const res = await api.put(`api/decks/${deckId}`, { isPublic: true })
     logger.log(res.data)
   }
 
