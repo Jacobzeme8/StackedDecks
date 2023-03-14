@@ -1,31 +1,36 @@
 <template>
-  <div class=" bg-card card p-3 my-4" v-if="route">
-    <div class="d-flex flex-row justify-content-between">
-      <!-- NOTE deck.id is not deckId as it is pulling by prop -->
-      <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
-        <i class="mdi mdi-star text-warning fs-2 selectable"></i>
+  <div class="">
+    <div class=" card bg-card decks-stacked card elevation-3 shadow-lg p-3 my-4" v-if="route">
+      <div class="d-flex flex-row elevation-3 rounded justify-content-between">
+        <!-- NOTE deck.id is not deckId as it is pulling by prop -->
+        <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
+          <i class="mdi mdi-star text-warning fs-2 selectable"></i>
+        </div>
+        <div title="Post this deck" v-if="account.id == deck.creatorId && route.path == '/account'"
+          @click="postDeck(deck.id)">
+          <i class="mdi mdi-postage-stamp fs-2 selectable text-secondary"></i>
+        </div>
+        <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
+          <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
+        </div>
       </div>
-      <div title="Post this deck" v-if="account.id == deck.creatorId && route.path == '/account'"
-        @click="postDeck(deck.id)">
-        <i class="mdi mdi-postage-stamp fs-2 selectable text-secondary"></i>
+      <div class="d-flex text-light justify-content-center">
+        <p><b>{{ deck.name }}</b></p>
       </div>
-      <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
-        <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
-      </div>
+      <router-link :to="{ name: 'Deck', params: { deckId: deck.id } }">
+        <img class="img-fluid rounded elevation-3 cover-img mb-2" :title="`${deck.name} page`" :src="deck.coverImg"
+          alt="">
+      </router-link>
+      <router-link :to="{ name: 'Profile', params: { creatorId: deck.creatorId } }">
+        <div v-if="deck.creator" class="d-flex text-light align-items-center justify-content-between">
+          <b>{{ deck.creator.name }}</b>
+          <img class="img-fluid rounded-circle profile-img" :src="deck.creator.picture" alt="">
+        </div>
+      </router-link>
     </div>
-
-    <div class="d-flex text-light justify-content-center">
-      <p><b>{{ deck.name }}</b></p>
-    </div>
-    <router-link :to="{ name: 'Deck', params: { deckId: deck.id } }">
-      <img class="img-fluid rounded cover-img mb-2" :title="`${deck.name} page`" :src="deck.coverImg" alt="">
-    </router-link>
-    <router-link :to="{ name: 'Profile', params: { creatorId: deck.creatorId } }">
-      <div v-if="deck.creator" class="d-flex text-light align-items-center justify-content-between">
-        <b>{{ deck.creator.name }}</b>
-        <img class="img-fluid rounded-circle profile-img" :src="deck.creator.picture" alt="">
-      </div>
-    </router-link>
+    <div class="bg-card card-1"></div>
+    <div class="bg-card card-2"></div>
+    <div class="bg-card card-3"></div>
   </div>
 </template>
 
@@ -38,6 +43,7 @@ import Pop from "../utils/Pop";
 import { computed, onMounted } from "vue";
 import { AppState } from "../AppState.js";
 import { useRoute } from "vue-router";
+import { DeckCard } from "../models/DeckCard.js";
 
 export default {
 
@@ -102,5 +108,35 @@ export default {
 
 .bg-card {
   background-color: #2e536dee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 6px 16px rgba(93, 98, 98, 0.2);
+  height: 415px;
+  padding: 20px;
+  position: relative;
+  transition: all 0.8s ease;
+  width: 270px;
+  z-index: 4;
+}
+
+.card-1 {
+  background-color: #2e536dee;
+  height: 350px;
+  width: 265px;
+  z-index: 3;
+}
+
+.card-2 {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 250px;
+  z-index: 2;
+}
+
+.card-3 {
+  margin-left: 20px;
+  margin-top: 20px;
+  width: 240px;
+  z-index: 1;
 }
 </style>
