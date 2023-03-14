@@ -14,5 +14,7 @@ export const AppState = reactive({
   /** @type {import('./models/DeckCard').DeckCard[]} */
   deckCards: [],
   /** @type {import('./models/DeckCard').DeckCard|null} */
-  deckCard: null
+  deckCard: null,
+  /** @type {import('./models/DeckCard').DeckCard|null} */
+  accountDeckCards: null
 })
