@@ -85,6 +85,9 @@ export default {
             getUserProfile()
             getUserDecks()
         })
+        onUnmounted(() => {
+            AppState.profile = []
+        })
         return {
             profile: computed(() => AppState.profile),
             account: computed(() => AppState.account),
