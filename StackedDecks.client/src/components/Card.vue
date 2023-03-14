@@ -4,6 +4,7 @@
     <div class="kard bg-secondary rounded">
       <div class="kard_face kard-front card bg-card p-2 rounded">
         <div class="card elevation-5">
+          <i v-if="!card.imgUrl" class="mdi mdi-loading mdi-spin"></i>
           <img class="img-fluid types" :src="card.imgUrl" :alt="card.name">
         </div>
         <div class="pb-1 text-center ">

@@ -33,7 +33,7 @@
 
 <script>
 import { computed, ref, watchEffect, onUpdated, onMounted } from 'vue'
-import { useRoute } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { AppState } from './AppState'
 import Navbar from './components/Navbar.vue'
 import { logger } from "./utils/Logger"
@@ -57,6 +57,13 @@ export default {
     watchEffect(() => {
       if (filterType.value) {
         addFlipEffect()
+      }
+    })
+
+    watchEffect(() => {
+      if (route.path) {
+        filterType.value = 'all'
+        // logger.log(router)
       }
     })
 

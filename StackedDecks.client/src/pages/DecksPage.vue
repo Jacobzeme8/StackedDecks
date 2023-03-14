@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid bg-pic">
+  <div class="container-fluid bg-pic rounded-top">
     <div class="row" v-if="decks">
       <div v-for="deck in decks" class="col-md-3">
         <Deck :deck="deck" />
