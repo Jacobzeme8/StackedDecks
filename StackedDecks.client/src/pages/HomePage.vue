@@ -8,7 +8,8 @@
       <div class="col-md-8">
         <div class=" card frosted marg-top">
           <div class="card-body">
-            <p class="text-light mt-5 line-1 anim-typewriter">Arms, Legs, Shoulders, Back, Cardio, Full Body</p>
+            <p class=" bebas text-light mt-5 line-1 anim-typewriter">Arms, Legs, Shoulders, Back, Cardio, Full Body ...
+            </p>
           </div>
         </div>
       </div>
@@ -138,6 +139,11 @@ export default {
   margin-top: 70px;
 }
 
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 1px 1px 2px black;
+}
+
 .bg-pic {
   background-image: url(https://s3-alpha-sig.figma.com/img/ce11/88bd/a66c08afe888331707245a0eb22ab9cd?Expires=1679270400&Signature=ZtvAIUwLhjtxH7BacWkfdFG06VbcfHxzGf36CVr~80QNLWkUiQisK~pb8IcOQxSH4WnYKutLzXJ8YTunuLiI-NacppsNmuH94K5SzdmPXCTVXAHIKrzczlaPEwo~f2BAqsA5JLmFD0chx-JAYVTjRq9ocGGxBw02cYjn0M~1yWgM1TkxBdLnoOsStSyUsiHhrM13k72TWxfLWf-VP0NjDSGI977qgkueUt-t4XLMx1UCDsmf7MnV1RNMkYOJzrKWM7Lu4B~SCEVtrweCZWmLW3diJz~aygpwGl-zq-M6FrckQDLCfRl5Ah-T-PZoJK5tBldI4Z2jg4Ddt8Tp~WOvJQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
   background-attachment: fixed;
@@ -149,7 +155,7 @@ export default {
 .frosted {
   box-shadow: 0 0 5px 0;
   background: inherit;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(25px);
   /* margin: 100px; */
 }
 
