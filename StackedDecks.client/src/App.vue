@@ -13,7 +13,11 @@
             <button @click="changeFilterType('cardio')" class="btn btn-outline-light my-1 filter-buttons">Cardio</button>
             <button @click="changeFilterType('chest')" class="btn btn-outline-light my-1 filter-buttons">Chest</button>
             <button @click="changeFilterType('core')" class="btn btn-outline-light my-1 filter-buttons">Core</button>
+            <button @click="changeFilterType('full body')" class="btn btn-outline-light my-1 filter-buttons">Full
+              Body</button>
             <button @click="changeFilterType('legs')" class="btn btn-outline-light my-1 filter-buttons">Legs</button>
+            <button @click="changeFilterType('lower body')" class="btn btn-outline-light my-1 filter-buttons">Lower
+              Body</button>
             <button @click="changeFilterType('shoulders')"
               class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
           </div>
