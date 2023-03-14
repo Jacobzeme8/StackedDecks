@@ -1,4 +1,7 @@
 <template>
+  <!-- <div class="input-wrapper">
+    <span class="placeholder">arm</span>
+  </div> -->
   <div class="container bg-pic">
     <div class="row">
       <div class="col-md-2"></div>
@@ -185,6 +188,74 @@ export default {
 }
 
 // NOTE: Testing this cool text for the image.
+
+// @mixin typed($text, $cursor, $speed, $caret-args) {
+//   content: '';
+//   display: inline-block;
+//   width: 0;
+//   height: 100%;
+//   border-right: $caret-args;
+//   animation: typing $speed steps(40, end),
+//     blink-caret $cursor step-end infinite;
+
+//   @keyframes typing {
+//     from {
+//       width: 0
+//     }
+
+//     to {
+//       width: 100%
+//     }
+//   }
+
+//   @keyframes blink-caret {
+
+//     from,
+//     to {
+//       border-color: transparent
+//     }
+
+//     50% {
+//       border-color: black
+//     }
+//   }
+// }
+
+// .input-wrapper {
+//   display: block;
+//   font-size: 125%;
+//   width: 50%;
+
+//   >input,
+//   .placeholder {
+//     display: block;
+//     appearance: none;
+//     width: 100%;
+//     height: 100%;
+//     background-color: transparent;
+//     border: none;
+//   }
+
+//   >.placeholder {
+//     pointer-events: none;
+//     @include typed("arm",
+//       2px,
+//       1.5s,
+//       2px solid black);
+//   }
+
+//   >input {
+
+//     &:focus,
+//     &:active {
+//       +.placeholder {
+//         display: none;
+//       }
+//     }
+//   }
+// }
+
+
 // .input-wrapper {
 //   display: block;
 //   font-family: monospace;
