@@ -34,8 +34,9 @@
   <div class="container-fluid bg-color">
     <div class="row">
       <div class="col-12 p-2 d-flex justify-content-between align-items-center">
-        <router-link class=" d-flex" :to="{ name: 'Home' }">
-          <div class="d-flex flex-column align-items-center">
+        <router-link class=" d-flex align-items-center" :to="{ name: 'Home' }">
+          <img class="sd" src="Logo.png" alt="">
+          <div class="d-flex flex-column ">
             <h1 class="logo-font text-light">Stacked Decks</h1>
           </div>
         </router-link>
@@ -79,6 +80,10 @@ export default {
 </script>
 
 <style scoped>
+.sd {
+  height: 7em;
+}
+
 a:hover {
   text-decoration: none;
 }

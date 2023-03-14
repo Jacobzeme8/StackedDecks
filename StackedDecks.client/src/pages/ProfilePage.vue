@@ -25,7 +25,17 @@
             </div>
         </div>
     </div>
-    {{ userDecks }}
+    <div>
+        <div v-if="profile" class="fs-2">{{ profile.name }}'s DECKS:
+            <div class="container-fluid bg-pic">
+                <div class="row" v-if="userDecks">
+                    <div v-for="deck in userDecks" class="col-md-3">
+                        <Deck :deck="deck" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 
@@ -39,6 +49,12 @@ import { logger } from '../utils/Logger.js';
 import Pop from '../utils/Pop';
 
 export default {
+    props: {
+        userDecks: {
+            type: Object,
+            required: true
+        }
+    },
     setup() {
         const route = useRoute();
 
@@ -69,11 +85,17 @@ export default {
             getUserProfile()
             getUserDecks()
         })
+        onUnmounted(() => {
+            AppState.profile = []
+        })
         return {
             profile: computed(() => AppState.profile),
             account: computed(() => AppState.account),
             coverImg: computed(() => `url("${AppState.profile?.coverImg}")`),
             userDecks: computed(() => AppState.userDecks),
+            deck: computed(() => AppState.deck),
+            decks: computed(() => AppState.decks)
+
 
         }
     }
