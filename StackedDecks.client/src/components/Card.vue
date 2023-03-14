@@ -1,6 +1,6 @@
 <template>
   <!-- NOTE Face of Card -->
-  <div v-if="deckCard" class=" my-3">
+  <div class=" my-3">
     <div class="kard bg-secondary rounded">
       <div class="kard_face kard-front card bg-card p-2 rounded">
         <div class="card elevation-5">
@@ -13,22 +13,24 @@
             <p class="mb-0 on-hover">CLICK IMAGE TO SEE DETAILS</p>
           </div>
         </div>
-        <div v-if="deckCard.creatorId == account.id">
-          <div class="input-group mb-3">
-            <button @click.stop="reps--" class="btn btn-outline-primary" type="button">Button</button>
-            <input @click.stop class="w-25 text-center" v-model="reps" type="number">
-            <button @click.stop="reps++" class="btn btn-outline-primary" type="button">Button</button>
-            <button @click.stop="weight--" class="btn btn-outline-primary" type="button">Button</button>
-            <input @click.stop class="w-25 text-center" v-model="weight" type="number">
-            <button @click.stop="weight++" class="btn btn-outline-primary" type="button">Button</button>
-          </div>
-          <div class="input-group mb-3">
-            <button @click.stop="sets--" class="btn btn-outline-primary" type="button">Button</button>
-            <input @click.stop class="w-25 text-center" v-model="sets" type="number">
-            <button @click.stop="sets++" class="btn btn-outline-primary" type="button">Button</button>
-            <button @click.stop="time--" class="btn btn-outline-primary" type="button">Button</button>
-            <input @click.stop class="w-25 text-center" v-model="time" type="number">
-            <button @click.stop="time++" class="btn btn-outline-primary" type="button">Button</button>
+        <div v-if="deckCard">
+          <div v-if="deckCard.creatorId == account.id">
+            <div class="input-group mb-3">
+              <button @click.stop="reps--" class="btn btn-outline-primary" type="button">Button</button>
+              <input @click.stop class="w-25 text-center" v-model="reps" type="number">
+              <button @click.stop="reps++" class="btn btn-outline-primary" type="button">Button</button>
+              <button @click.stop="weight--" class="btn btn-outline-primary" type="button">Button</button>
+              <input @click.stop class="w-25 text-center" v-model="weight" type="number">
+              <button @click.stop="weight++" class="btn btn-outline-primary" type="button">Button</button>
+            </div>
+            <div class="input-group mb-3">
+              <button @click.stop="sets--" class="btn btn-outline-primary" type="button">Button</button>
+              <input @click.stop class="w-25 text-center" v-model="sets" type="number">
+              <button @click.stop="sets++" class="btn btn-outline-primary" type="button">Button</button>
+              <button @click.stop="time--" class="btn btn-outline-primary" type="button">Button</button>
+              <input @click.stop class="w-25 text-center" v-model="time" type="number">
+              <button @click.stop="time++" class="btn btn-outline-primary" type="button">Button</button>
+            </div>
           </div>
         </div>
         <div class="my-2">
