@@ -20,6 +20,8 @@
               Body</button>
             <button @click="changeFilterType('shoulders')"
               class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
+            <button @click="changeFilterType('upper body')" class="btn btn-outline-light my-1 filter-buttons">Upper
+              Body</button>
           </div>
           <div class="mb-2">
             <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
