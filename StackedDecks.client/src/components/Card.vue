@@ -19,9 +19,9 @@
               <button @click.stop type="submit" class="btn btn-outline-dark rounded-left d-flex flex-wrap m-auto">
                 Add To Deck
               </button>
-              <select v-if="accountDeckCards" placeholder="select a deck" @click.stop v-model="editable.value"
+              <select placeholder="select a deck" @click.stop v-model="editable.value"
                 class="form-select rounded-right w-75 m-auto " aria-label="Default select example">
-                <option :disabled="checkDeckCardsInDecks(deck)" v-for="deck in decks" :value="deck.id" selected>{{
+                <option v-for="deck in decks" :value="deck.id" selected>{{
                   deck.name }}</option>
               </select>
             </form>
@@ -61,7 +61,7 @@
 
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed, } from "vue";
 import { AppState } from "../AppState";
 import { Card } from '../models/Card.js';
 import { Deck } from "../models/Deck";
@@ -96,13 +96,15 @@ export default {
           }
         } catch (error) {
           logger.error(error)
-
+          Pop.error(error)
         }
       },
+
+
       checkDeckCardsInDecks(deck) {
         const deckCard = AppState.accountDeckCards.find(d => d.deckId == deck.id)
-        if (!deckCard) { return true }
-        else { return false }
+        if (!deckCard) { return false }
+        else { return true }
       }
 
 

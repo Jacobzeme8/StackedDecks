@@ -6,22 +6,71 @@
     <div class="container-fluid">
       <div class="row ">
         <div class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
-          <div class="d-flex flex-column sticky-top">
-            <button @click="changeFilterType('all')" class="btn btn-outline-light my-1 filter-buttons">All</button>
-            <button @click="changeFilterType('arms')" class="btn btn-outline-light my-1 filter-buttons">Arms</button>
-            <button @click="changeFilterType('back')" class="btn btn-outline-light my-1 filter-buttons">Back</button>
-            <button @click="changeFilterType('cardio')" class="btn btn-outline-light my-1 filter-buttons">Cardio</button>
-            <button @click="changeFilterType('chest')" class="btn btn-outline-light my-1 filter-buttons">Chest</button>
-            <button @click="changeFilterType('core')" class="btn btn-outline-light my-1 filter-buttons">Core</button>
-            <button @click="changeFilterType('full body')" class="btn btn-outline-light my-1 filter-buttons">Full
-              Body</button>
-            <button @click="changeFilterType('legs')" class="btn btn-outline-light my-1 filter-buttons">Legs</button>
-            <button @click="changeFilterType('lower body')" class="btn btn-outline-light my-1 filter-buttons">Lower
-              Body</button>
-            <button @click="changeFilterType('shoulders')"
-              class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
-            <button @click="changeFilterType('upper body')" class="btn btn-outline-light my-1 filter-buttons">Upper
-              Body</button>
+          <!-- NOTE offcanvas start -->
+          <button class="filter-mobile btn btn-outline-light filter-buttons text-light mb-2" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+            <i class="mdi mdi-filter-multiple text-light"></i>
+          </button>
+          <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+              aria-label="Close"></button>
+            <div class="offcanvas-body">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="d-flex flex-column sticky-top">
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('all')"
+                        class="btn btn-outline-light my-1 filter-buttons">All</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('arms')"
+                        class="btn btn-outline-light my-1 filter-buttons">Arms</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('back')"
+                        class="btn btn-outline-light my-1 filter-buttons">Back</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('cardio')"
+                        class="btn btn-outline-light my-1 filter-buttons">Cardio</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('chest')"
+                        class="btn btn-outline-light my-1 filter-buttons">Chest</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('core')"
+                        class="btn btn-outline-light my-1 filter-buttons">Core</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('full body')"
+                        class="btn btn-outline-light my-1 filter-buttons">Full
+                        Body</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('legs')"
+                        class="btn btn-outline-light my-1 filter-buttons">Legs</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('lower body')"
+                        class="btn btn-outline-light my-1 filter-buttons">Lower
+                        Body</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('shoulders')"
+                        class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('upper body')"
+                        class="btn btn-outline-light my-1 filter-buttons">Upper
+                        Body</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- NOTE offcanvas end -->
+          <div class=" filter-desktop">
+            <div class="d-flex flex-column sticky-top">
+              <button @click="changeFilterType('all')" class="btn btn-outline-light my-1 filter-buttons">All</button>
+              <button @click="changeFilterType('arms')" class="btn btn-outline-light my-1 filter-buttons">Arms</button>
+              <button @click="changeFilterType('back')" class="btn btn-outline-light my-1 filter-buttons">Back</button>
+              <button @click="changeFilterType('cardio')"
+                class="btn btn-outline-light my-1 filter-buttons">Cardio</button>
+              <button @click="changeFilterType('chest')" class="btn btn-outline-light my-1 filter-buttons">Chest</button>
+              <button @click="changeFilterType('core')" class="btn btn-outline-light my-1 filter-buttons">Core</button>
+              <button @click="changeFilterType('full body')" class="btn btn-outline-light my-1 filter-buttons">Full
+                Body</button>
+              <button @click="changeFilterType('legs')" class="btn btn-outline-light my-1 filter-buttons">Legs</button>
+              <button @click="changeFilterType('lower body')" class="btn btn-outline-light my-1 filter-buttons">Lower
+                Body</button>
+              <button @click="changeFilterType('shoulders')"
+                class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
+              <button @click="changeFilterType('upper body')" class="btn btn-outline-light my-1 filter-buttons">Upper
+                Body</button>
+            </div>
           </div>
           <div class="mb-2">
             <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
@@ -110,6 +159,26 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+
+.filter-mobile {
+  display: none;
+}
+
+@include media-breakpoint-down(md) {
+  .filter-mobile {
+    display: block;
+  }
+}
+
+.filter-desktop {
+  display: block;
+}
+
+@include media-breakpoint-down(md) {
+  .filter-desktop {
+    display: none;
+  }
+}
 
 :root {
   --main-height: calc(100vh - 32px - 64px);
