@@ -29,9 +29,15 @@ const routes = [
     beforeEnter: authGuard
   },
   {
-    path:'/deck/:deckId',
+    path: '/deck/:deckId',
     name: 'Deck',
     component: loadPage('DeckPage'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/profile/:creatorId',
+    name: 'Profile',
+    component: loadPage('ProfilePage'),
     beforeEnter: authGuard
   }
 ]
