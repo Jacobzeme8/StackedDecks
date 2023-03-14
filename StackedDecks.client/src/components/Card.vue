@@ -15,22 +15,42 @@
         </div>
         <div v-if="deckCard">
           <div v-if="deckCard.creatorId == account.id">
-            <div class="input-group mb-3">
-              <button @click.stop="reps--" class="btn btn-outline-primary" type="button">Button</button>
-              <input @click.stop class="w-25 text-center" v-model="reps" type="number">
-              <button @click.stop="reps++" class="btn btn-outline-primary" type="button">Button</button>
-              <button @click.stop="weight--" class="btn btn-outline-primary" type="button">Button</button>
-              <input @click.stop class="w-25 text-center" v-model="weight" type="number">
-              <button @click.stop="weight++" class="btn btn-outline-primary" type="button">Button</button>
-            </div>
-            <div class="input-group mb-3">
-              <button @click.stop="sets--" class="btn btn-outline-primary" type="button">Button</button>
-              <input @click.stop class="w-25 text-center" v-model="sets" type="number">
-              <button @click.stop="sets++" class="btn btn-outline-primary" type="button">Button</button>
-              <button @click.stop="time--" class="btn btn-outline-primary" type="button">Button</button>
-              <input @click.stop class="w-25 text-center" v-model="time" type="number">
-              <button @click.stop="time++" class="btn btn-outline-primary" type="button">Button</button>
-            </div>
+            <form @submit.prevent="saveExerciseInfo(reps, weight, sets, time)">
+              <div class="d-flex justify-content-between">
+                <span>reps</span>
+                <span>weight</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class="input-group mb-3">
+                  <button @click.stop="reps--" class="btn btn-outline-primary mdi mdi-minus fs-3" type="button"></button>
+                  <input @click.stop min="0" class="w-25 text-center" v-model="reps" type="number">
+                  <button @click.stop="reps++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
+                </div>
+                <div class="input-group mb-3 justify-content-end">
+                  <button @click.stop="weight--" class="btn btn-outline-primary mdi mdi-minus fs-3"
+                    type="button"></button>
+                  <input @click.stop min="0" class="w-25 text-center" v-model="weight" type="number">
+                  <button @click.stop="weight++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>sets</span>
+                <span>time</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <div class="input-group mb-3">
+                  <button @click.stop="sets--" class="btn btn-outline-primary mdi mdi-minus fs-3" type="button"></button>
+                  <input @click.stop min="0" class="w-25 text-center" v-model="sets" type="number">
+                  <button @click.stop="sets++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
+                </div>
+                <div class="input-group mb-3 justify-content-end">
+                  <button @click.stop="time--" class="btn btn-outline-primary mdi mdi-minus fs-3" type="button"></button>
+                  <input @click.stop min="0" class="w-25 text-center" v-model="time" type="number">
+                  <button @click.stop="time++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-success p-1">Save</button>
+            </form>
           </div>
         </div>
         <div class="my-2">
@@ -128,8 +148,8 @@ export default {
         }
       },
 
-      increaseValue(value) {
-        value++
+      saveExerciseInfo(reps, weight, sets, time) {
+        logger.log(reps, time, weight, sets)
       },
 
 
@@ -149,6 +169,12 @@ export default {
 
 
 <style lang="scss" scoped>
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .bg-card {
   background-color: rgba(177, 78, 136, 0.682);
 }
