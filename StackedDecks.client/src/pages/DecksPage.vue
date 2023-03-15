@@ -2,7 +2,7 @@
   <div class="container-fluid bg-pic rounded-top pb-5">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-light">Posted Decks:</h1>
+        <h1 class="text-light bebas">Posted Decks:</h1>
       </div>
     </div>
     <div class="row d-flex justify-content-between" v-if="decks">
@@ -55,6 +55,9 @@ export default {
   background-image: url(https://s3-alpha-sig.figma.com/img/c18b/c619/66e4aec6a0b9109642c48b4be8160384?Expires=1679270400&Signature=ki65DIggD4AN4p59c-5-tKaotHn95DOL4Y6s4Cvc8sFHUoM7YfbKNDJfexMMe4dsuuK8xCbaWD9NdckDee~H9cf04zRKpfE1jWRqRrdMbJLSaZ1TmrATLc6mhQAzRFuthht2SMVXbp15n3xCA2EIf33iRc88-W~kKGWUIvaBSvDs2UX33rIJIei-8KWquN-ZWN-ewppJ5xNMeTq3wxEiguQ0QXbZCKsYexZWTvf4H8QZ3sooV7xi7DeRiDuFvZPLq3zJDCHBXUe3MDpwQQNglOqfQnk8bnGCd-cgXSSITCxXP78S6XpBW3GsGw8Isae0QlkLaVCe0Ax-JhxpTlHx2Q__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4);
   background-size: cover;
   background-position: center;
+}
 
+.bebas {
+  font-family: 'Bebas Neue', cursive;
 }
 </style>
