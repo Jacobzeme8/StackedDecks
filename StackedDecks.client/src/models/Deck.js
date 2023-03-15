@@ -8,6 +8,7 @@ export class Deck {
     this.coverImg = data.coverImg
     this.isPublic = data.isPublic || false
     this.exerciseType = data.exerciseType
+    this.isCopied = data.isCopied || false
     // TODO add Bookmark count 
   }
 }
