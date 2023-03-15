@@ -123,7 +123,7 @@ export default {
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 6px 16px rgba(93, 98, 98, 0.2);
-  height: 415px;
+  height: 420px;
   padding: 20px;
   transition: all 0.8s ease;
   width: 270px;
@@ -134,7 +134,7 @@ export default {
   background-color: rgb(177, 78, 136);
   position: absolute;
   bottom: -1vh;
-  height: 350px;
+  height: 410px;
   width: 268px;
   z-index: 3;
 }

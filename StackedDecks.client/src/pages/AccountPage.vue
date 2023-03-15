@@ -55,7 +55,7 @@
   </div>
 
 
-  <div>
+  <div class="pb-4">
     <h1>MY DECKS:</h1>
     <div class="container-fluid bg-pic">
       <div class="row" v-if="decks">
