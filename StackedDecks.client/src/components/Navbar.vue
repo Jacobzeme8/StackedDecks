@@ -37,7 +37,7 @@
         <router-link class=" d-flex align-items-center" :to="{ name: 'Home' }">
           <img class="sd" src="Logo.png" alt="">
           <div class="d-flex flex-column ">
-            <div class="logo-font size text-light">Stacked Decks</div>
+            <div class="logo-font size text-light" title="Back to HomePage here.">Stacked Decks</div>
           </div>
         </router-link>
       </div>
