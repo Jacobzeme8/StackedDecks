@@ -33,23 +33,28 @@
   </div> -->
   <div class="container-fluid bg-color">
     <div class="row">
-      <div class="col-12 p-2 d-flex justify-content-between align-items-center">
+      <div class="col-md-6 p-2 d-flex justify-content-between align-items-center">
         <router-link class=" d-flex align-items-center" :to="{ name: 'Home' }">
           <img class="sd" src="Logo.png" alt="">
           <div class="d-flex flex-column ">
             <div class="logo-font size text-light">Stacked Decks</div>
           </div>
         </router-link>
-        <div class="d-flex">
-          <router-link :to="{ name: 'Decks' }" class="align-items-center d-flex">
-            <button class="btn btn-outline-light fs-5 me-3 filter-buttons">Posted Decks</button>
-          </router-link>
-          <div class="d-flex align-items-center">
-            <button v-if="account.id" class="btn fs-5   btn-outline-light filter-buttons me-3" data-bs-toggle="modal"
-              data-bs-target="#test-modal">
-              Create Deck
-            </button>
-          </div>
+      </div>
+
+
+
+      <div class="d-flex col-md-6 justify-content-end">
+        <router-link :to="{ name: 'Decks' }" class="align-items-center d-flex">
+          <button class="btn btn-outline-light fs-5 me-3 filter-buttons">Posted Decks</button>
+        </router-link>
+        <div class="d-flex align-items-center">
+          <button v-if="account.id" class="btn fs-5   btn-outline-light filter-buttons me-3" data-bs-toggle="modal"
+            data-bs-target="#test-modal">
+            Create Deck
+          </button>
+        </div>
+        <div class="d-flex align-items-center">
           <Login class="p-0" />
         </div>
       </div>
