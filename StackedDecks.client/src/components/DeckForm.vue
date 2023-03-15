@@ -138,9 +138,9 @@ export default {
                 if (value.cardio) { editable.value.exerciseType.push('cardio') }
                 if (value.core) { editable.value.exerciseType.push('core') }
                 if (value.shoulders) { editable.value.exerciseType.push('shoulders') }
-                if (value.shoulders) { editable.value.exerciseType.push('lowerBody') }
-                if (value.shoulders) { editable.value.exerciseType.push('upperBody') }
-                if (value.shoulders) { editable.value.exerciseType.push('fullBody') }
+                if (value.lowerBody) { editable.value.exerciseType.push('lowerBody') }
+                if (value.upperBody) { editable.value.exerciseType.push('upperBody') }
+                if (value.fullBody) { editable.value.exerciseType.push('fullBody') }
                 const formData = editable.value
                 await decksServices.createDeck(formData)
                 editable.value = {
