@@ -27,7 +27,7 @@ class DecksServices {
 
   async copyDeck(deckId) {
     const res = await api.post('api/decks/' + deckId)
-    AppState.decks.push(new Deck(res.data))
+    // AppState.decks.push(new Deck(res.data))
     return res.data
   }
 
