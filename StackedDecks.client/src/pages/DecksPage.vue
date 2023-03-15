@@ -5,7 +5,7 @@
         <h1 class="text-light">Posted Decks:</h1>
       </div>
     </div>
-    <div class="row" v-if="decks">
+    <div class="row d-flex justify-content-between" v-if="decks">
       <div v-for="deck in decks" class="col-md-3">
         <Deck :deck="deck" />
       </div>

@@ -41,9 +41,6 @@
           </div>
         </router-link>
       </div>
-
-
-
       <div class="d-flex col-md-6 justify-content-end">
         <router-link :to="{ name: 'Decks' }" class="align-items-center d-flex">
           <button class="btn btn-outline-light fs-5 me-3 filter-buttons">Posted Decks</button>
