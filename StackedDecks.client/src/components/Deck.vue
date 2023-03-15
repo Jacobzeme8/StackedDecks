@@ -135,7 +135,7 @@ export default {
 }
 
 .card-1 {
-  background-color: rgb(177, 78, 136);
+  background-color: rgb(126, 51, 95);
   position: absolute;
   bottom: 1.5vh;
   height: 410px;
@@ -144,7 +144,7 @@ export default {
 }
 
 .card-2 {
-  background-color: rgb(177, 78, 136);
+  background-color: rgb(134, 51, 100);
   margin-left: 10px;
   position: absolute;
   bottom: .5vh;
@@ -154,7 +154,7 @@ export default {
 }
 
 .card-3 {
-  background-color: rgb(177, 78, 136);
+  background-color: rgb(140, 58, 106);
   margin-left: 20px;
   position: absolute;
   bottom: -.5vh;
