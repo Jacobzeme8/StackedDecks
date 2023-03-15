@@ -302,8 +302,11 @@ body {
 
 .types {
   display: flex;
+  object-fit: contain;
+  object-position: center;
   justify-content: space-around;
-  margin: 20px 0 40px 0;
+  margin: 0px 0 40px 0;
+  height: 250px
 }
 
 .hp span,
