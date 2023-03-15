@@ -80,7 +80,7 @@
           </div>
           <div class="mb-2">
             <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
-              <button class="btn btn-outline-light filter-buttons flex-fill">About</button>
+              <button class="btn btn-outline-light filter-buttons bebas flex-fill">About</button>
             </router-link>
           </div>
         </div>

@@ -8,7 +8,7 @@
       <div class="col-md-8">
         <div class=" card frosted marg-top">
           <div class="card-body d-flex ">
-            <p class="bebas text-light mt-5 line-1 anim-typewriter text-wrap">Arms, Legs, Shoulders, Back, Cardio,
+            <p class="bebas text-light mt-5 line-1 anim-typewriter">Arms, Legs, Shoulders, Back, Cardio,
               Full
               Body ...</p>
           </div>
