@@ -21,29 +21,29 @@
                   <div class="col-md-12 ">
                     <div class="d-flex flex-column sticky-top">
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('all')"
-                        class="btn btn-outline-light my-1 filter-buttons">All</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">All</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('arms')"
-                        class="btn btn-outline-light my-1 filter-buttons">Arms</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Arms</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('back')"
-                        class="btn btn-outline-light my-1 filter-buttons">Back</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Back</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('cardio')"
-                        class="btn btn-outline-light my-1 filter-buttons">Cardio</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Cardio</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('chest')"
-                        class="btn btn-outline-light my-1 filter-buttons">Chest</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Chest</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('core')"
-                        class="btn btn-outline-light my-1 filter-buttons">Core</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Core</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('fullBody')"
-                        class="btn btn-outline-light my-1 filter-buttons">Full
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Full
                         Body</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('legs')"
-                        class="btn btn-outline-light my-1 filter-buttons">Legs</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Legs</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('lowerBody')"
-                        class="btn btn-outline-light my-1 filter-buttons">Lower
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Lower
                         Body</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('shoulders')"
-                        class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Shoulders</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('upperBody')"
-                        class="btn btn-outline-light my-1 filter-buttons">Upper
+                        class="btn btn-outline-light my-1 filter-buttons bebas">Upper
                         Body</button>
                     </div>
                   </div>
@@ -54,21 +54,27 @@
           <!-- NOTE offcanvas end -->
           <div class=" filter-desktop">
             <div class="d-flex flex-column sticky-top">
-              <button @click="changeFilterType('all')" class="btn btn-outline-light my-1 filter-buttons">All</button>
-              <button @click="changeFilterType('arms')" class="btn btn-outline-light my-1 filter-buttons">Arms</button>
-              <button @click="changeFilterType('back')" class="btn btn-outline-light my-1 filter-buttons">Back</button>
+              <button @click="changeFilterType('all')"
+                class="btn btn-outline-light my-1 filter-buttons bebas">All</button>
+              <button @click="changeFilterType('arms')"
+                class="btn btn-outline-light my-1 filter-buttons bebas">Arms</button>
+              <button @click="changeFilterType('back')"
+                class="btn btn-outline-light my-1 filter-buttons bebas">Back</button>
               <button @click="changeFilterType('cardio')"
-                class="btn btn-outline-light my-1 filter-buttons">Cardio</button>
-              <button @click="changeFilterType('chest')" class="btn btn-outline-light my-1 filter-buttons">Chest</button>
-              <button @click="changeFilterType('core')" class="btn btn-outline-light my-1 filter-buttons">Core</button>
-              <button @click="changeFilterType('fullBody')" class="btn btn-outline-light my-1 filter-buttons">Full
+                class="btn btn-outline-light my-1 filter-buttons bebas">Cardio</button>
+              <button @click="changeFilterType('chest')"
+                class="btn btn-outline-light my-1 filter-buttons bebas">Chest</button>
+              <button @click="changeFilterType('core')"
+                class="btn btn-outline-light my-1 filter-buttons bebas">Core</button>
+              <button @click="changeFilterType('fullBody')" class="btn btn-outline-light my-1 filter-buttons bebas">Full
                 Body</button>
-              <button @click="changeFilterType('legs')" class="btn btn-outline-light my-1 filter-buttons">Legs</button>
-              <button @click="changeFilterType('lowerBody')" class="btn btn-outline-light my-1 filter-buttons">Lower
+              <button @click="changeFilterType('legs')"
+                class="btn btn-outline-light my-1 filter-buttons bebas">Legs</button>
+              <button @click="changeFilterType('lowerBody')" class="btn btn-outline-light my-1 filter-buttons bebas">Lower
                 Body</button>
               <button @click="changeFilterType('shoulders')"
-                class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
-              <button @click="changeFilterType('upperBody')" class="btn btn-outline-light my-1 filter-buttons">Upper
+                class="btn btn-outline-light my-1 filter-buttons bebas">Shoulders</button>
+              <button @click="changeFilterType('upperBody')" class="btn btn-outline-light my-1 filter-buttons bebas">Upper
                 Body</button>
             </div>
           </div>
@@ -160,6 +166,11 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 1px 1px 2px black;
+}
+
 .filter-mobile {
   display: none;
 }
@@ -212,5 +223,6 @@ footer {
 .filter-buttons:hover {
   opacity: .65;
   text-transform: uppercase;
+  text-shadow: none;
 }
 </style>

@@ -43,10 +43,10 @@
       </div>
       <div class="d-flex col-md-6 justify-content-end">
         <router-link :to="{ name: 'Decks' }" class="align-items-center d-flex">
-          <button class="btn btn-outline-light fs-5 me-3 filter-buttons">Posted Decks</button>
+          <button class="btn btn-outline-light fs-5 me-3 filter-buttons bebas">Posted Decks</button>
         </router-link>
         <div class="d-flex align-items-center">
-          <button v-if="account.id" class="btn fs-5   btn-outline-light filter-buttons me-3" data-bs-toggle="modal"
+          <button v-if="account.id" class="btn fs-5 bebas btn-outline-light filter-buttons me-3" data-bs-toggle="modal"
             data-bs-target="#test-modal">
             Create Deck
           </button>
@@ -82,6 +82,11 @@ export default {
 </script>
 
 <style scoped>
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 1px 1px 2px black;
+}
+
 .sd {
   height: 7em;
 }
