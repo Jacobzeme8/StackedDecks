@@ -56,7 +56,11 @@
 
 
   <div class="pb-4">
-    <h1>MY DECKS:</h1>
+
+    <router-link class="d-flex  justify-content-between p-2" :to="{ name: 'Home' }">
+      <h1 class="bebas  text-light">MY DECKS:</h1>
+      <button class="btn btn-outline-light grade">Add Cards</button>
+    </router-link>
     <div class="container-fluid bg-pic">
       <div class="row" v-if="decks">
         <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
@@ -72,6 +76,8 @@ import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import EditAccountForm from '../components/EditAccountForm.vue';
 import { decksServices } from '../services/DecksService.js';
+import { useRouter } from 'vue-router';
+
 export default {
   props: {
     decks: {
@@ -80,7 +86,7 @@ export default {
     }
   },
   setup() {
-
+    const router = useRouter()
 
     async function getMyDecks() {
       try {
@@ -116,6 +122,21 @@ export default {
   background-position: center;
   height: 70vh;
 
+}
+
+.grade {
+  background: rgba(160, 70, 123, 0.684);
+  background: linear-gradient(180deg, rgba(177, 78, 136, 0.682) 100%, #d9dace 0%);
+}
+
+.grade:hover {
+  opacity: .65;
+  text-transform: uppercase;
+}
+
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 1px 1px 2px black;
 }
 
 .account-data {
