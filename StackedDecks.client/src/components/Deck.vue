@@ -46,6 +46,7 @@ import { computed, onMounted } from "vue";
 import { AppState } from "../AppState.js";
 import { useRoute } from "vue-router";
 import { DeckCard } from "../models/DeckCard.js";
+import { router } from "../router.js";
 
 export default {
 
@@ -75,8 +76,11 @@ export default {
 
       async copyDeck(deckId) {
         try {
-          await decksServices.copyDeck(deckId)
+          const copied = await decksServices.copyDeck(deckId)
           Pop.success('You have successfully bookmarked this deck!')
+          if (copied?.id) {
+            router.push({ name: 'Deck', params: { deckId: copied.id } })
+          }
         } catch (error) {
           logger.error(error)
           Pop.error(error)
