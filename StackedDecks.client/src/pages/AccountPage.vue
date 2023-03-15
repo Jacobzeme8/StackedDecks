@@ -34,12 +34,12 @@
             <div class="">
               <div class="d-flex justify-content-center">
                 <div>
-                  <h3 class="text-center"><b>{{ account.name }}</b></h3>
+                  <h3 class="text-center text-light"><b>{{ account.name }}</b></h3>
                 </div>
               </div>
             </div>
             <div class="">
-              <h6 class="text-center">{{ account.bio }}</h6>
+              <h6 class="text-center text-light">{{ account.bio }}</h6>
             </div>
           </div>
         </div>
@@ -152,6 +152,8 @@ export default {
   box-shadow: 0 0 5px 0;
   background: inherit;
   backdrop-filter: blur(80px);
+  /* font-family: 'Bebas Neue', cursive; */
+  text-shadow: 1px 1px 2px black;
   /* margin: 100px; */
 }
 
