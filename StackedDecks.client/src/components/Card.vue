@@ -15,7 +15,7 @@
         </div>
         <div v-if="deckCard">
           <div v-if="deckCard.creatorId == account.id">
-            <form @submit.prevent="saveExerciseInfo(reps, weight, sets, time)">
+            <form @submit.prevent="saveExerciseInfo(reps, weight, sets, time, deckCard.id)">
               <div class="d-flex justify-content-between">
                 <span>reps</span>
                 <span>weight</span>
@@ -49,7 +49,7 @@
                   <button @click.stop="time++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
                 </div>
               </div>
-              <button type="submit" class="btn btn-success p-1">Save</button>
+              <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
             </form>
           </div>
         </div>
@@ -148,8 +148,20 @@ export default {
         }
       },
 
-      saveExerciseInfo(reps, weight, sets, time) {
-        logger.log(reps, time, weight, sets)
+      async saveExerciseInfo(reps, weight, sets, time, deckCardId) {
+        try {
+          const updatedInfo = {
+            reps: reps,
+            weight: weight,
+            sets: sets,
+            time: time
+          }
+          await deckCardsService.saveExerciseInfo(updatedInfo, deckCardId)
+          Pop.success('Updated Card!')
+        } catch (error) {
+          logger.error(error)
+          Pop.error(error)
+        }
       },
 
 
