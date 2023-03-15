@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid bg-coverImg">
+  <div class="container-fluid rounded bg-coverImg">
     <div class="row">
       <div class="col-3"></div>
       <div class="col-md-6">
