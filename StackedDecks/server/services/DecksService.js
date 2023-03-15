@@ -25,7 +25,8 @@ class DecksService {
             coverImg: deck.coverImg,
             exerciseType: deck.exerciseType,
             isPublic: false,
-            creatorId: accoundId
+            creatorId: accoundId,
+            isCopied: true,
         }
         const copiedDeck = await dbContext.Decks.create(deckObject)
 

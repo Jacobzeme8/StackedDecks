@@ -8,7 +8,8 @@ export const DeckSchema = new Schema({
     coverImg: { type: String, maxLength: 500, default: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8d29ya291dHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" },
     creatorId: { type: Schema.Types.ObjectId, required: true },
     isPublic: { type: Boolean, default: false, required: true },
-    exerciseType: { type: [tag] }
+    exerciseType: { type: [tag] },
+    isCopied: { type: Boolean, default: false }
 
 
 },

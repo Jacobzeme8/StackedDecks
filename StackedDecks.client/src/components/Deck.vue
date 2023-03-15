@@ -6,9 +6,11 @@
         <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
           <i class="mdi mdi-star text-warning fs-2 selectable"></i>
         </div>
-        <div title="Post this deck" v-if="account.id == deck.creatorId && route.path == '/account'"
-          @click="postDeck(deck.id)">
-          <i class="mdi mdi-postage-stamp fs-2 selectable text-secondary"></i>
+        <div v-if="deck.isCopied == false">
+          <div title="Post this deck" v-if="account.id == deck.creatorId && route.path == '/account'"
+            @click="postDeck(deck.id)">
+            <i class="mdi mdi-postage-stamp fs-2 selectable text-secondary"></i>
+          </div>
         </div>
         <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
           <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
