@@ -59,7 +59,7 @@
 
     <router-link class="d-flex  justify-content-between p-2 mt-3" :to="{ name: 'Home' }">
       <h1 class="bebas  text-light">MY DECKS:</h1>
-      <button class="btn btn-outline-light grade">Add Cards</button>
+      <button class="btn btn-outline-light bebas grade">Add Cards</button>
     </router-link>
     <div class="container-fluid bg-pic">
       <div class="row" v-if="decks">
