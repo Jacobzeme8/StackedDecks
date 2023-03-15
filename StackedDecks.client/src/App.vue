@@ -18,7 +18,7 @@
             <div class="offcanvas-body">
               <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-12">
+                  <div class="col-md-12 ">
                     <div class="d-flex flex-column sticky-top">
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('all')"
                         class="btn btn-outline-light my-1 filter-buttons">All</button>
@@ -32,17 +32,17 @@
                         class="btn btn-outline-light my-1 filter-buttons">Chest</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('core')"
                         class="btn btn-outline-light my-1 filter-buttons">Core</button>
-                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('full body')"
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('fullBody')"
                         class="btn btn-outline-light my-1 filter-buttons">Full
                         Body</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('legs')"
                         class="btn btn-outline-light my-1 filter-buttons">Legs</button>
-                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('lower body')"
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('lowerBody')"
                         class="btn btn-outline-light my-1 filter-buttons">Lower
                         Body</button>
                       <button data-bs-dismiss="offcanvas" @click="changeFilterType('shoulders')"
                         class="btn btn-outline-light my-1 filter-buttons">Shoulders</button>
-                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('upper body')"
+                      <button data-bs-dismiss="offcanvas" @click="changeFilterType('upperBody')"
                         class="btn btn-outline-light my-1 filter-buttons">Upper
                         Body</button>
                     </div>

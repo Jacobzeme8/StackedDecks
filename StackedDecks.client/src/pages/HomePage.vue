@@ -7,8 +7,10 @@
       <div class="col-md-2"></div>
       <div class="col-md-8">
         <div class=" card frosted marg-top">
-          <div class="card-body">
-            <p class="bebas text-light mt-5 line-1 anim-typewriter">Arms, Legs, Shoulders, Back, Cardio, Full Body ...</p>
+          <div class="card-body d-flex ">
+            <p class="bebas text-light mt-5 line-1 anim-typewriter text-wrap">Arms, Legs, Shoulders, Back, Cardio,
+              Full
+              Body ...</p>
           </div>
         </div>
       </div>
@@ -182,6 +184,7 @@ export default {
 .anim-typewriter {
   animation: typewriter 4s steps(44) 1s 1 normal both,
     blinkTextCursor 500ms steps(44) infinite normal;
+  max-height: fit-content;
 }
 
 @keyframes typewriter {
