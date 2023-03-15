@@ -10,11 +10,12 @@ class DeckCardsService{
     const deckCard = await dbContext.DeckCards.findById(id)
     if(!deckCard){throw new BadRequest('No deck card with that ID!')}
     if(deckCard.creatorId != creatorId){throw new UnAuthorized('Not your DeckCard to Edit!')}
-    deckCard.reps = deckCardData.reps
-    deckCard.sets= deckCardData.sets
-    deckCard.weight = deckCardData.weight
-    deckCard.time = deckCardData.time
+    deckCard.reps = deckCardData.reps || deckCard.reps
+    deckCard.sets= deckCardData.sets || deckCard.sets
+    deckCard.weight = deckCardData.weight || deckCard.weight
+    deckCard.time = deckCardData.time || deckCard.time
     await deckCard.save()
+    await deckCard.populate('deck card')
     return deckCard
   }
   async getDeckCardsByDeck(deckId) {

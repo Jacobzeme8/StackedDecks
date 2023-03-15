@@ -1,6 +1,6 @@
 <template>
-  <div class="">
-    <div class=" card bg-card decks-stacked card elevation-3 shadow-lg p-3 my-4" v-if="route">
+  <div class="relative">
+    <div class=" bg-card decks-stacked card elevation-3 shadow-lg p-3 my-4" v-if="route">
       <div class="d-flex flex-row elevation-3 rounded justify-content-between">
         <!-- NOTE deck.id is not deckId as it is pulling by prop -->
         <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
@@ -30,9 +30,9 @@
         </div>
       </router-link>
     </div>
-    <div class="bg-card card-1"></div>
-    <div class="bg-card card-2"></div>
-    <div class="bg-card card-3"></div>
+    <div class="card-1 card"></div>
+    <div class="card card-2"></div>
+    <div class="card card-3"></div>
   </div>
 </template>
 
@@ -108,37 +108,52 @@ export default {
   height: 30vh;
 }
 
+.relative {
+  position: relative;
+}
+
 .bg-card {
+  background-color: #2e536dee;
+}
+
+.card {
   background-color: #2e536dee;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-shadow: 0 6px 16px rgba(93, 98, 98, 0.2);
   height: 415px;
   padding: 20px;
-  position: relative;
   transition: all 0.8s ease;
   width: 270px;
   z-index: 4;
 }
 
 .card-1 {
-  background-color: #2e536dee;
+  background-color: rgb(177, 78, 136);
+  position: absolute;
+  bottom: -1vh;
   height: 350px;
-  width: 265px;
+  width: 268px;
   z-index: 3;
 }
 
 .card-2 {
+  background-color: rgb(177, 78, 136);
   margin-left: 10px;
+  position: absolute;
+  bottom: -2vh;
   margin-top: 10px;
   width: 250px;
   z-index: 2;
 }
 
 .card-3 {
+  background-color: rgb(177, 78, 136);
   margin-left: 20px;
+  position: absolute;
+  bottom: -3vh;
   margin-top: 20px;
-  width: 240px;
+  width: 235px;
   z-index: 1;
 }
 </style>

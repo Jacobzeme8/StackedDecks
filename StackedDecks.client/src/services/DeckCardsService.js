@@ -6,6 +6,14 @@ import { api } from "./AxiosService"
 
 class DeckCardsService {
 
+  async saveExerciseInfo(updatedInfo, deckCardId){
+    const res = await api.put(`api/deckcards/${deckCardId}`, updatedInfo)
+    logger.log(res.data)
+    const index = AppState.deckCards.findIndex(d => d.id == deckCardId)
+    const newDeckCard = new DeckCard(res.data)
+    AppState.deckCards.splice(index, 1, newDeckCard)
+  }
+
  async  getAccountDeckCards(){
   const res = await api.get(`account/deckcards`)
   AppState.accountDeckCards = res.data

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid bg-pic rounded-top">
+  <div class="container-fluid bg-pic rounded-top pb-5">
     <div class="row">
       <div class="col-md-12">
         <h1 class="text-light">Posted Decks:</h1>
