@@ -2,7 +2,7 @@
   <div class="container-fluid bg-pic rounded-top pb-5">
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-light bebas">Posted Decks:</h1>
+        <h1 class="text-light bebas mt-2">Posted Decks:</h1>
       </div>
     </div>
     <div class="row d-flex justify-content-between" v-if="decks">
