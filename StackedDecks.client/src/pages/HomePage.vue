@@ -1,32 +1,39 @@
 <template>
-  <!-- <div class="input-wrapper">
+  <div v-if="account">
+    <!-- <div class="input-wrapper">
     <span class="placeholder">arm</span>
   </div> -->
-  <div class="container rounded bg-pic">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8">
-        <div class=" card frosted marg-top">
-          <div class="card-body d-flex ">
-            <p class="bebas text-light mt-5 line-1 anim-typewriter">Arms, Legs, Shoulders, Back, Cardio,
-              Full
-              Body ...</p>
+    <div class="container rounded bg-pic">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div class=" card frosted marg-top">
+            <div class="card-body d-flex ">
+              <p class="bebas text-light mt-5 line-1 anim-typewriter">Arms, Legs, Shoulders, Back, Cardio,
+                Full
+                Body ...</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
 
+      </div>
+    </div>
+    <!-- NOTE Cards -->
+    <div class="container-fluid">
+      <div class="row">
+
+        <div v-for="c in cards" class="col-md-3">
+          <Card :decks="decks" :card="c" />
+        </div>
+      </div>
     </div>
   </div>
-  <!-- NOTE Cards -->
-  <div class="container-fluid">
-    <div class="row">
-
-      <div v-for="c in cards" class="col-md-3">
-        <Card :decks="decks" :card="c" />
-      </div>
-
-    </div>
+  <div v-else class="text-light text-center p-5">
+    <h1 class="display-1">
+      <i class="mdi mdi-pinwheel mdi-spin"></i><i class="mdi mdi-pinwheel mdi-spin"></i><i
+        class="mdi mdi-pinwheel mdi-spin"></i><i class="mdi mdi-pinwheel mdi-spin"></i>
+    </h1>
   </div>
 </template>
 
