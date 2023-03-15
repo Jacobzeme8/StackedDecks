@@ -225,7 +225,6 @@ input::-webkit-inner-spin-button {
   overflow: auto;
 }
 
-.small {}
 
 .icon {
   border: solid 2em transparent;

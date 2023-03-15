@@ -16,6 +16,7 @@ class DecksServices {
     const res = await api.post('api/decks', formData)
     const deck = new Deck(res.data)
     logger.log(deck)
+    AppState.decks.push(deck)
   }
 
   async getAllDecks() {
