@@ -66,6 +66,7 @@ export default {
       async postDeck(deckId) {
         try {
           await decksServices.postDeck(deckId)
+          Pop.success('Your deck has been posted.')
         } catch (error) {
           logger.error(error)
           Pop.error(error)
@@ -75,6 +76,7 @@ export default {
       async copyDeck(deckId) {
         try {
           await decksServices.copyDeck(deckId)
+          Pop.success('You have successfully bookmarked this deck!')
         } catch (error) {
           logger.error(error)
           Pop.error(error)
