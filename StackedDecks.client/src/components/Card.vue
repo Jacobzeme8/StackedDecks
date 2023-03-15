@@ -124,11 +124,11 @@ export default {
 
 
 
-
   },
   setup() {
     const editable = ref({})
     const exerciseVariable = ref({})
+
 
     return {
       exerciseVariable,

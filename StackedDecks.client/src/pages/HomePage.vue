@@ -124,7 +124,7 @@ export default {
     return {
       // decks: computed(() => AppState.decks),
       account: computed(() => AppState.account),
-      accountDeckCards: computed(() => AppState.accountDeckCards)
+      accountDeckCards: computed(() => AppState.accountDeckCards),
     }
   },
   components: { Card }
