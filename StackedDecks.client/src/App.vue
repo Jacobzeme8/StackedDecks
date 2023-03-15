@@ -80,7 +80,7 @@
           </div>
           <div class="mb-2">
             <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
-              <span><a></a></span>
+              <span class="aboutus"><a></a></span>
             </router-link>
           </div>
         </div>
@@ -227,7 +227,7 @@ footer {
 }
 
 // NOTE Fun stuff
-span {
+.aboutus {
   position: relative;
   display: inline-flex;
   width: 180px;
@@ -236,7 +236,7 @@ span {
   perspective: 1000px;
 }
 
-span a {
+.aboutus a {
   font-size: 19px;
   letter-spacing: 1px;
   transform-style: preserve-3d;
@@ -246,8 +246,8 @@ span a {
 
 }
 
-span a:before,
-span a:after {
+.aboutus a:before,
+.aboutus a:after {
   position: absolute;
   content: "About Us!";
   height: 55px;
@@ -260,18 +260,18 @@ span a:after {
   border-radius: 5px;
 }
 
-span a:before {
+.aboutus a:before {
   color: #fff;
   background: rgba(160, 70, 123, 0.684);
   transform: rotateY(0deg) translateZ(25px);
 }
 
-span a:after {
+.aboutus a:after {
   color: #000;
   transform: rotateX(90deg) translateZ(25px);
 }
 
-span a:hover {
+.aboutus a:hover {
   transform: translateZ(-25px) rotateX(-90deg);
 }
 </style>
