@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-between" v-if="decks">
-      <div v-for="deck in decks" class="col-md-3">
+      <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
         <Deck :deck="deck" />
       </div>
     </div>

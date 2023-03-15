@@ -59,7 +59,7 @@
     <h1>MY DECKS:</h1>
     <div class="container-fluid bg-pic">
       <div class="row" v-if="decks">
-        <div v-for="deck in decks" class="col-md-3">
+        <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
           <Deck :deck="deck" />
         </div>
       </div>

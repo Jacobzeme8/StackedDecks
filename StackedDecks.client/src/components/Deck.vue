@@ -137,7 +137,7 @@ export default {
 .card-1 {
   background-color: rgb(177, 78, 136);
   position: absolute;
-  bottom: -1vh;
+  bottom: 1.5vh;
   height: 410px;
   width: 268px;
   z-index: 3;
@@ -147,7 +147,7 @@ export default {
   background-color: rgb(177, 78, 136);
   margin-left: 10px;
   position: absolute;
-  bottom: -2vh;
+  bottom: .5vh;
   margin-top: 10px;
   width: 250px;
   z-index: 2;
@@ -157,7 +157,7 @@ export default {
   background-color: rgb(177, 78, 136);
   margin-left: 20px;
   position: absolute;
-  bottom: -3vh;
+  bottom: -.5vh;
   margin-top: 20px;
   width: 235px;
   z-index: 1;
