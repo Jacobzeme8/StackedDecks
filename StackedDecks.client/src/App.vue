@@ -52,8 +52,8 @@
             </div>
           </div>
           <!-- NOTE offcanvas end -->
-          <div class=" filter-desktop">
-            <div class="d-flex flex-column sticky-top">
+          <div class=" filter-desktop sticky-top">
+            <div class="d-flex flex-column">
               <button @click="changeFilterType('all')"
                 class="btn btn-outline-light my-1 filter-buttons bebas">All</button>
               <button @click="changeFilterType('arms')"
