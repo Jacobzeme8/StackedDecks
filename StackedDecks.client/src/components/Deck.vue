@@ -15,6 +15,9 @@
         <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
           <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
         </div>
+        <div>
+          <i data-bs-toggle="modal" data-bs-target="#test-modal" class="mdi mdi-note fs-2 text-warning"></i>
+        </div>
       </div>
       <div class="d-flex text-light justify-content-center">
         <p> <b>{{ deck.name }}</b> </p>
@@ -34,6 +37,9 @@
     <div class="card card-2"></div>
     <div class="card card-3"></div>
   </div>
+  <Modal id="test-modal" modal-title="Create Deck">
+    <NoteComponet />
+  </Modal>
 </template>
 
 
@@ -47,57 +53,58 @@ import { AppState } from "../AppState.js";
 import { useRoute } from "vue-router";
 import { DeckCard } from "../models/DeckCard.js";
 import { router } from "../router.js";
+import NoteComponet from "./NoteComponet.vue";
 
 export default {
-
   props: {
     deck: {
       type: Deck,
       required: true
     }
   },
-
   setup() {
-    const route = useRoute()
-    onMounted(() => { logger.log(route) })
+    const route = useRoute();
+    onMounted(() => { logger.log(route); });
     return {
       route,
       account: computed(() => AppState.account),
-
       async postDeck(deckId) {
         try {
-          await decksServices.postDeck(deckId)
-          Pop.success('Your deck has been posted.')
-        } catch (error) {
-          logger.error(error)
-          Pop.error(error)
+          await decksServices.postDeck(deckId);
+          Pop.success("Your deck has been posted.");
+        }
+        catch (error) {
+          logger.error(error);
+          Pop.error(error);
         }
       },
-
       async copyDeck(deckId) {
         try {
-          const copied = await decksServices.copyDeck(deckId)
-          Pop.success('You have successfully bookmarked this deck!')
+          const copied = await decksServices.copyDeck(deckId);
+          Pop.success("You have successfully bookmarked this deck!");
           if (copied?.id) {
-            router.push({ name: 'Deck', params: { deckId: copied.id } })
+            router.push({ name: "Deck", params: { deckId: copied.id } });
           }
-        } catch (error) {
-          logger.error(error)
-          Pop.error(error)
+        }
+        catch (error) {
+          logger.error(error);
+          Pop.error(error);
         }
       },
       async deleteDeck(deckId) {
         try {
-          if (await Pop.confirm('Are you sure you want to delete this deck?')) {
-            await decksServices.deleteDeck(deckId)
+          if (await Pop.confirm("Are you sure you want to delete this deck?")) {
+            await decksServices.deleteDeck(deckId);
           }
-        } catch (error) {
-          logger.error(error)
-          Pop.error(error)
+        }
+        catch (error) {
+          logger.error(error);
+          Pop.error(error);
         }
       }
-    }
-  }
+    };
+  },
+  components: { NoteComponet }
 }
 </script>
 
