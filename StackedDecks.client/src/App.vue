@@ -117,6 +117,7 @@ export default {
     const route = useRoute()
     watchEffect(() => {
       if (filterType.value) {
+        logger.log('filter watch effect')
         addFlipEffect()
       }
     })

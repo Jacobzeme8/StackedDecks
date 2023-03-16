@@ -111,6 +111,11 @@ export default {
 
     })
 
+    onUpdated(() => {
+      addFlipEffect()
+    })
+
+
 
 
     watchEffect(() => {
@@ -123,9 +128,9 @@ export default {
 
 
 
-    onUpdated(() => {
-      addFlipEffect()
-    })
+    // onUpdated(() => {
+    //   addFlipEffect()
+    // })
 
 
     return {

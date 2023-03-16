@@ -67,6 +67,19 @@ export default {
   setup() {
     const route = useRoute();
 
+    function addFlipEffect() {
+      let kards = document.querySelectorAll('.kard');
+      [...kards].forEach((kard) => {
+        kard.classList.remove('is-flipped')
+        kard.removeEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+        kard.addEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+      });
+    }
+
     async function getMyDecks() {
       try {
         await decksServices.getMyDecks()
@@ -103,22 +116,18 @@ export default {
       }
     });
 
-    onMounted(() =>
+    onMounted(() => {
       getMyDecks()
-    )
-
-
-
+      // addFlipEffect()
+    })
 
     onUpdated(() => {
-      let kards = document.querySelectorAll('.kard');
-      [...kards].forEach((kard) => {
-        kard.addEventListener('click', function () {
-          kard.classList.toggle('is-flipped');
-        });
-      });
-    }
-    )
+      addFlipEffect()
+    })
+
+
+
+
 
     return {
       route,
