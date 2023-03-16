@@ -50,7 +50,7 @@ class DecksServices {
 
     const res = await api.get(`api/profiles/${creatorId}/decks`)
     logger.log('grabbing creatorId', res.data)
-    AppState.userDecks = res.data.map(m => new Deck(m))
+    AppState.decks = res.data.map(m => new Deck(m))
 
   }
 

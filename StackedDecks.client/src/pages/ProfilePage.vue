@@ -28,8 +28,8 @@
     <div>
         <div v-if="profile" class="fs-2">{{ profile.name }}'s DECKS:
             <div class="container-fluid bg-pic">
-                <div class="row" v-if="userDecks">
-                    <div v-for="deck in userDecks" class="col-md-3">
+                <div class="row" v-if="decks">
+                    <div v-for="deck in decks" class="col-md-3">
                         <Deck :deck="deck" />
                     </div>
                 </div>
@@ -50,7 +50,7 @@ import Pop from '../utils/Pop';
 
 export default {
     props: {
-        userDecks: {
+        decks: {
             type: Object,
             required: true
         }
@@ -92,9 +92,9 @@ export default {
             profile: computed(() => AppState.profile),
             account: computed(() => AppState.account),
             coverImg: computed(() => `url("${AppState.profile?.coverImg}")`),
-            userDecks: computed(() => AppState.userDecks),
+            // userDecks: computed(() => AppState.userDecks),
             deck: computed(() => AppState.deck),
-            decks: computed(() => AppState.decks)
+            // decks: computed(() => AppState.decks)
 
 
         }
