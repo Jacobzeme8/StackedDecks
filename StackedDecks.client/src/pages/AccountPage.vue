@@ -58,7 +58,7 @@
   <div class="pb-4">
 
     <router-link class="d-flex  justify-content-between p-2 mt-3" :to="{ name: 'Home' }">
-      <h1 class="bebas  text-light">MY DECKS:</h1>
+      <h1 class="bebas shadow-1 text-light">MY DECKS:</h1>
       <button class="btn btn-outline-light bebas grade">Add Cards</button>
     </router-link>
     <div class="container-fluid bg-pic">
@@ -132,6 +132,11 @@ export default {
 .grade:hover {
   opacity: .65;
   text-transform: uppercase;
+}
+
+.shadow-1 {
+  text-shadow: 2px 2px 4px black;
+
 }
 
 .bebas {
