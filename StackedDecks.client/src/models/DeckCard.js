@@ -10,6 +10,8 @@ export class DeckCard {
     this.sets = data.sets || 0
     this.time = data.time || 0
     this.weight = data.weight || 0
+    // Note for progress bar. 
+    this.completed = data.completed
     this.card = new Card(data.card)
   }
 }

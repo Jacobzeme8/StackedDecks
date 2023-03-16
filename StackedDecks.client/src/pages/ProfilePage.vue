@@ -26,15 +26,16 @@
         </div>
     </div>
     <div class="pb-4">
-        <div v-if="profile" class="">{{ profile.name }}'s DECKS:
-            <div class="container-fluid bg-pic">
-                <div class="row" v-if="decks">
-                    <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
-                        <Deck :deck="deck" />
-                    </div>
+        <div v-if="profile" class="text-light fs-4 shadow-1"><b>{{ profile.name }}'s DECKS:</b>
+        </div>
+        <div class="container-fluid bg-pic">
+            <div class="row" v-if="decks">
+                <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
+                    <Deck :deck="deck" />
                 </div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -120,6 +121,11 @@ export default {
 
 .shadow {
     text-shadow: 2px 2px 4px rgb(134, 51, 100)
+}
+
+.shadow-1 {
+    text-shadow: 2px 2px 4px black;
+
 }
 
 .img-shadow {

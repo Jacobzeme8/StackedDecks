@@ -142,7 +142,7 @@ export default {
   background-color: rgb(126, 51, 95);
   position: absolute;
   bottom: 1.5vh;
-  height: 410px;
+  height: 415px;
   width: 268px;
   z-index: 3;
 }

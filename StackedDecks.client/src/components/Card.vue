@@ -1,11 +1,11 @@
 <template>
   <!-- NOTE Face of Card -->
-  <div class=" my-3">
-    <div class="kard bg-secondary rounded">
-      <div class="kard_face kard-front card bg-card p-2 rounded">
+  <div class="my-3">
+    <div class="kard shadow bg-secondary rounded">
+      <div class="kard_face shadow kard-front card bg-card p-2 rounded">
         <div class="card elevation-5">
           <i v-if="!card.imgUrl" class="mdi mdi-loading mdi-spin"></i>
-          <img class="img-fluid types" :src="card.imgUrl" :alt="card.name">
+          <img class="img-fluid rounded types" :src="card.imgUrl" :alt="card.name">
         </div>
         <div class="pb-1 text-center ">
           <div class="card-body elevation-3 rounded-bottom">
@@ -185,6 +185,10 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.shadow {
+  box-shadow: 1px 4px 2px black;
 }
 
 .bg-card {

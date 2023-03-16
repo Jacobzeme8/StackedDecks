@@ -33,9 +33,12 @@
           <div class="card-body">
             <div class="">
               <div class="d-flex justify-content-center">
-                <div>
-                  <h3 class="text-center text-light"><b>{{ account.name }}</b></h3>
+                <div class="">
+                  <h3 class="text-center text-light"><b>{{ account.name }}</b>
+                  </h3>
+
                 </div>
+                <p class="mdi mdi-check-decagram text-primary" title="verified"></p>
               </div>
             </div>
             <div class="">
@@ -58,7 +61,7 @@
   <div class="pb-4">
 
     <router-link class="d-flex  justify-content-between p-2 mt-3" :to="{ name: 'Home' }">
-      <h1 class="bebas  text-light">MY DECKS:</h1>
+      <h1 class="bebas shadow-1 text-light">MY DECKS:</h1>
       <button class="btn btn-outline-light bebas grade">Add Cards</button>
     </router-link>
     <div class="container-fluid bg-pic">
@@ -132,6 +135,11 @@ export default {
 .grade:hover {
   opacity: .65;
   text-transform: uppercase;
+}
+
+.shadow-1 {
+  text-shadow: 2px 2px 4px black;
+
 }
 
 .bebas {
