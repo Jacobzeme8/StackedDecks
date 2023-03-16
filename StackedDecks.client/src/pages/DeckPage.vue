@@ -118,7 +118,7 @@ export default {
 
     onMounted(() => {
       getMyDecks()
-      // addFlipEffect()
+      addFlipEffect()
     })
 
     onUpdated(() => {
