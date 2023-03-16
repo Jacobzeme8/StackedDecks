@@ -4,8 +4,8 @@
             <div class="col-3"></div>
             <div class="col-md-6">
                 <div class="d-flex justify-content-center pt-5">
-                    <div>
-                        <img class="rounded-circle" width="300" height="300" :src="profile.picture" alt="">
+                    <div class="">
+                        <img class="rounded-circle img-shadow" width="300" height="300" :src="profile.picture" alt="">
                     </div>
                 </div>
                 <div class="card frosted mt-3">
@@ -120,5 +120,9 @@ export default {
 
 .shadow {
     text-shadow: 2px 2px 4px rgb(134, 51, 100)
+}
+
+.img-shadow {
+    box-shadow: 2px 4px 4px black
 }
 </style>
