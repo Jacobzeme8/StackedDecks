@@ -13,12 +13,12 @@
                         <div class="">
                             <div class="d-flex justify-content-center">
                                 <div>
-                                    <h3 class="text-center"><b>{{ profile.name }}</b></h3>
+                                    <h3 class="text-center text-light shadow"><b>{{ profile.name }}</b></h3>
                                 </div>
                             </div>
                         </div>
                         <div class="">
-                            <h6 class="text-center">{{ profile.bio }}</h6>
+                            <h6 class="text-center text-light shadow">{{ profile.bio }}</h6>
                         </div>
                     </div>
                 </div>
@@ -116,6 +116,9 @@ export default {
     background-size: cover;
     background-position: center;
     height: 70vh;
+}
 
+.shadow {
+    text-shadow: 2px 2px 4px rgb(134, 51, 100)
 }
 </style>
