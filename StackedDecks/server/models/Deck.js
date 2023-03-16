@@ -10,6 +10,7 @@ export const DeckSchema = new Schema({
     exp: { type: Number, default: 0 },
     isPublic: { type: Boolean, default: false, required: true },
     exerciseType: { type: [tag] },
+    noteId: { type: Schema.Types.ObjectId },
     isCopied: { type: Boolean, default: false }
 
 
@@ -23,4 +24,13 @@ DeckSchema.virtual('creator', {
     foreignField: '_id',
     justOne: true
 })
+
+DeckSchema.virtual ( 'note', {
+    ref: 'Note',
+    localField: 'noteId',
+    foreignField: '_id',
+    justOne: true
+} )
+
+DeckSchema.index({ noteId: 1, id: 1}, { unique: true })
 
