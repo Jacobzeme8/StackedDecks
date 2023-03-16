@@ -7,7 +7,7 @@
           <div class="card elevation-5 mx-auto frosted">
             <div class="card-body">
               <div v-if="account.id == deck.creatorId">
-                <h6 title="Stacked progress is the mastery of this deck." class="text-center">Stacked
+                <h6 title="Stacked progress is the mastery of this deck." class="text-center text-light">Stacked
                   Progress</h6>
                 <div class="d-flex justify-content-center">
                   <div class="progress w-50 " role="progressbar" aria-label="Example 20px high" aria-valuenow="25"
@@ -17,12 +17,12 @@
                 </div>
               </div>
               <div class="d-flex justify-content-center pt-2">
-                <h1 class="text-center">My {{ deck.name }} Deck </h1>
+                <h1 class="text-center text-light ">My {{ deck.name }} Deck </h1>
                 <img class="img-fluid ms-3 rounded-circle profile-img" :src="deck.creator.picture" alt="">
               </div>
               <div v-if="account.id == deck.creatorId">
 
-                <h6 class="text-center">Current Exercise Progress</h6>
+                <h6 class="text-center text-light">Current Exercise Progress</h6>
                 <div class="d-flex justify-content-center">
                   <div class="progress w-25 " role="progressbar" aria-label="Example 1px high" aria-valuenow="25"
                     aria-valuemin="0" aria-valuemax="100" style="height: 1px">
