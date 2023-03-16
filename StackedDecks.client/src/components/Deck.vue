@@ -15,7 +15,7 @@
         <div title="Delete this deck" v-if="account.id == deck.creatorId" @click="deleteDeck(deck.id)">
           <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
         </div>
-        <div>
+        <div v-if="route.path == `/account`">
           <i data-bs-toggle="modal" data-bs-target="#note-modal" class="mdi mdi-note fs-2 text-warning"></i>
         </div>
       </div>

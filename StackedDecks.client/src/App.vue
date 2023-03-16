@@ -52,7 +52,7 @@
             </div>
           </div>
           <!-- NOTE offcanvas end -->
-          <div class=" filter-desktop sticky-top sticky-top">
+          <div class=" filter-desktop sticky-top shadow sticky-top">
             <div class="d-flex flex-column">
               <button @click="changeFilterType('all')"
                 class="btn btn-outline-light my-1 filter-buttons bebas">All</button>
@@ -170,6 +170,11 @@ export default {
   font-family: 'Bebas Neue', cursive;
   text-shadow: 1px 1px 2px black;
 }
+
+.shadow {
+  box-shadow: 1px 4px 2px black;
+}
+
 
 .filter-mobile {
   display: none;

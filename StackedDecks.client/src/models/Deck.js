@@ -9,6 +9,8 @@ export class Deck {
     this.isPublic = data.isPublic || false
     this.exerciseType = data.exerciseType
     this.isCopied = data.isCopied || false
+    this.note = data.note || null
+    this.noteId = data.noteId || null
     // TODO add Bookmark count 
   }
 }
