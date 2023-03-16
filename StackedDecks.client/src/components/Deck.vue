@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="d-flex text-light justify-content-center">
-        <p><b>{{ deck.name }}</b></p>
+        <p> <b>{{ deck.name }}</b> </p>
       </div>
       <router-link :to="{ name: 'Deck', params: { deckId: deck.id } }">
         <img class="img-fluid rounded elevation-3 cover-img mb-2" :title="`${deck.name} page`" :src="deck.coverImg"

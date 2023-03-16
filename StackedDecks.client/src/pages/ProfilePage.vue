@@ -25,11 +25,11 @@
             </div>
         </div>
     </div>
-    <div>
-        <div v-if="profile" class="fs-2">{{ profile.name }}'s DECKS:
+    <div class="pb-4">
+        <div v-if="profile" class="">{{ profile.name }}'s DECKS:
             <div class="container-fluid bg-pic">
                 <div class="row" v-if="decks">
-                    <div v-for="deck in decks" class="col-md-3">
+                    <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
                         <Deck :deck="deck" />
                     </div>
                 </div>
