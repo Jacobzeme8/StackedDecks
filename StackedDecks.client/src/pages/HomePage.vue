@@ -121,7 +121,7 @@ export default {
     watchEffect(() => {
       if (AppState.account.id) {
         getMyDecks();
-        addFlipEffect();
+        // addFlipEffect();
         getAccountDeckCards();
       }
     })
