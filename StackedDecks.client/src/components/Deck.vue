@@ -38,7 +38,7 @@
     <div class="card card-3"></div>
   </div>
   <Modal id="note-modal" modal-title="Create Deck">
-    <NoteComponet />
+    <NoteComponent />
   </Modal>
 </template>
 
@@ -53,7 +53,7 @@ import { AppState } from "../AppState.js";
 import { useRoute } from "vue-router";
 import { DeckCard } from "../models/DeckCard.js";
 import { router } from "../router.js";
-import NoteComponet from "./NoteComponet.vue";
+import NoteComponet from "./NoteComponent.vue";
 
 export default {
   props: {
