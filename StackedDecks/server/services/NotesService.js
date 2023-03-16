@@ -15,8 +15,7 @@ class NotesService{
     const deck = await dbContext.Decks.findById(deckId)
     if(!deck){throw new BadRequest}
     deck.noteId = note.id
-    deck.save()
-    await note
+    await deck.save()
     return note
   }
 

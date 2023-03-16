@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="createNote(deckId)">
+  <form @submit.prevent="createNote(deck.id)">
     <div class="modal-body text-dark">
       <div class="mb-3">
         <label for="name" class="form-label">Note Name</label>
@@ -24,8 +24,8 @@ import { notesService } from "../services/NotesService.js"
 
 export default {
   props: {
-    deckId: {
-      type: String, required: true
+    deck: {
+      type: Object, required: true
     }
   },
   setup() {

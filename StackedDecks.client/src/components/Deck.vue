@@ -16,7 +16,8 @@
           <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
         </div>
         <div v-if="route.path == `/account`">
-          <i data-bs-toggle="modal" data-bs-target="#note-modal" class="mdi mdi-note fs-2 text-warning"></i>
+          <i data-bs-toggle="modal" :data-bs-target="`#modal${deck.id.toString()}`"
+            class="mdi mdi-note fs-2 text-warning"></i>
         </div>
       </div>
       <div class="d-flex text-light justify-content-center">
@@ -37,8 +38,8 @@
     <div class="card card-2"></div>
     <div class="card card-3"></div>
   </div>
-  <Modal id="note-modal" modal-title="Create Deck">
-    <NoteComponent :deckId="deck.id" />
+  <Modal :id="`modal${deck.id.toString()}`" modal-title="Create Deck">
+    <NoteComponent :deck="deck" />
   </Modal>
 </template>
 
