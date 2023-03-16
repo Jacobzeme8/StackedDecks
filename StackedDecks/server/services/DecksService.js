@@ -12,7 +12,9 @@ class DecksService {
     }
     async getAccountDecks(accountId) {
         const creatorId = accountId
-        const decks = await dbContext.Decks.find({ creatorId })
+        const decks = await dbContext.Decks.find({ creatorId }).populate('note')
+        
+        if(!decks){throw new BadRequest}
         return decks
     }
     async copydeck(deckId, accoundId) {
@@ -74,6 +76,11 @@ class DecksService {
         const deck = await this.getDeckById(deckId)
         if (deck.creatorId.toString() != requestorId) {
             throw new Forbidden('Stop it! You cannot delete this!')
+        }
+        const noteId = deck.noteId
+        if(noteId){
+            const note = await dbContext.Notes.findById(noteId)
+            await note.remove()
         }
 
         await deck.remove()
