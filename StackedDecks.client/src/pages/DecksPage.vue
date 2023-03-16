@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="row d-flex justify-content-between" v-if="decks">
-      <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
+      <div v-for="deck in decks" class="col-md-6 col-lg-3 d-flex justify-content-center fit-content">
         <Deck :deck="deck" />
       </div>
     </div>
@@ -59,5 +59,10 @@ export default {
 
 .bebas {
   font-family: 'Bebas Neue', cursive;
+}
+
+.fit-content {
+  object-fit: contain;
+  // position: fixed;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="relative">
-    <div class=" bg-card decks-stacked card elevation-3 shadow-lg p-3 my-4" v-if="route">
+    <div class=" bg-card decks-stacked card elevation-3 shadow-lg p-3 my-4 fit-content" v-if="route">
       <div class="d-flex flex-row elevation-3 rounded justify-content-between">
         <!-- NOTE deck.id is not deckId as it is pulling by prop -->
         <div title="Bookmark this deck" @click="copyDeck(deck.id)" v-if="deck.creatorId != account.id">
@@ -106,6 +106,10 @@ export default {
 .profile-img {
   height: 45px;
   width: 45px;
+}
+
+.fit-content {
+  object-fit: contain;
 }
 
 .cover-img {
