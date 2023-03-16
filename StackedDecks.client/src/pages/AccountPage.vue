@@ -60,10 +60,12 @@
 
   <div class="pb-4">
 
-    <router-link class="d-flex  justify-content-between p-2 mt-3" :to="{ name: 'Home' }">
+    <div class="d-flex  justify-content-between p-2 mt-3">
       <h1 class="bebas shadow-1 text-light">MY DECKS:</h1>
-      <button class="btn btn-outline-light bebas grade">Add Cards</button>
-    </router-link>
+
+      <button @click="router.push({ name: 'Home' })" class="btn btn-outline-light bebas grade">Add Cards</button>
+
+    </div>
     <div class="container-fluid bg-pic">
       <div class="row" v-if="decks">
         <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
@@ -80,6 +82,7 @@ import { AppState } from '../AppState'
 import EditAccountForm from '../components/EditAccountForm.vue';
 import { decksServices } from '../services/DecksService.js';
 import { useRouter } from 'vue-router';
+import { router } from '../router.js';
 
 export default {
   props: {
@@ -108,6 +111,7 @@ export default {
       account: computed(() => AppState.account),
       coverImg: computed(() => `url("${AppState.account?.coverImg}")`),
       deck: computed(() => AppState.deck),
+      router
     };
   },
   components: { EditAccountForm }
