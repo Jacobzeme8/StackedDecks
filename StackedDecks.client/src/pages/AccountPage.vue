@@ -33,9 +33,12 @@
           <div class="card-body">
             <div class="">
               <div class="d-flex justify-content-center">
-                <div>
-                  <h3 class="text-center text-light"><b>{{ account.name }}</b></h3>
+                <div class="">
+                  <h3 class="text-center text-light"><b>{{ account.name }}</b>
+                  </h3>
+
                 </div>
+                <p class="mdi mdi-check-decagram text-primary" title="verified"></p>
               </div>
             </div>
             <div class="">
