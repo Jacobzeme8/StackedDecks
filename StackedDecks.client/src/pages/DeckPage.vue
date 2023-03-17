@@ -56,8 +56,8 @@
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { deckCardsService } from "../services/DeckCardsService"
-import { useRoute } from "vue-router";
-import { watchEffect, computed, onUpdated, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { watchEffect, computed, onUpdated, onMounted, } from "vue";
 import { AppState } from "../AppState.js";
 import { decksServices } from "../services/DecksService.js";
 import Card from "../components/Card.vue";
@@ -66,6 +66,7 @@ export default {
 
   setup() {
     const route = useRoute();
+    const router = useRouter();
 
     function addFlipEffect() {
       let kards = document.querySelectorAll('.kard');
@@ -119,6 +120,7 @@ export default {
     onMounted(() => {
       getMyDecks()
       addFlipEffect()
+      logger.log(router.options.history.state)
     })
 
     onUpdated(() => {

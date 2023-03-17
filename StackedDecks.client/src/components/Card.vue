@@ -13,7 +13,7 @@
             <p class="mb-0 on-hover">CLICK IMAGE TO SEE DETAILS</p>
           </div>
         </div>
-        <div v-if="deckCard">
+        <div v-if="deckCard && backPath != '/decks'">
           <div v-if="deckCard.creatorId == account.id">
             <form @submit.prevent="saveExerciseInfo(reps, weight, sets, time, deckCard.id)">
               <div class="d-flex justify-content-between">
@@ -108,6 +108,7 @@
 
 <script>
 import { ref, computed, onMounted } from "vue";
+import { useRouter } from "vue-router";
 import { AppState } from "../AppState";
 import { Card } from '../models/Card.js';
 import { Deck } from "../models/Deck";
@@ -134,9 +135,12 @@ export default {
   setup() {
     const editable = ref({})
     const exerciseVariable = ref({})
+    const router = useRouter();
+    const backPath = router.options.history.state.back
 
 
     return {
+      backPath,
       exerciseVariable,
       account: computed(() => AppState.account),
       editable,

@@ -16,8 +16,8 @@
           <i class="mdi mdi-delete text-danger fs-2 selectable"></i>
         </div>
         <div v-if="route.path == `/account`">
-          <i data-bs-toggle="modal" :data-bs-target="`#modal${deck.id.toString()}`"
-            class="mdi mdi-note fs-2 text-warning"></i>
+          <i data-bs-toggle="modal" :data-bs-target="`#modal${deck.id.toString()}`" :title="`${deck.name} note`"
+            class="selectable mdi mdi-note fs-2 text-warning"></i>
         </div>
       </div>
       <div class="d-flex text-light justify-content-center">
@@ -51,7 +51,7 @@ import { decksServices } from "../services/DecksService";
 import Pop from "../utils/Pop";
 import { computed, onMounted } from "vue";
 import { AppState } from "../AppState.js";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { DeckCard } from "../models/DeckCard.js";
 import { router } from "../router.js";
 import NoteComponent from "./NoteComponent.vue";
@@ -65,6 +65,7 @@ export default {
   },
   setup() {
     const route = useRoute();
+
     onMounted(() => { logger.log(route); });
     return {
       route,
