@@ -184,7 +184,7 @@ export default {
 
       async saveCompletedInfo(deckCardId) {
         try {
-          console.log('are you here completed?', deckCardId)
+          logger.log('are you here completed?', deckCardId)
           await deckCardsService.saveCompletedInfo(deckCardId)
           this.calculateXp()
         } catch (error) {

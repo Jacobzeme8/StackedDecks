@@ -22,7 +22,7 @@ class DeckCardsService {
         logger.log(currentXp, "currentXp")
       }
     })
-    console.log(AppState.deckCards.length);
+    logger.log(AppState.deckCards.length);
     let calc = currentXp / AppState.deckCards.length
     logger.log('Percentage', calc)
     return (calc)
