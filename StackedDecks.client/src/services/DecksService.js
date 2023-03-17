@@ -24,6 +24,7 @@ class DecksServices {
     logger.log(res.data)
     const publicDecks = res.data.filter(d => d.isPublic == true)
     AppState.decks = publicDecks.map(d => new Deck(d))
+    logger.log(AppState.decks, '[appstate decks]')
   }
 
   async copyDeck(deckId) {
@@ -43,7 +44,7 @@ class DecksServices {
 
   async getMyDecks() {
     const res = await api.get('account/decks')
-    AppState.decks = res.data.map(m => new Deck(m))
+    AppState.myDecks = res.data.map(m => new Deck(m))
   }
 
   async getUserDecks(creatorId) {

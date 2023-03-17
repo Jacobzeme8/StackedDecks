@@ -22,16 +22,17 @@ import Pop from "../utils/Pop";
 import { AppState } from "../AppState";
 
 export default {
-  props: {
-    decks: {
-      type: Object,
-      required: true
-    }
-  },
+  // props: {
+  //   decks: {
+  //     type: Object,
+  //     required: true
+  //   }
+  // },
   setup() {
 
     async function getAllDecks() {
       try {
+
         await decksServices.getAllDecks()
       } catch (error) {
         logger.error(error)
@@ -39,11 +40,25 @@ export default {
       }
     }
 
-    onMounted(() =>
-      getAllDecks()
+    async function getMyDecks() {
+      try {
+        await decksServices.getMyDecks()
+      } catch (error) {
+        logger.log(error)
+        Pop.error(error)
+      }
+    }
+
+    onMounted(() => {
+      getAllDecks();
+      getMyDecks()
+    }
     )
 
     return {
+      decks: computed(() => AppState.decks),
+      myDecks: computed(() => AppState.myDecks),
+      isBookmarked: computed(() => AppState.myDecks.includes())
     }
   }
 }
