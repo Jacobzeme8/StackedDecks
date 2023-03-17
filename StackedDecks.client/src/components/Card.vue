@@ -49,7 +49,12 @@
                   <button @click.stop="time++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
                 </div>
               </div>
-              <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
+              <div class="d-flex justify-content-between">
+                <!-- NOTE: Section Checkbox -->
+                <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
+                <input @change.stop="saveCompletedInfo(deckCard.id)" :checked="deckCard.completed" class="large-ch"
+                  type="checkbox">
+              </div>
             </form>
           </div>
         </div>
@@ -124,6 +129,7 @@ export default {
 
 
 
+
   },
   setup() {
     const editable = ref({})
@@ -154,8 +160,9 @@ export default {
             reps: reps,
             weight: weight,
             sets: sets,
-            time: time
+            time: time,
           }
+          // debugger
           await deckCardsService.saveExerciseInfo(updatedInfo, deckCardId)
           Pop.success('Updated Card!')
         } catch (error) {
@@ -163,6 +170,25 @@ export default {
           Pop.error(error)
         }
       },
+      async calculateXp() {
+        try {
+          await deckCardsService.calculateXp()
+        } catch (error) {
+          Pop.error(error.message)
+        }
+      },
+
+      async saveCompletedInfo(deckCardId) {
+        try {
+          console.log('are you here completed?', deckCardId)
+          await deckCardsService.saveCompletedInfo(deckCardId)
+          this.calculateXp()
+        } catch (error) {
+          Pop.error(error.message)
+        }
+      },
+
+
 
 
       checkDeckCardsInDecks(deck) {
@@ -181,6 +207,13 @@ export default {
 
 
 <style lang="scss" scoped>
+.large-ch {
+  display: inline-block;
+  padding: 8px;
+  width: 30px;
+
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;

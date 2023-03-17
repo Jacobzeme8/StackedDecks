@@ -67,8 +67,8 @@
 
     </div>
     <div class="container-fluid bg-pic">
-      <div class="row" v-if="decks">
-        <div v-for="deck in decks" class="col-md-3 d-flex justify-content-center">
+      <div class="row" v-if="myDecks">
+        <div v-for="deck in myDecks" class="col-md-3 d-flex justify-content-center">
           <Deck :deck="deck" />
         </div>
       </div>
@@ -111,6 +111,7 @@ export default {
       account: computed(() => AppState.account),
       coverImg: computed(() => `url("${AppState.account?.coverImg}")`),
       deck: computed(() => AppState.deck),
+      myDecks: computed(() => AppState.myDecks),
       router
     };
   },
