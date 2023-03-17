@@ -1,5 +1,5 @@
 <template>
-  <form v-if="!deck.note" @submit.prevent="createNote(deck.id)">
+  <form v-if="!deck.note" @submit.prevent="createNote(deck)">
     <div class="modal-body text-dark">
       <div class="mb-3">
         <label for="name" class="form-label">Note Name</label>
@@ -53,11 +53,11 @@ export default {
     const editable = ref({})
     return {
       editable,
-      async createNote(deckId) {
+      async createNote(deck) {
         try {
-          logger.log(deckId)
           const noteData = editable.value
-          await notesService.createNote(noteData, deckId)
+          await notesService.createNote(noteData, deck)
+          Pop.success('Note created')
         } catch (error) {
           Pop.error(error.message)
           logger.log('create note??', error)
@@ -68,6 +68,7 @@ export default {
           const noteData = deck.note
           logger.log(noteData)
           await notesService.editNote(noteData)
+          Pop.success('Note Saved')
         } catch (error) {
           Pop.error(error)
           logger.error(error)

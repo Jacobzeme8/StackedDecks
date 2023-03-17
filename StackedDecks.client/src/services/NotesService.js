@@ -3,9 +3,11 @@ import { api } from "./AxiosService.js"
 import { logger } from "../utils/Logger.js"
 
 class NotesService {
-    async createNote(noteData, deckId) {
-        const res = await api.post(`api/notes/${deckId}`, noteData)
-        logger.log(res.data)
+    async createNote(noteData, deck) {
+        const res = await api.post(`api/notes/${deck.id}`, noteData)
+        const index = AppState.decks.findIndex(d => d.id == deck.id)
+        deck.note = res.data
+        AppState.decks.splice(index, 1, deck)
 
     }
 
