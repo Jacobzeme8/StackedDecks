@@ -1,5 +1,8 @@
+import mongoose, { Mongoose, Schema, Types } from "mongoose"
 import { dbContext } from "../db/DbContext.js"
+import { DeckCardSchema } from "../models/DeckCard.js"
 import { BadRequest, Forbidden, UnAuthorized } from "../utils/Errors.js"
+import { deckCardsService } from "./DeckCardsService.js"
 class DecksService {
     async getDeckByUser(creatorId) {
         const userDeck = await dbContext.Decks.find({ creatorId })
@@ -21,6 +24,9 @@ class DecksService {
         const deck = await dbContext.Decks.findById(deckId)
         if (!deck) { throw new BadRequest('deck doesnt exist!') }
         if (deck.creatorId == accoundId) { throw new BadRequest('cannot favorite your own deck!') }
+        const deckCards = await dbContext.DeckCards.find({deckId: deck.id})
+        const cardsIds = deckCards.map(d => d.cardId.toString())
+        
         let deckObject = {
             name: deck.name,
             description: deck.description,
@@ -32,6 +38,19 @@ class DecksService {
         }
         const copiedDeck = await dbContext.Decks.create(deckObject)
 
+        // const ObjectId = mongoose.Types.ObjectId
+        // ObjectId.prototype.valueOf = function  () {
+        //     return this.toString
+        // }
+
+        let deckCardObject = {
+            deckId: copiedDeck.id,
+            creatorId: accoundId,
+            cardId: accoundId
+        }
+
+
+        cardsIds.forEach(async cId => deckCardObject.cardId =  cId,   await deckCardsService.createDeckCard(deckCardObject) )
         await copiedDeck.populate('creator')
         return copiedDeck
     }
