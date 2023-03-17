@@ -49,7 +49,10 @@
                   <button @click.stop="time++" class="btn btn-outline-primary mdi mdi-plus fs-3" type="button"></button>
                 </div>
               </div>
-              <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
+              <div class="d-flex justify-content-between">
+                <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
+                <input @click.stop class="large-ch" type="checkbox">
+              </div>
             </form>
           </div>
         </div>
@@ -181,6 +184,13 @@ export default {
 
 
 <style lang="scss" scoped>
+.large-ch {
+  display: inline-block;
+  padding: 8px;
+  width: 30px;
+
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
