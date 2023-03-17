@@ -162,6 +162,7 @@ export default {
             sets: sets,
             time: time,
           }
+          // debugger
           await deckCardsService.saveExerciseInfo(updatedInfo, deckCardId)
           Pop.success('Updated Card!')
         } catch (error) {
@@ -169,11 +170,19 @@ export default {
           Pop.error(error)
         }
       },
+      async calculateXp() {
+        try {
+          await deckCardsService.calculateXp()
+        } catch (error) {
+          Pop.error(error.message)
+        }
+      },
 
       async saveCompletedInfo(deckCardId) {
         try {
           console.log('are you here completed?', deckCardId)
           await deckCardsService.saveCompletedInfo(deckCardId)
+          this.calculateXp()
         } catch (error) {
           Pop.error(error.message)
         }

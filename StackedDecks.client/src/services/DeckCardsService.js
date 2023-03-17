@@ -14,6 +14,19 @@ class DeckCardsService {
     const newDeckCard = new DeckCard(res.data)
     AppState.deckCards.splice(index, 1, newDeckCard)
   }
+  async calculateXp() {
+    let currentXp = 0
+    const completedExercise = AppState.deckCards.forEach(c => {
+      if (c.completed == true) {
+        currentXp++
+        logger.log(currentXp, "currentXp")
+      }
+    })
+    console.log(AppState.deckCards.length);
+    let calc = currentXp / AppState.deckCards.length
+    logger.log('Percentage', calc)
+    return (calc)
+  }
   async saveCompletedInfo(deckCardId) {
     let foundCard = AppState.deckCards.find(d => d.id == deckCardId)
     foundCard.completed = true
