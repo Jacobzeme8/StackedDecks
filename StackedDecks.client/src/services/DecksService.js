@@ -38,7 +38,7 @@ class DecksServices {
     logger.log('did you delete?', res.data)
     const deckIndex = AppState.decks.findIndex(d => d.id == deckId)
     if (deckId !== -1) {
-      AppState.decks.splice(deckIndex, 1)
+      AppState.myDecks.splice(deckIndex, 1)
     }
   }
 
