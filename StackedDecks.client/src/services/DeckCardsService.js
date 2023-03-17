@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js"
+import { Deck } from "../models/Deck.js"
 import { DeckCard } from "../models/DeckCard.js"
 import { logger } from "../utils/Logger"
 import Pop from "../utils/Pop.js"
@@ -6,19 +7,27 @@ import { api } from "./AxiosService"
 
 class DeckCardsService {
 
-  async saveExerciseInfo(updatedInfo, deckCardId){
+  async saveExerciseInfo(updatedInfo, deckCardId) {
     const res = await api.put(`api/deckcards/${deckCardId}`, updatedInfo)
     logger.log(res.data)
     const index = AppState.deckCards.findIndex(d => d.id == deckCardId)
     const newDeckCard = new DeckCard(res.data)
     AppState.deckCards.splice(index, 1, newDeckCard)
   }
+  async saveCompletedInfo(deckCardId) {
+    // debugger
+    let foundCard = AppState.deckCards.find(d => d.id == deckCardId)
+    foundCard.completed = true
+    const res = await api.put(`api/deckcards/${deckCardId}`, foundCard)
+    logger.log('Completed in Service', res.data)
+    // AppState.deckCards = new DeckCard(res.data)
+  }
 
- async  getAccountDeckCards(){
-  const res = await api.get(`account/deckcards`)
-  AppState.accountDeckCards = res.data
-  logger.log(AppState.accountDeckCards)
- }
+  async getAccountDeckCards() {
+    const res = await api.get(`account/deckcards`)
+    AppState.accountDeckCards = res.data
+    logger.log(AppState.accountDeckCards)
+  }
   async getDeckCardsForDeck(deckId) {
     const res = await api.get(`api/decks/${deckId}/deckCards`)
     logger.log(res.data)

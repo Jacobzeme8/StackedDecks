@@ -50,8 +50,10 @@
                 </div>
               </div>
               <div class="d-flex justify-content-between">
+                <!-- NOTE: Section Checkbox -->
                 <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
-                <input @click.stop class="large-ch" type="checkbox">
+                <input @change.stop="saveCompletedInfo(deckCard.id)" :checked="deckCard.completed" class="large-ch"
+                  type="checkbox">
               </div>
             </form>
           </div>
@@ -127,6 +129,7 @@ export default {
 
 
 
+
   },
   setup() {
     const editable = ref({})
@@ -157,7 +160,7 @@ export default {
             reps: reps,
             weight: weight,
             sets: sets,
-            time: time
+            time: time,
           }
           await deckCardsService.saveExerciseInfo(updatedInfo, deckCardId)
           Pop.success('Updated Card!')
@@ -166,6 +169,18 @@ export default {
           Pop.error(error)
         }
       },
+
+      async saveCompletedInfo(deckCardId) {
+        try {
+          // const completed = editable.value
+          console.log('are you here completed?', deckCardId)
+          await deckCardsService.saveCompletedInfo(deckCardId)
+        } catch (error) {
+          Pop.error(error.message)
+        }
+      },
+
+
 
 
       checkDeckCardsInDecks(deck) {
