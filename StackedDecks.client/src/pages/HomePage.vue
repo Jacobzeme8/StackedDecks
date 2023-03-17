@@ -77,6 +77,7 @@ export default {
     async function getMyDecks() {
       try {
         await decksServices.getMyDecks()
+        logger.log('getting my decks', AppState.decks)
       } catch (error) {
         logger.error(error)
         Pop.error(error)
@@ -112,6 +113,7 @@ export default {
     })
 
     onUpdated(() => {
+      // getMyDecks()
       addFlipEffect()
     })
 
@@ -123,6 +125,7 @@ export default {
         getMyDecks();
         addFlipEffect();
         getAccountDeckCards();
+        logger.log('watch effect')
       }
     })
 

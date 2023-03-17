@@ -51,7 +51,7 @@ export default {
 
     onMounted(() => {
       getAllDecks();
-      getMyDecks()
+      // getMyDecks()
     }
     )
 

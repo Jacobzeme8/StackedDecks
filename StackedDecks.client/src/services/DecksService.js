@@ -38,13 +38,14 @@ class DecksServices {
     logger.log('did you delete?', res.data)
     const deckIndex = AppState.decks.findIndex(d => d.id == deckId)
     if (deckId !== -1) {
-      AppState.myDecks.splice(deckIndex, 1)
+      AppState.decks.splice(deckIndex, 1)
     }
   }
 
   async getMyDecks() {
     const res = await api.get('account/decks')
-    AppState.myDecks = res.data.map(m => new Deck(m))
+    logger.log('getting my decks in service',res.data)
+    AppState.decks = res.data.map(m => new Deck(m))
   }
 
   async getUserDecks(creatorId) {
