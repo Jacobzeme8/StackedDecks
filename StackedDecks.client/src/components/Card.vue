@@ -172,7 +172,6 @@ export default {
 
       async saveCompletedInfo(deckCardId) {
         try {
-          // const completed = editable.value
           console.log('are you here completed?', deckCardId)
           await deckCardsService.saveCompletedInfo(deckCardId)
         } catch (error) {

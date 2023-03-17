@@ -15,12 +15,10 @@ class DeckCardsService {
     AppState.deckCards.splice(index, 1, newDeckCard)
   }
   async saveCompletedInfo(deckCardId) {
-    // debugger
     let foundCard = AppState.deckCards.find(d => d.id == deckCardId)
     foundCard.completed = true
     const res = await api.put(`api/deckcards/${deckCardId}`, foundCard)
     logger.log('Completed in Service', res.data)
-    // AppState.deckCards = new DeckCard(res.data)
   }
 
   async getAccountDeckCards() {
