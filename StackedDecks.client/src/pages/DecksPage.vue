@@ -22,12 +22,12 @@ import Pop from "../utils/Pop";
 import { AppState } from "../AppState";
 
 export default {
-  // props: {
-  //   decks: {
-  //     type: Object,
-  //     required: true
-  //   }
-  // },
+  props: {
+    decks: {
+      type: Object,
+      required: true
+    }
+  },
   setup() {
 
     async function getAllDecks() {
