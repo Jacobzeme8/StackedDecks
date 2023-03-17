@@ -20,10 +20,10 @@ class DecksService {
         if(!decks){throw new BadRequest}
         return decks
     }
-    async copydeck(deckId, accoundId) {
+    async copydeck(deckId, accountId) {
         const deck = await dbContext.Decks.findById(deckId)
         if (!deck) { throw new BadRequest('deck doesnt exist!') }
-        if (deck.creatorId == accoundId) { throw new BadRequest('cannot favorite your own deck!') }
+        if (deck.creatorId == accountId) { throw new BadRequest('cannot favorite your own deck!') }
         const deckCards = await dbContext.DeckCards.find({deckId: deck.id})
         const cardsIds = deckCards.map(d => d.cardId.toString())
         
@@ -33,7 +33,7 @@ class DecksService {
             coverImg: deck.coverImg,
             exerciseType: deck.exerciseType,
             isPublic: false,
-            creatorId: accoundId,
+            creatorId: accountId,
             isCopied: true,
         }
         const copiedDeck = await dbContext.Decks.create(deckObject)
@@ -43,14 +43,22 @@ class DecksService {
         //     return this.toString
         // }
 
-        let deckCardObject = {
-            deckId: copiedDeck.id,
-            creatorId: accoundId,
-            cardId: accoundId
-        }
+        // let deckCardObject = {
+        //     deckId: copiedDeck.id,
+        //     creatorId: accountId,
+        //     cardId: accountId
+        // }   
 
 
-        cardsIds.forEach(async cId => deckCardObject.cardId =  cId,   await deckCardsService.createDeckCard(deckCardObject) )
+    cardsIds.forEach(async cId=>{
+    let deckCardData = 
+    {
+     deckId:copiedDeck.id,
+    creatorId: accountId,
+    cardId:cId
+    }
+    await deckCardsService.createDeckCard(deckCardData)
+})
         await copiedDeck.populate('creator')
         return copiedDeck
     }
