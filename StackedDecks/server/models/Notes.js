@@ -11,12 +11,12 @@ export const NotesSchema = new Schema({
 
 
 
-// NotesSchema.virtual('deck', {
-//   localField: 'deckId',
-//   foreignField: 'id',
-//   justOne: true,
-//   ref: 'Deck'
-// })
+NotesSchema.virtual('deck', {
+  localField: 'deckId',
+  foreignField: 'id',
+  justOne: true,
+  ref: 'Deck'
+})
 
 
 

@@ -122,6 +122,7 @@
 import { ref } from 'vue';
 import { logger } from "../utils/Logger";
 import { decksServices } from "../services/DecksService"
+import Pop from "../utils/Pop";
 export default {
     setup() {
         const editable = ref({
@@ -146,6 +147,7 @@ export default {
                 editable.value = {
                     exerciseType: []
                 }
+                Pop.success("Deck Created")
             }
         }
     }

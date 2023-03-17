@@ -4,14 +4,14 @@ import { logger } from "../utils/Logger.js"
 
 class NotesService {
     async createNote(noteData, deckId) {
-        logger.log('You here Note?')
         const res = await api.post(`api/notes/${deckId}`, noteData)
-        logger.log('creating note in service')
+        logger.log(res.data)
 
+    }
 
-
-
-
+    async editNote(noteData){
+        const res = await api.put(`api/notes/${noteData.id}`, noteData)
+        logger.log(res.data)
     }
 
 }
