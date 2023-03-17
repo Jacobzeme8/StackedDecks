@@ -87,9 +87,9 @@ export default {
       let kards = document.querySelectorAll('.kard');
       [...kards].forEach((kard) => {
         kard.classList.remove('is-flipped')
-        kard.removeEventListener('click', function () {
-          kard.classList.toggle('is-flipped');
-        });
+        // kard.removeEventListener('click', function () {
+        //   kard.classList.toggle('is-flipped');
+        // });
         kard.addEventListener('click', function () {
           kard.classList.toggle('is-flipped');
         });
