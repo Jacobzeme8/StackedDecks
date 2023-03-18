@@ -17,8 +17,8 @@
           <div v-if="deckCard.creatorId == account.id">
             <form @submit.prevent="saveExerciseInfo(reps, weight, sets, time, deckCard.id)">
               <div class="d-flex justify-content-between">
-                <span>reps</span>
-                <span>weight</span>
+                <span class="bebas fs-3 text-light">reps</span>
+                <span class="bebas fs-3 text-light">weight</span>
               </div>
               <div class="d-flex justify-content-between">
                 <div class="input-group mb-3">
@@ -34,8 +34,8 @@
                 </div>
               </div>
               <div class="d-flex justify-content-between">
-                <span>sets</span>
-                <span>time</span>
+                <span class="bebas fs-3 text-light">sets</span>
+                <span class="bebas fs-3 text-light">time</span>
               </div>
               <div class="d-flex justify-content-between">
                 <div class="input-group mb-3">
@@ -237,6 +237,11 @@ input::-webkit-inner-spin-button {
   // position: absolute;
 
   backface-visibility: hidden;
+}
+
+.bebas {
+  font-family: 'Bebas Neue', cursive;
+  text-shadow: 1px 1px 2px black;
 }
 
 .kard {
