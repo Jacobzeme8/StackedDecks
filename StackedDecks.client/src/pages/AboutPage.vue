@@ -1,4 +1,5 @@
 <template>
+  <!-- TODO Add Github Links -->
   <div class="container-fluid rounded bg-pic">
     <h1 class="text-center text-dark letter">About our Devs</h1>
 
