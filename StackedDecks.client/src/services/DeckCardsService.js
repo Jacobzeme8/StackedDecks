@@ -25,7 +25,8 @@ class DeckCardsService {
     console.log(AppState.deckCards.length);
     let calc = currentXp / AppState.deckCards.length
     logger.log('Percentage', calc)
-    return (calc)
+    AppState.deckPercent = (calc * 100)
+    // return (calc)
   }
   async saveCompletedInfo(deckCardId) {
     let foundCard = AppState.deckCards.find(d => d.id == deckCardId)

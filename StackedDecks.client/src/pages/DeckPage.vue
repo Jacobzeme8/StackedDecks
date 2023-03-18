@@ -26,7 +26,7 @@
                 <div class="d-flex justify-content-center">
                   <div class="progress w-25 " role="progressbar" aria-label="Example 1px high" aria-valuenow="25"
                     aria-valuemin="0" aria-valuemax="100" style="height: 1px">
-                    <div class="progress-bar" style="width: 25%"></div>
+                    <div v-if="deckPercentage" class="progress-bar deck-percent-bar"></div>
                   </div>
                 </div>
               </div>
@@ -81,6 +81,14 @@ export default {
       });
     }
 
+    async function calculateXp() {
+      try {
+        await deckCardsService.calculateXp()
+      } catch (error) {
+        Pop.error(error.message)
+      }
+    }
+
     async function getMyDecks() {
       try {
         await decksServices.getMyDecks()
@@ -120,14 +128,18 @@ export default {
     onMounted(() => {
       getMyDecks()
       addFlipEffect()
-      logger.log(router.options.history.state)
+
     })
 
     onUpdated(() => {
       addFlipEffect()
+      calculateXp()
+      logger.log(AppState.deckPercent, 'percentage')
     })
 
-
+    let root = document.querySelector(':root');
+    let rootStyles = getComputedStyle(root);
+    let deg = rootStyles.getPropertyValue('--deckPercentage');
 
 
 
@@ -137,7 +149,8 @@ export default {
       deck: computed(() => AppState.deck),
       deckCards: computed(() => AppState.deckCards),
       coverImg: computed(() => `url("${AppState.deck?.coverImg}")`),
-      decks: computed(() => AppState.decks)
+      decks: computed(() => AppState.decks),
+      deckPercentage: computed(() => `${AppState.deckPercent}%`)
 
       // card: computed(() => AppState.deckCard.card)
 
@@ -149,6 +162,10 @@ export default {
 
 
 <style lang="scss" scoped>
+.deck-percent-bar {
+  width: v-bind(deckPercentage);
+}
+
 .bg-banner {
 
   background-image: v-bind(coverImg);
