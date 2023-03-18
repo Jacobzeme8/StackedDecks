@@ -14,6 +14,18 @@
                             <div class="d-flex justify-content-center">
                                 <div>
                                     <h3 class="text-center text-light shadow"><b>{{ profile.name }}</b></h3>
+                                    <div class="text-center fs-4">
+                                        <span v-if="profile.github">
+                                            <a :href="profile.github" target="_blank">
+                                                <i class="mdi mdi-github"></i>
+                                            </a>
+                                        </span>
+                                        <span v-if="profile.linkedin">
+                                            <a :href="profile.linkedin" target="_blank">
+                                                <i class="mdi mdi-linkedin"></i>
+                                            </a>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
