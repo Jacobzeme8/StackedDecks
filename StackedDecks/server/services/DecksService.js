@@ -63,7 +63,7 @@ class DecksService {
         return copiedDeck
     }
     async editDeck(id, deckData, creatorId) {
-        const deck = await dbContext.Decks.findById(id)
+        const deck = await dbContext.Decks.findById(id).populate('creator')
         if (!deck) {
             throw new BadRequest('invalid deck ID.')
         }
@@ -74,6 +74,7 @@ class DecksService {
         deck.description = deckData.description || deck.description
         deck.coverImg = deckData.coverImg || deck.coverImg
         deck.isPublic = deckData.isPublic || deck.isPublic
+        deck.exp = deckData.exp
         await deck.save()
         return deck
     }

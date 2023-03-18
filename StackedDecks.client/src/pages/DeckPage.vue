@@ -121,21 +121,24 @@ export default {
     watchEffect(() => {
       if (route.params.deckId) {
         getDeckCardsForDeck();
-        getDeckById();
       }
     });
 
+
     onMounted(() => {
+      getDeckById();
       getMyDecks()
       addFlipEffect()
-
     })
 
     onUpdated(() => {
       addFlipEffect()
-      calculateXp()
+
       logger.log(AppState.deckPercent, 'percentage')
+      // return
     })
+
+
 
 
 

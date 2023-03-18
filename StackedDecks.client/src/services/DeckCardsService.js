@@ -16,15 +16,19 @@ class DeckCardsService {
   }
   async calculateXp() {
     let currentXp = 0
-    const completedExercise = AppState.deckCards.forEach(c => {
+    AppState.deckCards.forEach(c => {
       if (c.completed == true) {
         currentXp++
         logger.log(currentXp, "currentXp")
       }
     })
-    logger.log(AppState.deckCards.length);
+
+    const completedExercise = AppState.deckCards.find(c => c.completed == false)
+
+    logger.log("completed exercies", completedExercise)
+    // logger.log(AppState.deckCards.length);
     let calc = currentXp / AppState.deckCards.length
-    logger.log('Percentage', calc)
+    // logger.log('Percentage', calc)
     AppState.deckPercent = (calc * 100)
     // return (calc)
   }

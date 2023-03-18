@@ -26,5 +26,7 @@ export const AppState = reactive({
 
   myDecks: [],
 
-  deckPercent: null
+  deckPercent: null,
+
+  stackedPercent: null
 })

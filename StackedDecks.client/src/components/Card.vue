@@ -52,8 +52,8 @@
               <div class="d-flex justify-content-between">
                 <!-- NOTE: Section Checkbox -->
                 <button @click.stop type="submit" class="btn btn-success p-1">Save</button>
-                <input @click.stop @change="saveCompletedInfo(deckCard.id)" :disabled="deckCard.completed"
-                  :checked="deckCard.completed" class="large-ch" type="checkbox">
+                <input @click.stop @change="saveCompletedInfo(deckCard.id, deckCard.deckId)"
+                  :disabled="deckCard.completed" :checked="deckCard.completed" class="large-ch" type="checkbox">
               </div>
             </form>
           </div>
