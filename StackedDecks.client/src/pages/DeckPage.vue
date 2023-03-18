@@ -137,9 +137,7 @@ export default {
       logger.log(AppState.deckPercent, 'percentage')
     })
 
-    let root = document.querySelector(':root');
-    let rootStyles = getComputedStyle(root);
-    let deg = rootStyles.getPropertyValue('--deckPercentage');
+
 
 
 

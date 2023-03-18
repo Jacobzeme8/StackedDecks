@@ -5,7 +5,7 @@
   <main class="bg-color">
     <div class="container-fluid">
       <div class="row ">
-        <div class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
+        <divgh class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
           <!-- NOTE offcanvas start -->
           <button class="filter-mobile btn btn-outline-light filter-buttons text-light mb-2" type="button"
             data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -83,7 +83,7 @@
               <span class="aboutus"><a></a></span>
             </router-link>
           </div>
-        </div>
+        </divgh>
         <div class="col-md-10 m-auto">
           <router-view :decks="decks" :cards="cards" />
         </div>
