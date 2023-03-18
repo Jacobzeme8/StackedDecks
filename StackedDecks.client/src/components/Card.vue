@@ -136,6 +136,7 @@ export default {
     const editable = ref({})
     const exerciseVariable = ref({})
     const router = useRouter();
+    // NOTE tracks the last pages path you were on
     const backPath = router.options.history.state.back
 
 
