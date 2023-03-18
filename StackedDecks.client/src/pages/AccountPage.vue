@@ -38,16 +38,15 @@
                   </h3>
 
                 </div>
-                <p class="mdi mdi-check-decagram text-primary" title="verified"></p>
-
+                <p class="mdi mdi-check-decagram text-primary fs-4" title="verified"></p>
                 <span v-if="account.github">
                   <a :href="account.github" target="_blank">
-                    <i class="mdi mdi-github"></i>
+                    <i class="mdi mdi-github fs-4"></i>
                   </a>
                 </span>
                 <span v-if="account.linkedin">
                   <a :href="account.linkedin" target="_blank">
-                    <i class="mdi mdi-linkedin"></i>
+                    <i class="mdi mdi-linkedin fs-4"></i>
                   </a>
                 </span>
 
