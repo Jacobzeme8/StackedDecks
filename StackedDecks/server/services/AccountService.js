@@ -41,7 +41,9 @@ async function mergeSubsIfNeeded(account, user) {
 function sanitizeBody(body) {
   const writable = {
     name: body.name,
-    picture: body.picture
+    picture: body.picture,
+    github: body.github,
+    linkedin: body.linkedin
   }
   return writable
 }
@@ -57,6 +59,8 @@ class AccountService {
     account.coverImg = accountData.coverImg || account.coverImg
     account.bio = accountData.bio || account.bio
     account.level = accountData.level || account.level
+    account.github = accountData.github || account.github
+    account.linkedin = accountData.linkedin || account.linkedin
 
     await account.save()
 

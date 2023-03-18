@@ -8,6 +8,8 @@ export class Account {
     this.exp = data.exp
     this.level = data.level
     this.bio = data.bio
+    this.github = data.github
+    this.linkedin = data.linkedin
     // TODO add additional properties if needed
   }
 }

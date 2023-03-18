@@ -16,6 +16,14 @@
       <label for="coverImg" class="form-label">coverImg</label>
       <input required v-model="editable.coverImg" type="url" class="form-control" id="coverImg">
     </div>
+    <div class="mb-3">
+      <label for="github" class="form-label">github</label>
+      <input v-model="editable.github" type="url" class="form-control" id="github">
+    </div>
+    <div class="mb-3">
+      <label for="linkedin" class="form-label">linkedin</label>
+      <input v-model="editable.linkedin" type="url" class="form-control" id="linkedin">
+    </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
@@ -46,6 +54,7 @@ export default {
         try {
           const formData = editable.value
           await accountService.editAccount(formData)
+          logger.log(formData)
         } catch (error) {
           logger.error(error)
           Pop.error(error.message)

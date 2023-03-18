@@ -39,6 +39,18 @@
 
                 </div>
                 <p class="mdi mdi-check-decagram text-primary" title="verified"></p>
+
+                <span v-if="account.github">
+                  <a :href="account.github" target="_blank">
+                    <i class="mdi mdi-github"></i>
+                  </a>
+                </span>
+                <span v-if="account.linkedin">
+                  <a :href="account.linkedin" target="_blank">
+                    <i class="mdi mdi-linkedin"></i>
+                  </a>
+                </span>
+
               </div>
             </div>
             <div class="">
