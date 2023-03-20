@@ -107,7 +107,7 @@
 
 
 <script>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watchEffect } from "vue";
 import { useRouter } from "vue-router";
 import { AppState } from "../AppState";
 import { Card } from '../models/Card.js';
@@ -140,6 +140,25 @@ export default {
     // NOTE tracks the last pages path you were on
     const backPath = router.options.history.state.back
 
+    function addFlipEffect() {
+      let kards = document.querySelectorAll('.kard');
+      [...kards].forEach((kard) => {
+        kard.classList.remove('is-flipped')
+        // kard.removeEventListener('click', function () {
+        //   kard.classList.toggle('is-flipped');
+        // });
+        kard.addEventListener('click', function () {
+          kard.classList.toggle('is-flipped');
+        });
+      });
+    }
+
+    watchEffect(() => {
+      if (AppState.deckPercent) {
+        addFlipEffect()
+      }
+    })
+
 
     return {
       backPath,
@@ -159,6 +178,8 @@ export default {
           Pop.error(error)
         }
       },
+
+
 
       async saveExerciseInfo(reps, weight, sets, time, deckCardId) {
         try {
