@@ -114,6 +114,7 @@ import { Card } from '../models/Card.js';
 import { Deck } from "../models/Deck";
 import { DeckCard } from "../models/DeckCard";
 import { deckCardsService } from "../services/DeckCardsService";
+import { decksServices } from "../services/DecksService";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 // import { DeckCard } from '../models/DeckCard.js';
@@ -175,19 +176,30 @@ export default {
           Pop.error(error)
         }
       },
-      async calculateXp() {
+
+      async deckCompletionCheck(deckId) {
+        try {
+          await decksServices.deckCompletionCheck(deckId)
+        } catch (error) {
+          Pop.error(error)
+          logger.error(error)
+        }
+      },
+
+      async calculateXp(deckId) {
         try {
           await deckCardsService.calculateXp()
+          await this.deckCompletionCheck(deckId)
         } catch (error) {
           Pop.error(error.message)
         }
       },
 
-      async saveCompletedInfo(deckCardId) {
+      async saveCompletedInfo(deckCardId, deckId) {
         try {
           logger.log('are you here completed?', deckCardId)
           await deckCardsService.saveCompletedInfo(deckCardId)
-          this.calculateXp()
+          this.calculateXp(deckId)
         } catch (error) {
           Pop.error(error.message)
         }

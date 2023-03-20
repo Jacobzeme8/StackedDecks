@@ -4,6 +4,20 @@ import { DeckCardSchema } from "../models/DeckCard.js"
 import { BadRequest, Forbidden, UnAuthorized } from "../utils/Errors.js"
 import { deckCardsService } from "./DeckCardsService.js"
 class DecksService {
+    async deckCompletionCheck(deckId) {
+        const deckCards = await dbContext.DeckCards.find({deckId})
+        const deck = await dbContext.Decks.findById(deckId)
+        if(!deck){throw new BadRequest}
+        const deckCardsCheck = deckCards.find(d => d.completed == false)
+        if(!deckCardsCheck){
+            deck.exp += 25
+            deck.save()
+            const resetDeckCards = await deckCardsService.resetDeckCards(deckId)
+            const resultArray = [deck, resetDeckCards]
+            return resultArray
+        }
+        else return null
+    }
     async getDeckByUser(creatorId) {
         const userDeck = await dbContext.Decks.find({ creatorId })
             .populate('creator', 'name picture')

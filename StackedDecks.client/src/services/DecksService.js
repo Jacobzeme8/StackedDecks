@@ -1,5 +1,6 @@
 import { AppState } from "../AppState"
 import { Deck } from "../models/Deck"
+import { DeckCard } from "../models/DeckCard"
 import { logger } from "../utils/Logger"
 import { api } from "./AxiosService"
 
@@ -59,6 +60,17 @@ class DecksServices {
   async postDeck(deckId) {
     const res = await api.put(`api/decks/${deckId}`, { isPublic: true })
     logger.log(res.data)
+  }
+
+  async deckCompletionCheck(deckId){
+    const res = await api.put(`api/decks/${deckId}/check`)
+    // logger.log("deck complete check", res.data)
+    if(typeof res.data != Object){
+      return
+    }
+    AppState.deck = new Deck(res.data[0])
+    AppState.deckCards = res.data[1].map(d => new DeckCard(d))
+    AppState.stackedPercent = res.data[0].exp
   }
 
 }

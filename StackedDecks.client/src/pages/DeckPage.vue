@@ -21,7 +21,6 @@
                 <img class="img-fluid ms-3 rounded-circle profile-img" :src="deck.creator.picture" alt="">
               </div>
               <div v-if="account.id == deck.creatorId">
-
                 <h6 class="text-center text-light">Current Exercise Progress</h6>
                 <div class="d-flex justify-content-center">
                   <div class="progress w-25 " role="progressbar" aria-label="Example 1px high" aria-valuenow="25"
@@ -124,6 +123,12 @@ export default {
       }
     });
 
+    watchEffect(() => {
+      if (AppState.deck) {
+        calculateXp()
+      }
+    })
+
 
     onMounted(() => {
       getDeckById();
@@ -134,8 +139,6 @@ export default {
     onUpdated(() => {
       addFlipEffect()
 
-      logger.log(AppState.deckPercent, 'percentage')
-      // return
     })
 
 

@@ -23,9 +23,7 @@ class DeckCardsService {
       }
     })
 
-    const completedExercise = AppState.deckCards.find(c => c.completed == false)
-
-    logger.log("completed exercies", completedExercise)
+    AppState.stackedPercent = AppState.deck.exp
     // logger.log(AppState.deckCards.length);
     let calc = currentXp / AppState.deckCards.length
     // logger.log('Percentage', calc)

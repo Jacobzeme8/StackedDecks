@@ -15,7 +15,17 @@ export class DecksController extends BaseController {
             .put('/:deckId', this.editDeck)
             .delete('/:deckId', this.deleteDeck)
             .post('/:deckId', this.copyDeck)
+            .put('/:deckId/check', this.deckCompletionCheck)
 
+    }
+    async deckCompletionCheck(req, res, next) {
+        try {
+            const deckId = req.params.deckId
+            const response = await decksService.deckCompletionCheck(deckId)
+            res.send(response)
+        } catch (error) {
+            next(error)
+        }
     }
 
     async copyDeck(req, res, next) {

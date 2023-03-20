@@ -2,6 +2,11 @@ import { dbContext } from "../db/DbContext"
 import { BadRequest, UnAuthorized } from "../utils/Errors"
 
 class DeckCardsService {
+  async resetDeckCards(deckId) {
+      await dbContext.DeckCards.updateMany({deckId}, {$set: {completed: false}})
+      const deckCards = await dbContext.DeckCards.find({deckId}).populate('deck card')
+      return deckCards
+  }
   async getAccountDeckCards(accountId) {
     const deckCards = await dbContext.DeckCards.find({ creatorId: accountId }).populate('deck card')
     return deckCards
