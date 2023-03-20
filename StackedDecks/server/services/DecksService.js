@@ -6,7 +6,7 @@ import { deckCardsService } from "./DeckCardsService.js"
 class DecksService {
     async deckCompletionCheck(deckId) {
         const deckCards = await dbContext.DeckCards.find({deckId})
-        const deck = await dbContext.Decks.findById(deckId)
+        const deck = await dbContext.Decks.findById(deckId).populate('creator')
         if(!deck){throw new BadRequest}
         const deckCardsCheck = deckCards.find(d => d.completed == false)
         if(!deckCardsCheck){

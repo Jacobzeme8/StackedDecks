@@ -12,7 +12,7 @@
                 <div class="d-flex justify-content-center">
                   <div class="progress w-50 " role="progressbar" aria-label="Example 20px high" aria-valuenow="25"
                     aria-valuemin="0" aria-valuemax="100" style="height: 20px">
-                    <div class="progress-bar" style="width: 25%"></div>
+                    <div class="progress-bar stacked-percent-bar"></div>
                   </div>
                 </div>
               </div>
@@ -154,7 +154,8 @@ export default {
       deckCards: computed(() => AppState.deckCards),
       coverImg: computed(() => `url("${AppState.deck?.coverImg}")`),
       decks: computed(() => AppState.decks),
-      deckPercentage: computed(() => `${AppState.deckPercent}%`)
+      deckPercentage: computed(() => `${AppState.deckPercent}%`),
+      stackedPercentage: computed(() => `${AppState.stackedPercent}%`)
 
       // card: computed(() => AppState.deckCard.card)
 
@@ -168,6 +169,10 @@ export default {
 <style lang="scss" scoped>
 .deck-percent-bar {
   width: v-bind(deckPercentage);
+}
+
+.stacked-percent-bar {
+  width: v-bind(stackedPercentage);
 }
 
 .bg-banner {

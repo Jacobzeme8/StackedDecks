@@ -64,8 +64,8 @@ class DecksServices {
 
   async deckCompletionCheck(deckId){
     const res = await api.put(`api/decks/${deckId}/check`)
-    // logger.log("deck complete check", res.data)
-    if(typeof res.data != Object){
+    logger.log("deck complete check", res.data)
+    if(!res.data){
       return
     }
     AppState.deck = new Deck(res.data[0])
