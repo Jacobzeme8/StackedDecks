@@ -88,9 +88,11 @@
   <footer class="bg-color-rev d-flex">
     <div v-if="route.path != '/account'" class="container-fluid bg-color-rev">
       <div v-if="route.path != '/decks'" class="row">
-        <div class="col-md-12">
+        <div v-if="route.path != '/about'" class="col-md-12">
           <div class="fs-5 text-center my-5">
-            Our Sponsors:
+            <router-link :to="{ name: 'SponsorPage' }">
+              <h3>Our Sponsors:</h3>
+            </router-link>
           </div>
           <div class="d-flex justify-content-between bg-color-rev">
             <div class="mb-2">
