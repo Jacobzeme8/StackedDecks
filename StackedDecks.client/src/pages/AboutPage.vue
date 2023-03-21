@@ -23,7 +23,7 @@
               alt="T-Rex">
           </div>
           <div class="text-center">
-            <span><b class="letter text-dark">Thomas Fuhriman</b></span>
+            <span><b class="letter text-dark">Thomas "T-Rex" Fuhriman</b></span>
             <p class="letter text-dark"><b>Wannabe Stacked
                 Strong Man and amateur arm wrestler</b></p>
           </div>
