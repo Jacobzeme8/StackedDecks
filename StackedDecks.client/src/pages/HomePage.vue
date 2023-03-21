@@ -84,18 +84,7 @@ export default {
       }
     }
 
-    function addFlipEffect() {
-      let kards = document.querySelectorAll('.kard');
-      [...kards].forEach((kard) => {
-        kard.classList.remove('is-flipped')
-        kard.removeEventListener('click', function () {
-          kard.classList.toggle('is-flipped');
-        });
-        kard.addEventListener('click', function () {
-          kard.classList.toggle('is-flipped');
-        });
-      });
-    }
+
 
     async function getAccountDeckCards() {
       try {
@@ -108,13 +97,13 @@ export default {
 
     onMounted(() => {
       getAllCards();
-      addFlipEffect()
+
 
     })
 
     onUpdated(() => {
       // getMyDecks()
-      addFlipEffect()
+
     })
 
 
@@ -123,7 +112,7 @@ export default {
     watchEffect(() => {
       if (AppState.account.id) {
         getMyDecks();
-        addFlipEffect();
+
         getAccountDeckCards();
         logger.log('watch effect')
       }
@@ -132,7 +121,7 @@ export default {
 
 
     onUpdated(() => {
-      addFlipEffect()
+
     })
 
 

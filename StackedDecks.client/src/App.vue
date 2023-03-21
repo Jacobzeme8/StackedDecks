@@ -101,24 +101,14 @@ import { logger } from "./utils/Logger"
 
 export default {
   setup() {
-    function addFlipEffect() {
-      let kards = document.querySelectorAll('.kard');
-      [...kards].forEach((kard) => {
-        kard.classList.remove('is-flipped')
-        // kard.removeEventListener('click', function () {
-        //   kard.classList.toggle('is-flipped');
-        // });
-        kard.addEventListener('click', function () {
-          kard.classList.toggle('is-flipped');
-        });
-      });
-    }
+
     const filterType = ref('all')
     const route = useRoute()
     watchEffect(() => {
       if (filterType.value) {
         logger.log('filter watch effect')
-        addFlipEffect()
+        let cards = document.querySelectorAll('.kard');
+        [...cards].forEach((card) => card.classList.remove('is-flipped'))
       }
     })
 
@@ -129,13 +119,14 @@ export default {
       }
     })
 
-    onMounted(() => {
-      addFlipEffect()
-    })
+
+
+
     return {
       route,
       appState: computed(() => AppState),
       changeFilterType(c) {
+
         filterType.value = c
       },
       cards: computed(() => {

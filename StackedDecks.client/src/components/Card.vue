@@ -1,7 +1,7 @@
 <template>
   <!-- NOTE Face of Card -->
   <div class="my-3">
-    <div class="kard shadow bg-secondary rounded">
+    <div :id="`kard${card.id.toString()}`" class="kard shadow bg-secondary rounded" @click="flipCard(card.id)">
       <div class="kard_face shadow kard-front card bg-card p-2 rounded">
         <div class="card elevation-5">
           <i v-if="!card.imgUrl" class="mdi mdi-loading mdi-spin"></i>
@@ -107,7 +107,7 @@
 
 
 <script>
-import { ref, computed, onMounted, watchEffect } from "vue";
+import { ref, computed, onMounted, watchEffect, onUpdated } from "vue";
 import { useRouter } from "vue-router";
 import { AppState } from "../AppState";
 import { Card } from '../models/Card.js';
@@ -139,28 +139,21 @@ export default {
     const router = useRouter();
     // NOTE tracks the last pages path you were on
     const backPath = router.options.history.state.back
+    let card = null
+    onUpdated(() => {
 
-    function addFlipEffect() {
-      let kards = document.querySelectorAll('.kard');
-      [...kards].forEach((kard) => {
-        kard.classList.remove('is-flipped')
-        // kard.removeEventListener('click', function () {
-        //   kard.classList.toggle('is-flipped');
-        // });
-        kard.addEventListener('click', function () {
-          kard.classList.toggle('is-flipped');
-        });
-      });
+    })
+
+    function flipCard(cardId) {
+      card = document.querySelector(`#kard${cardId.toString()}`)
+      // logger.log(card)
+      card.classList.toggle('is-flipped')
     }
 
-    watchEffect(() => {
-      if (AppState.deckPercent) {
-        addFlipEffect()
-      }
-    })
 
 
     return {
+      flipCard,
       backPath,
       exerciseVariable,
       account: computed(() => AppState.account),
