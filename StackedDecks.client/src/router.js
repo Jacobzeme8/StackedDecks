@@ -39,6 +39,11 @@ const routes = [
     name: 'Profile',
     component: loadPage('ProfilePage'),
     beforeEnter: authGuard
+  },
+  {
+    path: '/sponsors',
+    name: 'SponsorPage',
+    component: loadPage('SponsorPage'),
   }
 ]
 

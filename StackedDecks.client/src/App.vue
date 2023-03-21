@@ -5,7 +5,7 @@
   <main class="bg-color">
     <div class="container-fluid">
       <div class="row ">
-        <divgh class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
+        <div class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
           <!-- NOTE offcanvas start -->
           <button class="filter-mobile btn btn-outline-light filter-buttons text-light mb-2" type="button"
             data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
@@ -78,18 +78,42 @@
                 Body</button>
             </div>
           </div>
-          <div class="mb-2">
-            <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
-              <span class="aboutus"><a></a></span>
-            </router-link>
-          </div>
-        </divgh>
+        </div>
         <div class="col-md-10 m-auto">
           <router-view :decks="decks" :cards="cards" />
         </div>
       </div>
     </div>
   </main>
+  <footer class="bg-color-rev d-flex">
+    <div v-if="route.path != '/account'" class="container-fluid bg-color-rev">
+      <div v-if="route.path != '/decks'" class="row">
+        <div v-if="route.path != '/about'" class="col-md-12">
+          <div class="fs-5 text-center my-5">
+            <router-link :to="{ name: 'SponsorPage' }">
+              <h3>Our Sponsors:</h3>
+            </router-link>
+          </div>
+          <div class="d-flex justify-content-between bg-color-rev">
+            <div class="mb-2">
+              <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
+                <span class="aboutus"><a></a></span>
+              </router-link>
+            </div>
+            <div class="">
+              <img class="taller rounded" src="Tempo.jpg" alt="">
+            </div>
+            <div>
+              <img class="taller rounded" src="PageTurn.jpg" alt="">
+            </div>
+            <div>
+              <img class=" taller rounded" src="Super Setter.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -158,6 +182,16 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
+.taller {
+  height: 50px;
+}
+
+.bg-color-rev {
+  background: #d9dace;
+  height: 20vh;
+
+}
+
 .bebas {
   font-family: 'Bebas Neue', cursive;
   text-shadow: 1px 1px 2px black;
@@ -201,7 +235,7 @@ export default {
 footer {
   display: grid;
   place-content: center;
-  height: 32px;
+  height: 100vh;
 }
 
 
