@@ -4,7 +4,7 @@
   </header>
   <main class="bg-color">
     <div class="container-fluid">
-      <div class="row ">
+      <div v-if="route.path != '/sponsors'" class="row ">
         <div class="col-md-2 d-flex flex-column justify-content-between" v-if="route.path != '/about'">
           <!-- NOTE offcanvas start -->
           <button class="filter-mobile btn btn-outline-light filter-buttons text-light mb-2" type="button"
@@ -85,29 +85,32 @@
       </div>
     </div>
   </main>
-  <footer class="bg-color-rev d-flex">
-    <div v-if="route.path != '/account'" class="container-fluid bg-color-rev">
-      <div v-if="route.path != '/decks'" class="row">
-        <div v-if="route.path != '/about'" class="col-md-12">
-          <div class="fs-5 text-center my-5">
-            <router-link :to="{ name: 'SponsorPage' }">
-              <h3>Our Sponsors:</h3>
+  <footer>
+    <div v-if="route.path != '/account'" class="container-fluid">
+      <div v-if="route.path != '/decks'" class="row bg-color-rev">
+        <div v-if="route.path != '/about'" class="col-md-12 p-0">
+          <div class="fs-5 text-center my-3 ">
+            <router-link :to="{ name: 'Sponsors' }">
+              <span class="dark fs-3">Our Sponsors:</span>
             </router-link>
           </div>
-          <div class="d-flex justify-content-between bg-color-rev">
-            <div class="mb-2">
-              <router-link :to="{ name: 'About' }" class="d-flex flex-column mb-2">
+          <div class="d-flex justify-content-evenly bg-color-rev">
+            <div class="">
+              <router-link :to="{ name: 'About' }" class="d-flex flex-column ">
                 <span class="aboutus"><a></a></span>
               </router-link>
             </div>
-            <div class="">
-              <img class="taller rounded" src="Tempo.jpg" alt="">
+            <div>
+              <img class="mt-2 taller rounded" src="gratuities.png" alt="">
             </div>
             <div>
-              <img class="taller rounded" src="PageTurn.jpg" alt="">
+              <img class="mt-2 taller rounded" src="PageTurn.jpg" alt="">
             </div>
             <div>
-              <img class=" taller rounded" src="Super Setter.png" alt="">
+              <img class="mt-2 taller rounded" src="Tempo.jpg" alt="">
+            </div>
+            <div>
+              <img class="mt-2 taller rounded " src="Super Setter.png" alt="">
             </div>
           </div>
         </div>
@@ -148,6 +151,7 @@ export default {
 
     return {
       route,
+      creatorId: computed(() => AppState.profile),
       appState: computed(() => AppState),
       changeFilterType(c) {
 
@@ -182,14 +186,18 @@ export default {
 <style lang="scss">
 @import "./assets/scss/main.scss";
 
+.dark {
+  color: #000;
+  font-family: 'Edu NSW ACT Foundation', cursive;
+}
+
 .taller {
-  height: 50px;
+  height: 40px;
 }
 
 .bg-color-rev {
   background: #d9dace;
-  height: 20vh;
-
+  height: 15vh;
 }
 
 .bebas {
@@ -229,13 +237,6 @@ export default {
 .sticky-top {
   position: sticky;
   top: 1em;
-}
-
-
-footer {
-  display: grid;
-  place-content: center;
-  height: 100vh;
 }
 
 
