@@ -1,0 +1,1 @@
+import{_ as e,c as o,o as t,b as s}from"./index.e8374378.js";const c={setup(){return{}}},n={class:"container"},a=s("div",{class:"row"},[s("div",{class:"col-md-12"},[s("h1",null,"OUR SPONSORS")])],-1),r=[a];function _(d,i,l,p,u,f){return t(),o("div",n,r)}const m=e(c,[["render",_]]);export{m as default};
