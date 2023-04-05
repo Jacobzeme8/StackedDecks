@@ -101,16 +101,16 @@
               </router-link>
             </div>
             <div>
-              <img class="mt-2 taller rounded" src="gratuities.png" alt="">
+              <img class="mt-2 taller rounded" src="/gratuities.png" alt="">
             </div>
             <div>
-              <img class="mt-2 taller rounded" src="PageTurn.jpg" alt="">
+              <img class="mt-2 taller rounded" src="/PageTurn.jpg" alt="">
             </div>
             <div>
-              <img class="mt-2 taller rounded" src="Tempo.jpg" alt="">
+              <img class="mt-2 taller rounded" src="/Tempo.jpg" alt="">
             </div>
             <div>
-              <img class="mt-2 taller rounded " src="Super Setter.png" alt="">
+              <img class="mt-2 taller rounded " src="/SuperSetter.png" alt="">
             </div>
           </div>
         </div>

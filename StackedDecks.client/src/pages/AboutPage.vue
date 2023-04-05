@@ -7,7 +7,7 @@
       <div class="row d-flex justify-content-around">
         <div class="col-md-4">
           <div class="img-fluid">
-            <img class="photo img-fluid" src="Parker.jpg" alt="Parker">
+            <img class="photo img-fluid" src="/Parker.jpg" alt="Parker">
           </div>
           <div class="text-center">
             <span><b class="letter text-dark">Parker Ward</b></span>
@@ -16,7 +16,7 @@
         </div>
         <div class="col-md-4">
           <div class="img-fluid">
-            <img class="photo img-fluid" src="T-Rex.jpg" alt="T-Rex">
+            <img class="photo img-fluid" src="/T-Rex.jpg" alt="T-Rex">
           </div>
           <div class="text-center">
             <span><b class="letter text-dark">Thomas "T-Rex" Fuhriman</b></span>
@@ -31,7 +31,7 @@
       <div class="row d-flex justify-content-around">
         <div class="col-md-4">
           <div class="img-fluid">
-            <img class="photo img-fluid" src="Linda.jpg " alt="Linda Taing">
+            <img class="photo img-fluid" src="/Linda.jpg " alt="Linda Taing">
           </div>
           <div class="text-center">
             <span><b class=" text-light">Linda Taing</b></span>
@@ -40,7 +40,7 @@
         </div>
         <div class="col-md-4">
           <div class="img-fluid">
-            <img class="photo img-fluid" src="Jacob.jpg" alt="JACOB MARTINEZ">
+            <img class="photo img-fluid" src="/Jacob.jpg" alt="JACOB MARTINEZ">
           </div>
           <div class="text-center">
             <span><b class=" text-light ">Jacob Martinez</b></span>
