@@ -101,13 +101,13 @@
               </router-link>
             </div>
             <div class="">
-              <img class="taller rounded" src="Tempo.jpg" alt="">
+              <img class="taller rounded" src="Public\Tempo.jpg" alt="">
             </div>
             <div>
-              <img class="taller rounded" src="PageTurn.jpg" alt="">
+              <img class="taller rounded" src="Public\PageTurn.jpg" alt="">
             </div>
             <div>
-              <img class=" taller rounded" src="Super Setter.png" alt="">
+              <img class=" taller rounded" src="Public\SuperSetter.png" alt="">
             </div>
           </div>
         </div>
