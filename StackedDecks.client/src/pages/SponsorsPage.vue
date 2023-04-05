@@ -1,16 +1,20 @@
 <template>
-    <h1>Sponsors here!</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>OUR SPONSORS</h1>
+
+            </div>
+        </div>
+    </div>
 </template>
 
 
 <script>
-import { useRoute, useRouter } from 'vue-router';
 export default {
     setup() {
-        const route = useRoute();
-        const router = useRouter();
         return {
-            route,
+
         }
     }
 }
